@@ -393,6 +393,11 @@ namespace NewPC81Tester
         public static void ResetViewModel()//TODO:
         {
             State.VmMainWindow.SerialNumber = State.VmMainWindow.Opecode + "-" + State.NewSerial.ToString("D4") + State.CheckerNumber;
+            //ViewModel OK台数、NG台数、Total台数の更新
+            State.VmTestStatus.OkCount = State.Setting.TodayOkCount.ToString() + "台";
+            State.VmTestStatus.NgCount = State.Setting.TodayNgCount.ToString() + "台";
+            State.VmTestStatus.TotalCount = State.Setting.TotalTestCount.ToString() + "台";
+
 
             State.VmTestStatus.DecisionVisibility = System.Windows.Visibility.Hidden;
             State.VmTestStatus.ErrInfoVisibility = System.Windows.Visibility.Hidden;
@@ -417,10 +422,7 @@ namespace NewPC81Tester
             State.VmComm.DATA_RX = "";
             State.VmComm.DATA_TX = "";
 
-            //ViewModel OK台数、NG台数、Total台数の更新
-            State.VmTestStatus.OkCount = State.Setting.TodayOkCount.ToString() + "台";
-            State.VmTestStatus.NgCount = State.Setting.TodayNgCount.ToString() + "台";
-            State.VmTestStatus.TotalCount = State.Setting.TotalTestCount.ToString() + "台";
+
             State.VmTestStatus.Message = Constants.MessSet;
             State.VmMainWindow.EnableOtherButton = true;
 

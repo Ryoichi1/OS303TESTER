@@ -655,11 +655,11 @@ namespace NewPC81Tester
                         goto FAIL_DATA_SAVE;
                     }
 
-                    //当日試験合格数をインクリメント
-                    State.VmTestStatus.OkCount = (State.Setting.TodayOkCount++).ToString() + "台";
+                    //当日試験合格数をインクリメント ビューモデルはまだ更新しない
+                    State.Setting.TodayOkCount++;
 
-                    //これ重要！！！ シリアルナンバーをインクリメントし、次の試験に備える
-                    State.NewSerial += 1;
+                    //これ重要！！！ シリアルナンバーをインクリメントし、次の試験に備える ビューモデルはまだ更新しない
+                    State.NewSerial++;
                 }
                 else
                 {
@@ -714,8 +714,8 @@ namespace NewPC81Tester
 
 
 
-                //当日試験不合格数をインクリメント
-                State.VmTestStatus.NgCount = (State.Setting.TodayNgCount++).ToString() + "台";
+                //当日試験不合格数をインクリメント ビューモデルはまだ更新しない
+                State.Setting.TodayNgCount++;
                 await Task.Delay(100);
 
                 State.VmTestStatus.Colorlabel判定 = Brushes.AliceBlue;
