@@ -63,6 +63,7 @@ namespace NewPC81Tester
                         General.cam.Exposure = -7;
                         Thread.Sleep(2000);
                         General.cam.Exposure = State.camProp.Exposure;
+
                     });
 
                 }
