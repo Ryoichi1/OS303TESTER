@@ -89,6 +89,20 @@ namespace NewPC81Tester
             //カレントディレクトリの取得
             State.CurrDir = Directory.GetCurrentDirectory();
 
+            //コンピュータ名の取得
+            var pcName = System.Net.Dns.GetHostName();
+            //使用しているパソコンが1号機 or 2号機のどちらなのかチェックする
+            if (pcName == "PC81TESTER1")
+            {
+                State.CheckerNumber = "-0001";
+            }
+            else
+            {
+                State.CheckerNumber = "-0002";
+            }
+
+
+
             //試験用パラメータのロード
             State.LoadConfigData();
 
@@ -238,7 +252,7 @@ namespace NewPC81Tester
                 if (!System.IO.File.Exists(dataFilePath))
                 {
                     //データファイルが存在しなければ、必然的にシリアルナンバーは0001です
-                    State.VmMainWindow.SerialNumber = State.VmMainWindow.Opecode + "-0001";
+                    State.VmMainWindow.SerialNumber = State.VmMainWindow.Opecode + "-0001" + State.CheckerNumber;
                     return;
                 }
 
@@ -249,8 +263,8 @@ namespace NewPC81Tester
                     // State.LastSerialの例  3-41-1234-000-0001
                     var reg = new Regex(@"\d-41-\d\d\d\d-\d\d\d-");//工番部分を正規表現で表す
                     int lastSerial = Int32.Parse(reg.Replace(State.LastSerial, ""));//工番部分を空白で置換し、シリアル部分を抽出する
-                    var newSerial = lastSerial + 1;
-                    State.VmMainWindow.SerialNumber = State.VmMainWindow.Opecode + "-" + newSerial.ToString("D4");
+                    State.NewSerial = lastSerial + 1;
+                    State.VmMainWindow.SerialNumber = State.VmMainWindow.Opecode + "-" + State.NewSerial.ToString("D4") + State.CheckerNumber;
                 }
                 else
                 {

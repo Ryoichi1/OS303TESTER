@@ -519,7 +519,7 @@
 
 
 
-        <Canvas x:Name="CanvasStatus" Height="140" Canvas.Left="386" Canvas.Top="55" Width="487">
+        <Canvas x:Name="CanvasStatus" Height="140" Canvas.Left="386" Canvas.Top="55" Width="480">
             <Canvas.Resources>
                 <Style TargetType="{x:Type Label}">
                     <Setter Property="FontSize" Value="11"/>
@@ -619,7 +619,7 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <Label x:Name="labelStateRetry_Copy1" Content="{Binding OkCount}" Height="24" Canvas.Left="374" Canvas.Top="5" Width="54" VerticalContentAlignment="Center" BorderThickness="1" Background="{Binding ColorRetry}" BorderBrush="{x:Null}" FontSize="16"/>
+            <Label x:Name="labelStateRetry_Copy1" Content="{Binding NgCount}" Height="24" Canvas.Left="374" Canvas.Top="5" Width="54" VerticalContentAlignment="Center" BorderThickness="1" Background="{Binding ColorRetry}" BorderBrush="{x:Null}" FontSize="16"/>
         </Canvas>
         <Label x:Name="labelMessage" Content="{Binding Message, Mode=TwoWay, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="43" VerticalAlignment="Top" Width="784" Canvas.Left="7" Canvas.Top="3" FontSize="28" Foreground="White" VerticalContentAlignment="Center">
             <Label.Effect>

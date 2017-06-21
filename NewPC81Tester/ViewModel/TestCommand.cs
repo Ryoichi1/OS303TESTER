@@ -657,6 +657,9 @@ namespace NewPC81Tester
 
                     //当日試験合格数をインクリメント
                     State.VmTestStatus.OkCount = (State.Setting.TodayOkCount++).ToString() + "台";
+
+                    //これ重要！！！ シリアルナンバーをインクリメントし、次の試験に備える
+                    State.NewSerial += 1;
                 }
                 else
                 {
@@ -676,7 +679,6 @@ namespace NewPC81Tester
                 SetDecision();
                 SbPass();
 
-                //General.PlaySound(General.soundPass);
                 General.PlaySound(General.soundPassLong);
 
                 Flags.Click確認Button = false;

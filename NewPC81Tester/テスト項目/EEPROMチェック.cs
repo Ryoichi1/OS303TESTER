@@ -54,20 +54,7 @@ namespace NewPC81Tester
             {
                 try
                 { 
-                string CheckerNumber;
-                    //コンピュータ名の取得
-                    var pcName = System.Net.Dns.GetHostName();
-                    //使用しているパソコンが1号機 or 2号機のどちらなのかチェックする
-                    if (pcName == "PC81TESTER1")
-                    {
-                        CheckerNumber = "-0001";
-                    }
-                    else
-                    {
-                        CheckerNumber = "-0002";
-                    }
-
-                    if (!Target.SendData(Target.Port.Rs232C_1, "SetSerial-" + 工番シリアル + CheckerNumber, Wait: 5000)) return false;//EEPROMチェックコマンド送信
+                    if (!Target.SendData(Target.Port.Rs232C_1, "SetSerial-" + 工番シリアル, Wait: 5000)) return false;//EEPROMチェックコマンド送信
                     return Target.RecieveData.Contains("WRITEOK");
                 }
                 catch

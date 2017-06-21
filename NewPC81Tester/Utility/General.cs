@@ -74,7 +74,7 @@ namespace NewPC81Tester
             //}
             //else
             //{
-                PlaySoundLoop(soundBgm2);
+            PlaySoundLoop(soundBgm2);
             //}
         }
 
@@ -392,6 +392,8 @@ namespace NewPC81Tester
 
         public static void ResetViewModel()//TODO:
         {
+            State.VmMainWindow.SerialNumber = State.VmMainWindow.Opecode + "-" + State.NewSerial.ToString("D4") + State.CheckerNumber;
+
             State.VmTestStatus.DecisionVisibility = System.Windows.Visibility.Hidden;
             State.VmTestStatus.ErrInfoVisibility = System.Windows.Visibility.Hidden;
 
