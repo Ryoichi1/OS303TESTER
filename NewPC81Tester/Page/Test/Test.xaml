@@ -571,7 +571,6 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <Label x:Name="tbTestTime" Content="{Binding TestTime}" HorizontalAlignment="Left" VerticalAlignment="Center" Height="19" Width="116" Canvas.Left="-164" FontSize="16" Foreground="White" Canvas.Top="3"/>
             <Label Content="" Height="1" Canvas.Left="6" Canvas.Top="29" Width="436" Background="#FF0388F7">
                 <Label.Effect>
                     <DropShadowEffect Color="#FF09A0F7" Direction="0" ShadowDepth="0" BlurRadius="20"/>
@@ -620,6 +619,7 @@
                 </TextBlock.RenderTransform>
             </TextBlock>
             <Label x:Name="labelStateRetry_Copy1" Content="{Binding NgCount}" Height="24" Canvas.Left="374" Canvas.Top="5" Width="54" VerticalContentAlignment="Center" BorderThickness="1" Background="{Binding ColorRetry}" BorderBrush="{x:Null}" FontSize="16"/>
+            <Label x:Name="tbTestTime" Content="{Binding TestTime}" HorizontalAlignment="Left" VerticalAlignment="Center" Height="19" Width="68" Canvas.Left="-87" FontSize="16" Foreground="White" Canvas.Top="7"/>
         </Canvas>
         <Label x:Name="labelMessage" Content="{Binding Message, Mode=TwoWay, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="43" VerticalAlignment="Top" Width="784" Canvas.Left="7" Canvas.Top="3" FontSize="28" Foreground="White" VerticalContentAlignment="Center">
             <Label.Effect>
@@ -627,6 +627,12 @@
             </Label.Effect>
         </Label>
         <Canvas Height="263" Canvas.Top="56" Width="378" Canvas.Left="8">
+
+            <Rectangle Height="263" Width="371" RadiusX="5" RadiusY="10" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="#FFF4F4F5" Opacity="0.12"/>
+                </Rectangle.Fill>
+            </Rectangle>
 
             <TextBox x:Name="tbTestLog" Height="230" Canvas.Left="8" TextWrapping="Wrap" Canvas.Top="33" Width="352" BorderBrush="{x:Null}" Foreground="White" Background="{x:Null}" VerticalScrollBarVisibility="Auto" SelectionBrush="{x:Null}" BorderThickness="0" CaretBrush="{x:Null}" IsReadOnly="True" FontSize="14" TextChanged="tbTestLog_TextChanged" Text="{Binding TestLog}">
                 <TextBox.Effect>
@@ -639,11 +645,6 @@
                     <DropShadowEffect Color="#FF09A0F7" Direction="0" ShadowDepth="0" BlurRadius="20"/>
                 </Label.Effect>
             </Label>
-            <Rectangle Height="263" Width="371" RadiusX="5" RadiusY="10" RenderTransformOrigin="0.5,0.5">
-                <Rectangle.Fill>
-                    <SolidColorBrush Color="#FFF4F4F5" Opacity="0.12"/>
-                </Rectangle.Fill>
-            </Rectangle>
         </Canvas>
 
 

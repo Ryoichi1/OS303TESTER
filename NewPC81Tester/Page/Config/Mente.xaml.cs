@@ -138,11 +138,8 @@ namespace NewPC81Tester
             buttonSetE1.Background = ButtonE1Brush;
         }
 
-
-
-        private void buttonSend_Click(object sender, RoutedEventArgs e)
+        private Target.Port SetComm()
         {
-            if (!Flags.PowOn) return;
 
             Target.Port port;
             switch (ch)
@@ -210,8 +207,25 @@ namespace NewPC81Tester
             General.io.OutBit(EPX64S.PORT.P0, EPX64S.BIT.b2, EPX64S.OUT.H);
             Thread.Sleep(200);
 
-            Target.SendData(port, tbCommand.Text);
+            return port;
+        }
 
+        private void buttonSend_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Flags.PowOn)
+            {
+                General.PowSupply(true);
+                var re = General.CheckComm();
+                if (!re)
+                {
+                    General.PowSupply(false);
+                    return;
+                }
+            }
+
+            var port = SetComm();
+
+            Target.SendData(port, tbCommand.Text);
 
         }
 
@@ -262,6 +276,21 @@ namespace NewPC81Tester
             ch = CH._422CN202;
         }
 
+        private void buttonCheckSerial_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Flags.PowOn)
+            {
+                General.PowSupply(true);
+                var re = General.CheckComm();
+                if (!re)
+                {
+                    General.PowSupply(false);
+                    return;
+                }
+            }
+            var port = SetComm();
 
+            Target.SendData(port, "SerialRead");
+        }
     }
 }

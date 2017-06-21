@@ -38,7 +38,7 @@
     </Page.Triggers>
 
     <Canvas>
-        <Canvas x:Name="CanvasComm" Height="188" Canvas.Left="25" Canvas.Top="165" Width="605">
+        <Canvas x:Name="CanvasComm" Height="200" Canvas.Left="25" Canvas.Top="165" Width="605">
             <Canvas.Resources>
                 <Style TargetType="{x:Type Label}">
                     <Setter Property="FontSize" Value="11"/>
@@ -55,9 +55,9 @@
             <Canvas.Background>
                 <SolidColorBrush Color="#FF44BDEC" Opacity="0.2"/>
             </Canvas.Background>
-            <Label Content="{Binding DATA_TX}" Height="26" Canvas.Left="30" Canvas.Top="104" Width="283" BorderBrush="White" BorderThickness="1"/>
-            <Label Content="{Binding DATA_RX}" Height="26" Canvas.Left="30" Canvas.Top="136" Width="283" BorderBrush="White" BorderThickness="1"/>
-            <TextBlock x:Name="textBlock2_Copy" TextWrapping="Wrap" Text="Tx" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="21" RenderTransformOrigin="0.5,0.5" Canvas.Top="107" Canvas.Left="8">
+            <Label Content="{Binding DATA_TX}" Height="26" Canvas.Left="30" Canvas.Top="124" Width="283" BorderBrush="White" BorderThickness="1"/>
+            <Label Content="{Binding DATA_RX}" Height="26" Canvas.Left="30" Canvas.Top="156" Width="283" BorderBrush="White" BorderThickness="1"/>
+            <TextBlock x:Name="textBlock2_Copy" TextWrapping="Wrap" Text="Tx" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="21" RenderTransformOrigin="0.5,0.5" Canvas.Top="127" Canvas.Left="8">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -67,7 +67,7 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBlock x:Name="textBlock2_Copy1" TextWrapping="Wrap" Text="Rx" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="22" RenderTransformOrigin="0.5,0.5" Canvas.Top="138" Canvas.Left="7">
+            <TextBlock x:Name="textBlock2_Copy1" TextWrapping="Wrap" Text="Rx" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="22" RenderTransformOrigin="0.5,0.5" Canvas.Top="158" Canvas.Left="7">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -92,8 +92,8 @@
                     <DropShadowEffect Color="#FF09A0F7" Direction="0" ShadowDepth="0" BlurRadius="20"/>
                 </Label.Effect>
             </Label>
-            <Button x:Name="buttonSend" Content="送信"  Height="29" Canvas.Left="18" Canvas.Top="48" Width="90" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="0" ScrollViewer.CanContentScroll="True" BorderThickness="1" Background="#FF566B85" Click="buttonSend_Click"/>
-            <TextBox x:Name="tbCommand" Height="29" Canvas.Left="136" TextWrapping="Wrap" Canvas.Top="48" Width="185" FontSize="18" Background="{x:Null}"/>
+            <Button x:Name="buttonSend" Content="送信"  Height="29" Canvas.Left="31" Canvas.Top="43" Width="90" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="0" ScrollViewer.CanContentScroll="True" BorderThickness="1" Background="#FF566B85" Click="buttonSend_Click"/>
+            <TextBox x:Name="tbCommand" Height="29" Canvas.Left="132" TextWrapping="Wrap" Canvas.Top="43" Width="185" FontSize="18" Background="{x:Null}"/>
             <Canvas Height="145" Canvas.Left="340" Canvas.Top="17" Width="220">
                 <RadioButton x:Name="rb232P1" Content="232C PORT1" Height="25" Canvas.Left="15" Canvas.Top="15" Width="95" Checked="rb232P1_Checked"/>
                 <RadioButton x:Name="rb232P2" Content="232C PORT2" Height="25" Canvas.Left="15" Canvas.Top="40" Width="95" Checked="rb232P2_Checked"/>
@@ -105,6 +105,7 @@
                 <RadioButton x:Name="rb422P4" Content="422 PORT4" Height="25" Canvas.Left="123" Canvas.Top="89" Width="95" Checked="rb422P4_Checked"/>
                 <RadioButton x:Name="rb422CN202" Content="422 CN202" Height="25" Canvas.Left="123" Canvas.Top="114" Width="95" Checked="rb422CN202_Checked"/>
             </Canvas>
+            <Button x:Name="buttonCheckSerial" Content="シリアルナンバーの読み出し"  Height="29" Canvas.Left="31" Canvas.Top="83" Width="182" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="0" ScrollViewer.CanContentScroll="True" BorderThickness="1" Background="#FF566B85" Click="buttonCheckSerial_Click"/>
         </Canvas>
         <Canvas Height="115" Canvas.Left="25" Canvas.Top="25" Width="335">
             <Canvas.Background>

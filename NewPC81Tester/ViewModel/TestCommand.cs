@@ -314,12 +314,14 @@ namespace NewPC81Tester
                             goto case 5000;
 
                         case 1500://熱電対 補正値取得
+                            General.SetDcFun(true);
                             State.VmTestStatus.IsActiveRing = true;
                             if (!await 熱電対チェック.InitLoop()) goto case 5000;
                             State.VmTestStatus.IsActiveRing = false;
                             if (!await 熱電対チェック.CheckU6()) goto case 5000;
                             if (!await 熱電対チェック.CheckTemp(熱電対チェック.NAME.AN4)) goto case 5000;
                             if (!await 熱電対チェック.CheckTemp(熱電対チェック.NAME.AN5)) goto case 5000;
+                            General.SetDcFun(false);
                             break;
 
                         case 1600://リアルタイムクロック チェック
