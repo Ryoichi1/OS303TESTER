@@ -6,10 +6,10 @@
 	x:Name="Page"
 	WindowTitle="Page"
 	FlowDirection="LeftToRight"
-	Width="1048.929" Height="559.286">
-    
+	Width="1048.929" Height="525">
 
-    <Canvas x:Name="LayoutRoot">
+
+    <Canvas x:Name="LayoutRoot" Height="515" VerticalAlignment="Top">
         <Image x:Name="Pic1" Canvas.Left="31" Canvas.Top="36" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic1_PreviewMouseLeftButtonDown">
             <Image.Source>
                 <BitmapImage DecodePixelWidth="128"
@@ -25,7 +25,7 @@
         <Image x:Name="Pic3" Canvas.Left="366" Canvas.Top="36" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic3_PreviewMouseLeftButtonDown">
             <Image.Source>
                 <BitmapImage DecodePixelWidth="128"
-        			UriSource="/Resources/baby3.jpg"/>
+        			UriSource="/Resources/baby5.jpg"/>
             </Image.Source>
         </Image>
 
@@ -36,6 +36,20 @@
         			UriSource="/Resources/baby6.jpg"/>
             </Image.Source>
         </Image>
+        <Image x:Name="Pic5" Canvas.Left="702" Canvas.Top="36" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic5_PreviewMouseLeftButtonDown">
+            <Image.Source>
+                <BitmapImage DecodePixelWidth="128"
+                    UriSource="/Resources/X_JAPAN.jpg"/>
+            </Image.Source>
+        </Image>
+        <Canvas Height="125" Canvas.Left="23" Canvas.Top="225" Width="365">
+            <Canvas.Background>
+                <SolidColorBrush Color="#FF08A7F1" Opacity="0.1"/>
+            </Canvas.Background>
+            <RadioButton x:Name="rb1" Content="LOVE BIG" Height="40" Canvas.Left="10" Canvas.Top="38" Width="192" FontSize="16" FontFamily="Meiryo UI" Checked="rb1_Checked"/>
+            <RadioButton x:Name="rb2" Content="FALCON BIG" Height="40" Canvas.Left="10" Canvas.Top="78" Width="192" FontSize="16" FontFamily="Meiryo UI" Checked="rb2_Checked"/>
+            <TextBlock Height="34" Canvas.Left="5" TextWrapping="Wrap" Text="メタルモード時のBGM選択" Canvas.Top="6" Width="260" Foreground="White" FontSize="18"/>
+        </Canvas>
 
     </Canvas>
 

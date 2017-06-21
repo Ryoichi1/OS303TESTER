@@ -529,13 +529,13 @@ namespace NewPC81Tester
                             {
                                 while (true)
                                 {
-                                    State.VmTestStatus.Message = "1分以内に電池をｾｯﾄしてプレスを閉めてください  残り " + countDown.ToString() + "秒";
+                                    State.VmTestStatus.Message = "1分以内に電池をセットしてプレスを閉めてください  残り " + countDown.ToString() + "秒";
                                     if (Flags.ClickStopButton || !General.CheckPressOpen() || Flag1MinutePassed) break;
                                 }
 
                             });
                             tm.Stop();
-                            State.VmTestStatus.Message = "1分以内に電池をｾｯﾄしてプレスを閉めてください  残り " + countDown.ToString() + "秒";
+                            State.VmTestStatus.Message = "1分以内に電池をセットしてプレスを閉めてください  残り " + countDown.ToString() + "秒";
                             General.StopSound();
                             if (Flags.ClickStopButton) goto case 5000;
 

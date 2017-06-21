@@ -106,6 +106,7 @@ namespace NewPC81Tester
 
                         while (true)
                         {
+                            if (Flags.ClickStopButton) return false;
                             //まずはじめに、C9に充放電して2.9Vくらいにする
                             General.signalSource.OutDcV(FirstInput);
                             Thread.Sleep(1000);

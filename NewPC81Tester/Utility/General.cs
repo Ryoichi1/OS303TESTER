@@ -66,16 +66,15 @@ namespace NewPC81Tester
             //シード値を指定しないとシード値として Environment.TickCount が使用される
             System.Random r = new System.Random();
 
-            //0以上100未満の乱数を整数で返す
-            //int random = r.Next(100);
-            //if (random > 50)
-            //{
-            //    PlaySoundLoop(soundBgm1);
-            //}
-            //else
-            //{
-            PlaySoundLoop(soundBgm2);
-            //}
+            if (Flags.LoveBig)
+            {
+                PlaySoundLoop(soundBgm1);
+            }
+            else
+            {
+                PlaySoundLoop(soundBgm2);
+            }
+
         }
 
         public static void SetCutIn()

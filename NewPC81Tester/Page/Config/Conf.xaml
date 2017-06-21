@@ -54,8 +54,8 @@
             <TabItem x:Name="TabOperator" Header="作業者リスト" Margin="838,96,-839,-97" Width="130" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Loaded="TabOperator_Loaded" Controls:ControlsHelper.HeaderFontSize="18">
                 <Frame x:Name="FrameEdit" FlowDirection="LeftToRight" Margin="4,-13,175,1"/>
             </TabItem>
-            <TabItem x:Name="TabTheme" Header="テーマ" Margin="708,131,-740,-131" Loaded="TabTheme_Loaded" Controls:ControlsHelper.HeaderFontSize="18" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" VerticalAlignment="Top">
-                <Frame x:Name="FrameTheme" FlowDirection="LeftToRight" Margin="0,-13,0,356" Height="557" Width="1051" />
+            <TabItem x:Name="TabTheme" Header="テーマ" Margin="712,131,-744,-131" Loaded="TabTheme_Loaded" Controls:ControlsHelper.HeaderFontSize="18">
+                <Frame x:Name="FrameTheme" FlowDirection="LeftToRight" Margin="24,-28,160,10" Width="1043" />
             </TabItem>
         </TabControl>
         <Border VerticalAlignment="Stretch" Height="580" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Right" Canvas.Left="178" Canvas.Top="10"/>

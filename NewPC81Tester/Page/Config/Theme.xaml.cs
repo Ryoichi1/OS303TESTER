@@ -30,6 +30,15 @@ namespace NewPC81Tester
             InitializeComponent();
             this.DataContext = State.VmMainWindow;
             SliderOpacity.Value = State.Setting.OpacityTheme;
+
+            if (Flags.LoveBig)
+            {
+                rb1.IsChecked = true;
+            }
+            else
+            {
+                rb2.IsChecked = true;
+            }
         }
 
         private async void Pic1_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -49,7 +58,7 @@ namespace NewPC81Tester
         private async void Pic3_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
-            State.VmMainWindow.Theme = "Resources/baby3.jpg";
+            State.VmMainWindow.Theme = "Resources/baby5.jpg";
             await Show();
         }
 
@@ -57,6 +66,12 @@ namespace NewPC81Tester
         {
 
             State.VmMainWindow.Theme = "Resources/baby6.jpg";
+            await Show();
+        }
+
+        private async void Pic5_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            State.VmMainWindow.Theme = "Resources/X_JAPAN.jpg";
             await Show();
         }
 
@@ -71,10 +86,10 @@ namespace NewPC81Tester
             State.VmMainWindow.ThemeOpacity = 0;
             await Task.Run(() =>
             {
-                foreach(var i in Enumerable.Range(0, time3))
+                foreach (var i in Enumerable.Range(0, time3))
                 {
 
-                    State.VmMainWindow.ThemeOpacity += State.Setting.OpacityTheme/(double)time3;
+                    State.VmMainWindow.ThemeOpacity += State.Setting.OpacityTheme / (double)time3;
                     Thread.Sleep(10);
 
                 }
@@ -84,6 +99,16 @@ namespace NewPC81Tester
         private void SliderOpacity_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             State.Setting.OpacityTheme = State.VmMainWindow.ThemeOpacity;
+        }
+
+        private void rb1_Checked(object sender, RoutedEventArgs e)
+        {
+            Flags.LoveBig = true;
+        }
+
+        private void rb2_Checked(object sender, RoutedEventArgs e)
+        {
+            Flags.LoveBig = false;
         }
     }
 }

@@ -17,6 +17,7 @@ namespace NewPC81Tester
         public static bool ShowErrInfo { get; set; }
         public static bool AddDecision { get; set; }
         public static bool MetalMode { get; set; }
+        public static bool LoveBig { get; set; }
         public static bool BgmOn { get; set; }
 
         public static bool ClickStopButton { get; set; }
@@ -27,7 +28,7 @@ namespace NewPC81Tester
         private static SolidColorBrush RetryPanelBrush = new SolidColorBrush();
         private static SolidColorBrush StatePanelOkBrush = new SolidColorBrush();
         private static SolidColorBrush StatePanelNgBrush = new SolidColorBrush();
-        private const double StatePanelOpacity = 0.5;
+        private const double StatePanelOpacity = 0.4;
 
         static Flags()
         {
