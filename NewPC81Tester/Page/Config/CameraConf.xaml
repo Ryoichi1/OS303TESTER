@@ -1,0 +1,163 @@
+﻿<Page
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="NewPC81Tester.CameraConf"
+	xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+	x:Name="Page"
+	WindowTitle="Page"
+	FlowDirection="LeftToRight"
+	Height="590" Width="1048" Unloaded="Page_Unloaded" Loaded="Page_Loaded">
+
+    <Page.Resources>
+        <Style TargetType="Label">
+            <!--<Style.Setters>コンテンツプロパティのため省略可能-->
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Opacity" Value="0.7"/>
+            <!--<Setter Property="Effect">
+				<Setter.Value>
+					<DropShadowEffect Direction="0" Color="Aqua"  BlurRadius="10" ShadowDepth="0"/>
+				</Setter.Value>
+			</Setter>-->
+        </Style>
+
+
+    </Page.Resources>
+    <Canvas>
+        <Canvas Height="306" Width="317" Canvas.Left="684" Canvas.Top="18">
+            <Border BorderBrush="#FF00DCFF" BorderThickness="1" Height="296" Width="307"/>
+            <Label Content="カメラプロパティ" Height="30" Canvas.Left="6" Canvas.Top="6" Width="147" Foreground="#FF0EC2D4" BorderBrush="{x:Null}"/>
+            <TextBlock x:Name="tbSmoothParm1_Copy14" Height="17" Canvas.Left="24" TextWrapping="Wrap" Canvas.Top="43" Width="47" Foreground="White" FontSize="14" Text="明るさ"/>
+            <TextBlock x:Name="tbSmoothParm1_Copy15" Height="21" Canvas.Left="23" TextWrapping="Wrap" Canvas.Top="71" Width="48" Foreground="White" FontSize="14" Text="ｺﾝﾄﾗｽﾄ"/>
+            <TextBlock x:Name="tbSmoothParm1_Copy1" Height="21" Canvas.Left="24" TextWrapping="Wrap" Canvas.Top="96" Width="48" Foreground="White" FontSize="14" Text="色合い"/>
+            <TextBlock x:Name="tbSmoothParm1_Copy2" Height="21" Canvas.Left="12" TextWrapping="Wrap" Canvas.Top="126" Width="57" Foreground="White" FontSize="14" Text="鮮やかさ"/>
+            <TextBlock x:Name="tbSmoothParm1_Copy3" Height="21" Canvas.Left="23" TextWrapping="Wrap" Canvas.Top="152" Width="48" Foreground="White" FontSize="14" Text="鮮明度"/>
+            <TextBlock x:Name="tbSmoothParm1_Copy16" Height="21" Canvas.Left="35" TextWrapping="Wrap" Canvas.Top="181" Width="31" Foreground="White" FontSize="14" Text="ｶﾞﾝﾏ"/>
+            <TextBlock x:Name="tbSmoothParm1_Copy18" Height="21" Canvas.Left="35" TextWrapping="Wrap" Canvas.Top="207" Width="32" Foreground="White" FontSize="14" Text="露出"/>
+            <TextBlock x:Name="tbSmoothParm1_Copy19" Height="21" Canvas.Left="13" TextWrapping="Wrap" Canvas.Top="236" Width="56" Foreground="White" FontSize="14" Text="傾き補正"/>
+            <Slider x:Name="sliderCamPropP" Height="8" Canvas.Left="77" Canvas.Top="157" Width="148" Value="{Binding Sharpness}" IsSnapToTickEnabled="True" Maximum="7" Minimum="1" Style="{DynamicResource FlatSlider}"/>
+            <Slider x:Name="sliderCamPropY" Height="8" Canvas.Left="76" Canvas.Top="184" Width="148" Maximum="300" Value="{Binding Gamma}" IsSnapToTickEnabled="True" Minimum="100" Style="{DynamicResource FlatSlider}"/>
+            <Slider x:Name="sliderCamPropC" Height="8" Canvas.Left="77" Canvas.Top="74" Width="148" Maximum="95" Value="{Binding Contrast}" IsSnapToTickEnabled="True" Style="{DynamicResource FlatSlider}"/>
+            <Slider x:Name="sliderCamPropH" Height="8" Canvas.Left="77" Canvas.Top="99" Width="148" Maximum="2000" Minimum="-2000" Value="{Binding Hue}" IsSnapToTickEnabled="True" Style="{DynamicResource FlatSlider}"/>
+            <Slider x:Name="sliderCamPropS" Height="8" Canvas.Left="77" Canvas.Top="129" Width="148" Value="{Binding Saturation}" IsSnapToTickEnabled="True" Maximum="100" Style="{DynamicResource FlatSlider}"/>
+            <Slider x:Name="sliderCamPropB" Height="8" Canvas.Left="76" Canvas.Top="45" Width="148" Minimum="-64" Value="{Binding Brightness}" IsSnapToTickEnabled="True" Maximum="64" Style="{DynamicResource FlatSlider}"/>
+            <Slider x:Name="sliderCamPropE" Height="8" Canvas.Left="77" Canvas.Top="211" Width="148" Maximum="0" Minimum="-7" Value="{Binding Exposure}" IsSnapToTickEnabled="True" Style="{DynamicResource FlatSlider}"/>
+            <TextBlock x:Name="tbCamPropB" Height="21" Canvas.Left="236" TextWrapping="Wrap" Text="{Binding Value, ElementName=sliderCamPropB}" Canvas.Top="42" Width="60" Foreground="White" FontSize="14"/>
+            <TextBlock x:Name="tbCamPropC" Height="16" Canvas.Left="236" TextWrapping="Wrap" Text="{Binding Value, ElementName=sliderCamPropC}" Canvas.Top="71" Width="60" Foreground="White" FontSize="14"/>
+            <TextBlock x:Name="tbCamPropH" Height="21" Canvas.Left="236" TextWrapping="Wrap" Text="{Binding Value, ElementName=sliderCamPropH}" Canvas.Top="96" Width="60" Foreground="White" FontSize="14"/>
+            <TextBlock x:Name="tbCamPropS" Height="21" Canvas.Left="236" TextWrapping="Wrap" Text="{Binding Value, ElementName=sliderCamPropS}" Canvas.Top="126" Width="60" Foreground="White" FontSize="14"/>
+            <TextBlock x:Name="tbCamPropP" Height="21" Canvas.Left="236" TextWrapping="Wrap" Text="{Binding Value, ElementName=sliderCamPropP}" Canvas.Top="152" Width="60" Foreground="White" FontSize="14"/>
+            <TextBlock x:Name="tbCamPropY" Height="21" Canvas.Left="236" TextWrapping="Wrap" Text="{Binding Value, ElementName=sliderCamPropY}" Canvas.Top="181" Width="60" Foreground="White" FontSize="14"/>
+            <TextBlock x:Name="tbCamPropE" Height="21" Canvas.Left="236" TextWrapping="Wrap" Text="{Binding Value, ElementName=sliderCamPropE}" Canvas.Top="207" Width="60" Foreground="White" FontSize="14"/>
+
+            <Slider x:Name="sliderCamPropTheta" Height="8" Canvas.Left="77" Canvas.Top="239" Width="148" Value="{Binding Theta}" TickFrequency="0.05" IsSnapToTickEnabled="True" SmallChange="0.05" Maximum="180" Style="{DynamicResource FlatSlider}"/>
+            <TextBlock x:Name="tbCamPropTheta" Height="21" Canvas.Left="236" TextWrapping="Wrap" Text="{Binding Value, ElementName=sliderCamPropTheta}" Canvas.Top="236" Width="60" Foreground="White" FontSize="14"/>
+            <TextBlock x:Name="tbSmoothParm1_Copy" Height="21" Canvas.Left="6" TextWrapping="Wrap" Canvas.Top="266" Width="71" Foreground="White" FontSize="14" Text="二値化Lev"/>
+            <Slider x:Name="sliderBinLev" Height="8" Canvas.Left="77" Canvas.Top="269" Width="148" Value="{Binding BinLevel}" TickFrequency="0.05" IsSnapToTickEnabled="True" SmallChange="0.05" Maximum="200" Style="{DynamicResource FlatSlider}"/>
+            <TextBlock x:Name="tbCamPropTheta_Copy" Height="21" Canvas.Left="236" TextWrapping="Wrap" Text="{Binding Value, ElementName=sliderBinLev}" Canvas.Top="266" Width="60" Foreground="White" FontSize="14"/>
+        </Canvas>
+        <Border BorderBrush="#FF00DCFF" BorderThickness="1" Height="370" Width="650" Canvas.Left="11" Canvas.Top="14"/>
+        <Canvas x:Name="CanvasImg" Canvas.Left="16" Canvas.Top="19" Width="640" Height="360">
+            <Image x:Name="im" Stretch="UniformToFill" Source="{Binding source}" MouseLeave="im_MouseLeave" MouseEnter="im_MouseEnter" MouseMove="im_MouseMove" Width="640" Height="360" />
+            <Controls:ProgressRing x:Name="Ring" Foreground="{DynamicResource AccentColorBrush}" Canvas.Left="285" Canvas.Top="134" Height="68" Width="68" IsActive="{Binding IsActive}"/>
+            <TextBlock x:Name="tbPoint" Height="20" Canvas.Left="517" TextWrapping="Wrap" Text="XY=100/100" Width="113" Foreground="White" RenderTransformOrigin="2.258,7.602" Canvas.Top="6"/>
+            <TextBlock x:Name="tbHsv" Height="20" Canvas.Left="517" TextWrapping="Wrap" Text="HSV=100,100,100" Width="115" Foreground="White" RenderTransformOrigin="2.258,7.602" Canvas.Top="26"/>
+        </Canvas>
+        <Button x:Name="buttonSave" Content="変更を保存"  Height="64" Canvas.Left="25" Canvas.Top="411" Width="160" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Click="buttonSave_Click" BorderThickness="1" Background="{x:Null}">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.539"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Canvas x:Name="canvasLdPoint" Height="255" Canvas.Left="670" Canvas.Top="329" Width="290">
+            <Canvas.Resources>
+                <Style TargetType="Label">
+                    <!--<Style.Setters>コンテンツプロパティのため省略可能-->
+
+                    <Setter Property="FontSize" Value="12"/>
+                    <Setter Property="Height" Value="26"/>
+                    <!--<Setter Property="Effect">
+
+				</Setter>-->
+                </Style>
+            </Canvas.Resources>
+            <Label x:Name="lbPointRX4" Content="{Binding RX4}"  Canvas.Left="10" Canvas.Top="15" Width="75" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label x:Name="lbPointRX3" Content="{Binding RX3}"  Canvas.Left="10" Canvas.Top="49" Width="75" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" RenderTransformOrigin="-0.05,0.208"/>
+
+
+            <RadioButton x:Name="rbRX4" Content="RX4"  Canvas.Left="92" Canvas.Top="15" Width="58" BorderBrush="White" Foreground="White" BorderThickness="1" Checked="rbRX4_Checked" PreviewKeyDown="rbRX4_PreviewKeyDown"/>
+            <RadioButton x:Name="rbRX3" Content="RX3"  Canvas.Left="92" Canvas.Top="49" Width="48" Checked="rbRX3_Checked" PreviewKeyDown="rbRX3_PreviewKeyDown"/>
+            <Label x:Name="lbPointTX3" Content="{Binding TX3}"  Canvas.Left="10" Canvas.Top="83" Width="75" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label x:Name="lbPointTX4" Content="{Binding TX4}"  Canvas.Left="10" Canvas.Top="117" Width="75" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" RenderTransformOrigin="-0.05,0.208"/>
+            <RadioButton x:Name="rbTX3" Content="TX3"  Canvas.Left="92" Canvas.Top="83" Width="58" BorderBrush="White" Foreground="White" BorderThickness="1" Checked="rbTX3_Checked" PreviewKeyDown="rbTX3_PreviewKeyDown"/>
+            <RadioButton x:Name="rbTX4" Content="TX4"  Canvas.Left="92" Canvas.Top="117" Width="48" Checked="rbTX4_Checked" PreviewKeyDown="rbTX4_PreviewKeyDown"/>
+            <Label x:Name="lbPointTX1" Content="{Binding TX1}"  Canvas.Left="10" Canvas.Top="152" Width="75" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label x:Name="lbPointTX2" Content="{Binding TX2}"  Canvas.Left="10" Canvas.Top="185" Width="75" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" RenderTransformOrigin="-0.05,0.208"/>
+            <RadioButton x:Name="rbTX1" Content="TX1"  Canvas.Left="92" Canvas.Top="152" Width="58" BorderBrush="White" Foreground="White" BorderThickness="1" Checked="rbTX1_Checked" PreviewKeyDown="rbTX1_PreviewKeyDown" RenderTransformOrigin="0.569,0.722"/>
+            <RadioButton x:Name="rbTX2" Content="TX2"  Canvas.Left="92" Canvas.Top="185" Width="48" PreviewKeyDown="rbTX2_PreviewKeyDown" Checked="rbTX2_Checked"/>
+            <Label x:Name="lbPointRX2" Content="{Binding RX2}"  Canvas.Left="10" Canvas.Top="219" Width="75" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <RadioButton x:Name="rbRX2" Content="RX2" Height="24" Canvas.Left="92" Canvas.Top="219" Width="58" BorderBrush="White" Foreground="White" PreviewKeyDown="rbRX2_PreviewKeyDown" BorderThickness="1" Checked="rbRX2_Checked"/>
+            <Label x:Name="lbPointRX1" Content="{Binding RX1}"  Canvas.Left="160" Canvas.Top="15" Width="65" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label x:Name="lbPointRX5" Content="{Binding RX5}"  Canvas.Left="160" Canvas.Top="49" Width="65" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" RenderTransformOrigin="-0.05,0.208"/>
+            <RadioButton x:Name="rbRX1" Content="RX1" Height="24" Canvas.Left="230" Canvas.Top="15" Width="58" BorderBrush="White" Foreground="White" PreviewKeyDown="rbRX1_PreviewKeyDown" Checked="rbRX1_Checked" BorderThickness="1"/>
+            <RadioButton x:Name="rbRX5" Content="RX5" Height="24" Canvas.Left="232" Canvas.Top="49" Width="48" Checked="rbRX5_Checked" PreviewKeyDown="rbRX5_PreviewKeyDown"/>
+            <Label x:Name="lbPointCPU" Content="{Binding CPU}"  Canvas.Left="160" Canvas.Top="83" Width="65" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label x:Name="lbPointDEB" Content="{Binding DEB}"  Canvas.Left="160" Canvas.Top="117" Width="65" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" RenderTransformOrigin="-0.05,0.208"/>
+            <RadioButton x:Name="rbCPU" Content="CPU" Height="24" Canvas.Left="232" Canvas.Top="83" Width="58" BorderBrush="White" Foreground="White" PreviewKeyDown="rbCPU_PreviewKeyDown" Checked="rbCPU_Checked" BorderThickness="1"/>
+            <RadioButton x:Name="rbDEB" Content="DEB" Height="24" Canvas.Left="232" Canvas.Top="117" Width="48" Checked="rbDEB_Checked" PreviewKeyDown="rbDEB_PreviewKeyDown"/>
+            <Label x:Name="lbPointVCC" Content="{Binding VCC}"  Canvas.Left="160" Canvas.Top="152" Width="65" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label x:Name="lbPointTX5" Content="{Binding TX5}"  Canvas.Left="160" Canvas.Top="185" Width="65" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" RenderTransformOrigin="-0.05,0.208"/>
+            <RadioButton x:Name="rbVCC" Content="VCC"  Canvas.Left="232" Canvas.Top="152" Width="58" BorderBrush="White" Foreground="White" PreviewKeyDown="rbVCC_PreviewKeyDown" BorderThickness="1" Checked="rbVCC_Checked"/>
+            <RadioButton x:Name="rbTX5" Content="TX5"  Canvas.Left="232" Canvas.Top="185" Width="48" PreviewKeyDown="rbTX5_PreviewKeyDown" Checked="rbTX5_Checked"/>
+        </Canvas>
+        <Button x:Name="buttonLedOnOff" Content="LED全点灯"  Height="34" Canvas.Left="400" Canvas.Top="400" Width="110" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Click="buttonLedOnOff_Click" Background="{x:Null}" BorderThickness="1">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.539"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="buttonGrid" Content="グリッド表示"  Height="34" Canvas.Left="530" Canvas.Top="400" Width="110" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Background="{x:Null}" Click="buttonGrid_Click" BorderThickness="1">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.539"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="buttonBin" Content="二値化"  Height="34" Canvas.Left="530" Canvas.Top="446" Width="110" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Background="{x:Null}" Click="buttonBin_Click" BorderThickness="1">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.539"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="buttonFrame" Content="検査枠を表示"  Height="34" Canvas.Left="530" Canvas.Top="491" Width="110" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Background="{x:Null}" Click="buttonFrame_Click" BorderThickness="1">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.539"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+    </Canvas>
+</Page>

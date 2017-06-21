@@ -1,0 +1,42 @@
+﻿<Page
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+	x:Class="NewPC81Tester.Theme"
+	x:Name="Page"
+	WindowTitle="Page"
+	FlowDirection="LeftToRight"
+	Width="1048.929" Height="559.286">
+    
+
+    <Canvas x:Name="LayoutRoot">
+        <Image x:Name="Pic1" Canvas.Left="31" Canvas.Top="36" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic1_PreviewMouseLeftButtonDown">
+            <Image.Source>
+                <BitmapImage DecodePixelWidth="128"
+				 UriSource="/Resources/moon.jpg"/>
+            </Image.Source>
+        </Image>
+        <Image x:Name="Pic2" Canvas.Left="198" Canvas.Top="36" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic2_PreviewMouseLeftButtonDown">
+            <Image.Source>
+                <BitmapImage DecodePixelWidth="128"
+        			UriSource="/Resources/baby2.jpg"/>
+            </Image.Source>
+        </Image>
+        <Image x:Name="Pic3" Canvas.Left="366" Canvas.Top="36" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic3_PreviewMouseLeftButtonDown">
+            <Image.Source>
+                <BitmapImage DecodePixelWidth="128"
+        			UriSource="/Resources/baby3.jpg"/>
+            </Image.Source>
+        </Image>
+
+        <Slider x:Name="SliderOpacity" Height="17" Canvas.Left="31" Canvas.Top="166" Width="201" Background="#FF35383A" Maximum="1" SmallChange="0.01" TickFrequency="0.1" TickPlacement="Both" Value="{Binding ThemeOpacity, Mode=OneWayToSource}" Style="{DynamicResource FlatSlider}" BorderBrush="#FF0BCCF7" ValueChanged="SliderOpacity_ValueChanged"/>
+        <Image x:Name="Pic4" Canvas.Left="532" Canvas.Top="36" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic4_PreviewMouseLeftButtonDown">
+            <Image.Source>
+                <BitmapImage DecodePixelWidth="128"
+        			UriSource="/Resources/baby6.jpg"/>
+            </Image.Source>
+        </Image>
+
+    </Canvas>
+
+</Page>
