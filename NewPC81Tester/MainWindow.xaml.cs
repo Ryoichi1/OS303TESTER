@@ -260,11 +260,22 @@ namespace NewPC81Tester
                 //データファイルが存在するなら、ファイルを開いて最終シリアルナンバーをロードする
                 if (State.LoadLastSerial(dataFilePath))
                 {
-                    // State.LastSerialの例  3-41-1234-000-0001
-                    var reg = new Regex(@"\d-41-\d\d\d\d-\d\d\d-");//工番部分を正規表現で表す
-                    int lastSerial = Int32.Parse(reg.Replace(State.LastSerial, ""));//工番部分を空白で置換し、シリアル部分を抽出する
-                    State.NewSerial = lastSerial + 1;
-                    State.VmMainWindow.SerialNumber = State.VmMainWindow.Opecode + "-" + State.NewSerial.ToString("D4") + State.CheckerNumber;
+                    try
+                    {
+                        // State.LastSerialの例  3-41-1234-000-0006-0001  ※1号機で試験した工番3-41-1234-000の0006番
+                        var reg1 = new Regex(@"\d-\d\d-\d\d\d\d-\d\d\d-");//工番部分を正規表現で表す
+                        var reg2 = new Regex(@"-\d\d\d\d");//末尾の号機番号を正規表現で表す
+                        var buff = reg1.Replace(State.LastSerial, "");//工番部分を空白で置換する
+                        buff = reg2.Replace(buff, "");//号機番号部分を空白で置換する
+                        int lastSerial = Int32.Parse(buff);
+                        State.NewSerial = lastSerial + 1;
+                        State.VmMainWindow.SerialNumber = State.VmMainWindow.Opecode + "-" + State.NewSerial.ToString("D4") + State.CheckerNumber;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("シリアルナンバーの取得に失敗しました");
+                        Flags.SetOpecode = false;
+                    }
                 }
                 else
                 {

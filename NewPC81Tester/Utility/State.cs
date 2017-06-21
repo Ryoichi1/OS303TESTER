@@ -260,7 +260,7 @@ namespace NewPC81Tester
                     LastSerial = lastData.Split(',')[0];
 
                     var IsCorrectformat = (System.Text.RegularExpressions.Regex.IsMatch(
-                        LastSerial, @"\d-41-\d\d\d\d-\d\d\d-\d\d\d\d-\d\d\d\d$",
+                        LastSerial, @"\d-\d\d-\d\d\d\d-\d\d\d-\d\d\d\d-\d\d\d\d$",
                         System.Text.RegularExpressions.RegexOptions.ECMAScript));
 
                     var IsCorrectOpecode = LastSerial.Contains(State.VmMainWindow.Opecode);
