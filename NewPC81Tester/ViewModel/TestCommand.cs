@@ -48,7 +48,7 @@ namespace NewPC81Tester
             {
                 await Task.Run(() =>
                 {
-                    RETRY:
+                RETRY:
                     while (true)
                     {
                         if (Flags.OtherPage) break;
@@ -180,7 +180,7 @@ namespace NewPC81Tester
 
                 foreach (var d in テスト項目最新.Select((s, i) => new { i, s }))
                 {
-                    Retry:
+                Retry:
                     State.VmTestStatus.Spec = "規格値 : ---";
                     State.VmTestStatus.MeasValue = "計測値 : ---";
                     Flags.AddDecision = true;
@@ -613,22 +613,22 @@ namespace NewPC81Tester
                             }
                             goto FAIL;//自動リトライ後の作業者への確認はしない
 
-                            //General.PlaySoundLoop(General.soundAlarm);
-                            //var YesNoResult = System.Windows.Forms.MessageBox.Show("この項目はＮＧですがリトライしますか？", "", MessageBoxButtons.YesNo);
-                            //General.StopSound();
+                        //General.PlaySoundLoop(General.soundAlarm);
+                        //var YesNoResult = System.Windows.Forms.MessageBox.Show("この項目はＮＧですがリトライしますか？", "", MessageBoxButtons.YesNo);
+                        //General.StopSound();
 
-                            ////何が選択されたか調べる
-                            //if (YesNoResult == DialogResult.Yes)
-                            //{
-                            //    RetryCnt = 0;
-                            //    //メタルモード時はBGMが消えているので、ここで再生する
-                            //    General.SetBgm();
-                            //    goto Retry;
-                            //}
-                            //else
-                            //{
-                            //    goto FAIL; //作業者がリトライ処理をキャンセルしたのでFAIL終了処理へ
-                            //}
+                        ////何が選択されたか調べる
+                        //if (YesNoResult == DialogResult.Yes)
+                        //{
+                        //    RetryCnt = 0;
+                        //    //メタルモード時はBGMが消えているので、ここで再生する
+                        //    General.SetBgm();
+                        //    goto Retry;
+                        //}
+                        //else
+                        //{
+                        //    goto FAIL; //作業者がリトライ処理をキャンセルしたのでFAIL終了処理へ
+                        //}
                     }
                     //↓↓各ステップが合格した時の処理です↓↓
                     if (Flags.AddDecision) SetTestLog("---- PASS\r\n");
@@ -650,10 +650,11 @@ namespace NewPC81Tester
                 await Task.Delay(500);
 
                 State.VmTestStatus.StartButtonContent = Constants.確認;
+                State.VmTestStatus.Message = Constants.MessRemove;
 
+                //通しで試験が合格したときの処理です(検査データを保存して、シリアルナンバーをインクリメントする)
                 if (State.VmTestStatus.CheckUnitTest != true) //null or False アプリ立ち上げ時はnullになっている！
                 {
-                    //通しで試験が合格したときの処理です
                     if (!General.SaveTestData())
                     {
                         FailStepNo = 5000;
@@ -661,16 +662,13 @@ namespace NewPC81Tester
                         goto FAIL_DATA_SAVE;
                     }
 
+                    General.StampOn();//合格印押し
+
                     //当日試験合格数をインクリメント ビューモデルはまだ更新しない
                     State.Setting.TodayOkCount++;
 
                     //これ重要！！！ シリアルナンバーをインクリメントし、次の試験に備える ビューモデルはまだ更新しない
                     State.NewSerial++;
-                }
-                else
-                {
-                    //１項目試験が合格したときの処理です
-                    State.VmTestStatus.Message = Constants.MessRemove;
                 }
 
 
@@ -707,17 +705,17 @@ namespace NewPC81Tester
                 return;
 
                 //不合格時の処理
-                FAIL:
+            FAIL:
                 General.ResetIo();
                 await Task.Delay(500);
-                FAIL_DATA_SAVE:
+            FAIL_DATA_SAVE:
 
 
                 bool FlagPressOpen = General.CheckPressOpen();
                 FlagTestTime = false;
                 State.VmTestStatus.StartButtonContent = Constants.確認;
                 State.VmTestStatus.StartButtonEnable = true;
-
+                State.VmTestStatus.Message = Constants.MessRemove;
 
 
                 //当日試験不合格数をインクリメント ビューモデルはまだ更新しない
@@ -729,7 +727,6 @@ namespace NewPC81Tester
                 State.VmTestStatus.ColorDecision = effect判定表示FAIL;
 
                 SetErrorMessage(FailStepNo, FailTitle);
-                State.VmTestStatus.Message = Constants.MessRemove;
 
                 var NgDataList = new List<string>()
                                     {

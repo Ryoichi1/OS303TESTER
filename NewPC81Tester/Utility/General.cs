@@ -352,6 +352,17 @@ namespace NewPC81Tester
             General.io.OutBit(EPX64S.PORT.P3, EPX64S.BIT.b3, sw ? EPX64S.OUT.H : EPX64S.OUT.L);
         }
 
+
+        public static async void StampOn()
+        {
+            io.OutBit(EPX64S.PORT.P3, EPX64S.BIT.b0, EPX64S.OUT.H);
+            await Task.Delay(350);
+            io.OutBit(EPX64S.PORT.P3, EPX64S.BIT.b0, EPX64S.OUT.L);
+
+        }
+
+
+
         //**************************************************************************
         //WAVEファイルを再生する
         //引数：なし
