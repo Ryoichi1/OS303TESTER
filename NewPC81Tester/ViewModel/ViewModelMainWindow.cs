@@ -10,6 +10,14 @@ namespace NewPC81Tester
     public class ViewModelMainWindow : BindableBase
     {
 
+        //試験中は作業者名を変更できないようにする
+        private bool _OperatorEnable = true;
+        public bool OperatorEnable
+        {
+
+            get { return _OperatorEnable; }
+            set { SetProperty(ref _OperatorEnable, value); }
+        }
 
 
         public ViewModelMainWindow()
@@ -88,16 +96,6 @@ namespace NewPC81Tester
             get { return _EnableOtherButton; }
             set { SetProperty(ref _EnableOtherButton, value); }
         }
-
-
-
-        private Brush _Color日常点検;
-        public Brush Color日常点検
-        {
-            get { return _Color日常点検; }
-            set { SetProperty(ref _Color日常点検, value); }
-        }
-
 
 
         private int _TabIndex;

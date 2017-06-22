@@ -61,14 +61,14 @@
 
         <Storyboard x:Key="StoryboardBorderTickOn">
             <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderThickness)" Storyboard.TargetName="ButtonStart">
-                <EasingThicknessKeyFrame KeyTime="0" Value="0"/>
-                <EasingThicknessKeyFrame KeyTime="0:0:0.3" Value="1.5"/>
+                <EasingThicknessKeyFrame KeyTime="0" Value="1.0"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.3" Value="2.0"/>
             </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="StoryboardBorderTickOff">
             <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderThickness)" Storyboard.TargetName="ButtonStart">
-                <EasingThicknessKeyFrame KeyTime="0" Value="1.5"/>
-                <EasingThicknessKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                <EasingThicknessKeyFrame KeyTime="0" Value="2.0"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:0.2" Value="1.0"/>
             </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
 
@@ -99,19 +99,6 @@
                     <Setter Property="Foreground" Value="White"/>
                     <Setter Property="FontSize" Value="12"/>
                     <Setter Property="Padding" Value="0,0,0,0"/>
-                    <!--<Setter Property="Effect">
-						<Setter.Value>
-							<DropShadowEffect Color="#FF04FFF4" BlurRadius="20" ShadowDepth="0" Direction="0"/>
-						</Setter.Value>
-					</Setter>-->
-
-
-
-
-
-
-
-
                 </Style>
             </Canvas.Resources>
 
@@ -541,8 +528,8 @@
             </Rectangle>
 
             <TextBlock TextWrapping="Wrap" Text="Status" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="27" Width="64" Canvas.Left="7" Canvas.Top="3"/>
-            <Label x:Name="labelStateRetry" Content="リトライ" Height="18" Canvas.Left="88" Canvas.Top="65" Width="59" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1" Background="{Binding ColorRetry}"/>
-            <StackPanel x:Name="stackPanel機器ステータス" Height="20" Canvas.Top="89" Width="356" Orientation="Horizontal" Canvas.Left="88">
+            <Label x:Name="labelStateRetry" Content="リトライ" Height="18" Canvas.Left="88" Canvas.Top="38" Width="59" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1" Background="{Binding ColorRetry}"/>
+            <StackPanel x:Name="stackPanel機器ステータス" Height="18" Canvas.Top="65" Width="356" Orientation="Horizontal" Canvas.Left="88">
 
                 <Label x:Name="labelEpx64s" Content="EPX64S" Background="{Binding ColorEpx64s}" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="56"/>
                 <Label x:Name="labelSS7012" Content="シグナルソース"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding ColorHIOKI7012}" BorderThickness="1" Width="86" />
@@ -551,7 +538,7 @@
                 <Label x:Name="labelThermometer" Content="温度計"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding Color温度計}" BorderThickness="1" Width="50" />
 
             </StackPanel>
-            <TextBlock x:Name="textBlock2_Copy5" TextWrapping="Wrap" Text="周辺機器" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="68" RenderTransformOrigin="0.5,0.5" Canvas.Top="87" Canvas.Left="7">
+            <TextBlock x:Name="textBlock2_Copy5" TextWrapping="Wrap" Text="周辺機器" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="68" RenderTransformOrigin="0.5,0.5" Canvas.Top="61" Canvas.Left="7">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -561,7 +548,7 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBlock x:Name="textBlock2_Copy7" TextWrapping="Wrap" Text="現在温度" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="69" RenderTransformOrigin="0.5,0.5" Canvas.Top="35" Canvas.Left="8">
+            <TextBlock x:Name="textBlock2_Copy7" TextWrapping="Wrap" Text="現在温度" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="69" RenderTransformOrigin="0.5,0.5" Canvas.Top="8" Canvas.Left="123">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -571,12 +558,12 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <Label Content="" Height="1" Canvas.Left="6" Canvas.Top="29" Width="436" Background="#FF0388F7">
+            <Label Content="" Height="1" Canvas.Left="6" Canvas.Top="29" Width="458" Background="#FF0388F7">
                 <Label.Effect>
                     <DropShadowEffect Color="#FF09A0F7" Direction="0" ShadowDepth="0" BlurRadius="20"/>
                 </Label.Effect>
             </Label>
-            <TextBlock x:Name="textBlock2_Copy3" TextWrapping="Wrap" Text="検査ｽﾃｰﾀｽ" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="78" RenderTransformOrigin="0.5,0.5" Canvas.Top="62" Canvas.Left="8">
+            <TextBlock x:Name="textBlock2_Copy3" TextWrapping="Wrap" Text="検査ｽﾃｰﾀｽ" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="78" RenderTransformOrigin="0.5,0.5" Canvas.Top="35" Canvas.Left="8">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -586,8 +573,8 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <Label x:Name="tbTestTime_Copy" Content="{Binding Temp}" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="83" Canvas.Left="89" Canvas.Top="35" FontSize="16" Foreground="White"/>
-            <StackPanel x:Name="stackPanel機器ステータス_Copy" Height="20" Canvas.Top="113" Width="366" Orientation="Horizontal" Canvas.Left="87">
+            <Label x:Name="tbTestTime_Copy" Content="{Binding Temp}" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="80" Canvas.Left="190" Canvas.Top="8" FontSize="16" Foreground="White"/>
+            <StackPanel x:Name="stackPanel機器ステータス_Copy" Height="18" Canvas.Top="89" Width="366" Orientation="Horizontal" Canvas.Left="87">
 
                 <Label x:Name="label232C_A" Content="LTM2882A" Background="{Binding ColorLTM2882A}" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="66"/>
                 <Label x:Name="label232C_B" Content="LTM2882B"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding ColorLTM2882B}" BorderThickness="1" Width="65"/>
@@ -597,7 +584,7 @@
                 <Label x:Name="label422_B1" Content="1150B"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding Color1150B}" BorderThickness="1" Width="50"/>
 
             </StackPanel>
-            <TextBlock x:Name="textBlock2_Copy11" TextWrapping="Wrap" Text="合格" FontSize="16" Foreground="#FF0DB2FF" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="40" RenderTransformOrigin="0.5,0.5" Canvas.Top="7" Canvas.Left="223">
+            <TextBlock x:Name="textBlock2_Copy11" TextWrapping="Wrap" Text="合格" FontSize="16" Foreground="#FF0DB2FF" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="35" RenderTransformOrigin="0.5,0.5" Canvas.Top="7" Canvas.Left="286">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -607,8 +594,8 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <Label x:Name="labelStateRetry_Copy" Content="{Binding OkCount}" Height="24" Canvas.Left="259" Canvas.Top="5" Width="54" VerticalContentAlignment="Center" BorderThickness="1" Background="{Binding ColorRetry}" BorderBrush="{x:Null}" FontSize="16"/>
-            <TextBlock x:Name="textBlock2_Copy12" TextWrapping="Wrap" Text="不合格" FontSize="16" Foreground="#FFBF08AF" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="51" RenderTransformOrigin="0.5,0.5" Canvas.Top="7" Canvas.Left="321">
+            <Label x:Name="labelStateRetry_Copy" Content="{Binding OkCount}" Height="24" Canvas.Left="322" Canvas.Top="5" Width="40" VerticalContentAlignment="Center" BorderThickness="1" BorderBrush="{x:Null}" FontSize="16"/>
+            <TextBlock x:Name="textBlock2_Copy12" TextWrapping="Wrap" Text="不合格" FontSize="16" Foreground="#FFBF08AF" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="51" RenderTransformOrigin="0.5,0.5" Canvas.Top="7" Canvas.Left="368">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -618,8 +605,14 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <Label x:Name="labelStateRetry_Copy1" Content="{Binding NgCount}" Height="24" Canvas.Left="374" Canvas.Top="5" Width="54" VerticalContentAlignment="Center" BorderThickness="1" Background="{Binding ColorRetry}" BorderBrush="{x:Null}" FontSize="16"/>
+            <Label x:Name="labelStateRetry_Copy1" Content="{Binding NgCount}" Height="24" Canvas.Left="421" Canvas.Top="5" Width="40" VerticalContentAlignment="Center" BorderThickness="1" BorderBrush="{x:Null}" FontSize="16"/>
             <Label x:Name="tbTestTime" Content="{Binding TestTime}" HorizontalAlignment="Left" VerticalAlignment="Center" Height="19" Width="68" Canvas.Left="-87" FontSize="16" Foreground="White" Canvas.Top="7"/>
+            <StackPanel x:Name="stackPanel機器ステータス_Copy1" Height="18" Canvas.Top="113" Width="146" Orientation="Horizontal" Canvas.Left="87">
+
+                <Label x:Name="labelK100" Content="K100" Background="{Binding ColorK100}" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="50"/>
+                <Label x:Name="labelK101" Content="K101"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding ColorK101}" BorderThickness="1" Width="50" />
+
+            </StackPanel>
         </Canvas>
         <Label x:Name="labelMessage" Content="{Binding Message, Mode=TwoWay, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="43" VerticalAlignment="Top" Width="833" Canvas.Left="7" Canvas.Top="3" FontSize="28" Foreground="White" VerticalContentAlignment="Center">
             <Label.Effect>
@@ -667,12 +660,12 @@
             </Canvas>
         </Canvas>
 
-        <Canvas x:Name="canvasTestSetting" Height="69" Canvas.Left="1021" Canvas.Top="10" Width="309" IsEnabled="{Binding TestSettingEnable}">
-            <Canvas x:Name="canvasUnitTest" Height="38" Canvas.Left="2" Canvas.Top="30" Width="307" IsEnabled="{Binding UnitTestEnable}" IsVisibleChanged="canvasUnitTest_IsVisibleChanged">
+        <Canvas x:Name="canvasTestSetting" Height="69" Canvas.Left="1021" Canvas.Top="12" Width="315" IsEnabled="{Binding TestSettingEnable}">
+            <Canvas x:Name="canvasUnitTest" Height="38" Canvas.Left="2" Canvas.Top="30" Width="307" IsVisibleChanged="canvasUnitTest_IsVisibleChanged" Visibility="{Binding EnableUnitTest}">
                 <CheckBox x:Name="CheckBoxUnitTest" Content="単体試験" IsChecked="{Binding CheckUnitTest}" Height="27" Width="75" Background="White" Foreground="#FFFDFDFD" Canvas.Left="5" Canvas.Top="5"/>
                 <ComboBox x:Name="cbUnitTest" Height="27" Width="214" ItemsSource="{Binding UnitTestItems}" SelectedItem="{Binding UnitTestName}" BorderBrush="White" Canvas.Left="89" VerticalContentAlignment="Center" Canvas.Top="4" Background="{x:Null}"/>
             </Canvas>
-            <CheckBox x:Name="CheckBoxWriteFw" Content="書き込みパス" Height="27" Width="106" Background="White" Foreground="#FFFDFDFD" Canvas.Left="7" IsChecked="{Binding CheckWriteFw}" Canvas.Top="3"/>
+            <CheckBox x:Name="CheckBoxWriteFw" Content="検査ソフト書き込みパス" Height="27" Width="147" Background="White" Foreground="#FFFDFDFD" Canvas.Left="7" IsChecked="{Binding CheckWriteFw}" Canvas.Top="3"/>
         </Canvas>
         <Canvas x:Name="canvasRing" Width="260" Height="260" Canvas.Left="65"  Opacity="{Binding RingOpacity}" Visibility="{Binding RingVisibility}" RenderTransformOrigin="0.5,0.5" Canvas.Top="362">
             <Canvas.RenderTransform>
@@ -715,7 +708,7 @@
                 <DropShadowEffect Color="#FF09A0F7" Direction="0" ShadowDepth="0" BlurRadius="20"/>
             </Label.Effect>
         </Label>
-        <Button x:Name="ButtonStart" Content="{Binding StartButtonContent}" Controls:ControlsHelper.ContentCharacterCasing="Normal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="51" Width="136" BorderBrush="White" FontSize="22" Canvas.Left="877" Style="{DynamicResource AccentedSquareButtonStyle}" BorderThickness="0" ClipToBounds="True" Background="Black" Canvas.Top="19" RenderTransformOrigin="11.977,3.9" FontFamily="Segoe UI Light" Click="ButtonStart_Click" IsEnabled="{Binding StartButtonEnable}" />
+        <Button x:Name="ButtonStart" Content="{Binding StartButtonContent}" Controls:ControlsHelper.ContentCharacterCasing="Normal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="51" Width="136" BorderBrush="#FFABD6EA" FontSize="22" Canvas.Left="877" Style="{DynamicResource AccentedSquareButtonStyle}" BorderThickness="1" ClipToBounds="True" Background="Black" Canvas.Top="17" RenderTransformOrigin="11.977,3.9" FontFamily="Segoe UI Light" Click="ButtonStart_Click" IsEnabled="{Binding StartButtonEnable}" />
         <Canvas x:Name="CanvasComm_Copy" Height="104" Canvas.Left="878" Canvas.Top="90" Width="458">
             <Canvas.Resources>
                 <Style TargetType="{x:Type Label}">

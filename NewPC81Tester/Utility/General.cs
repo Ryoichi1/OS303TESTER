@@ -108,8 +108,15 @@ namespace NewPC81Tester
         }
 
 
-
-
+        //試験機のリレーK100、K101の接点が溶着していないかチェックする
+        //電源をOFF（K100、K101をOFF）してからチェックする
+        public static bool CheckPowRelay()
+        {
+            var P7Data = TC74HC54x.GetP7Data(TC74HC54x.InputName.IC5);
+            Flags.StateK100 = (P7Data & 0x40) == 0x40;
+            Flags.StateK101 = (P7Data & 0x80) == 0x80;
+            return (Flags.StateK100 && Flags.StateK101);
+        }
 
         public static bool CheckComm()
         {
@@ -436,6 +443,7 @@ namespace NewPC81Tester
 
             State.VmTestStatus.ColorRetry = Brushes.Transparent;
             State.VmTestStatus.TestSettingEnable = true;
+            State.VmMainWindow.OperatorEnable = true;
         }
 
 
@@ -462,6 +470,10 @@ namespace NewPC81Tester
                     {
                         //IOボードのリセット（出力をすべてLする ※P6はTC74HC541APの出力をZにするため、すべてHとする）
                         General.ResetIo();
+
+                        //電源リレーK100、K101が溶着していないかチェックしてから非同期処理を終了する
+                        Thread.Sleep(1000);
+                        CheckPowRelay();
                         break;
                     }
 
@@ -673,8 +685,10 @@ namespace NewPC81Tester
                 {
                     Flags.AllOk周辺機器接続 = (Flags.StateEpx64 && Flags.StateSS7012 && Flags.StateVOAC7602 && Flags.StateCamera && Flags.State温度計 &&
                                               Flags.StateLTM2882A && Flags.StateLTM2882B && Flags.StateLTM2882C && Flags.StateLTM2882D &&
-                                              Flags.State1150A && Flags.State1150B);
+                                              Flags.State1150A && Flags.State1150B &&
+                                              Flags.StateK100 && Flags.StateK101);
 
+                    //EPX64Sの初期化の中で、K100、K101の溶着チェックを行っているが、これがNGだとしてもInit周辺機器()は終了する
                     var IsAllStopped = StopEpx64s && StopSS7012 && StopVOAC7602 && StopCAMERA && Stop温度計 &&
                                         StopLTM2882A && StopLTM2882B && StopLTM2882C && StopLTM2882D &&
                                         Stop1150A && Stop1150B;

@@ -10,11 +10,8 @@ namespace NewPC81Tester
     /// </summary>
     public partial class Mente
     {
-        private SolidColorBrush ButtonPowBrush = new SolidColorBrush();
-        private SolidColorBrush ButtonFunBrush = new SolidColorBrush();
-        private SolidColorBrush ButtonS1Brush = new SolidColorBrush();
-        private SolidColorBrush ButtonStampBrush = new SolidColorBrush();
-        private SolidColorBrush ButtonE1Brush = new SolidColorBrush();
+        private SolidColorBrush ButtonOnBrush = new SolidColorBrush();
+        private SolidColorBrush ButtonOffBrush = new SolidColorBrush();
         private const double ButtonOpacity = 0.4;
 
         public Mente()
@@ -24,23 +21,16 @@ namespace NewPC81Tester
 
             tbCommand.Text = "";
 
-            ButtonPowBrush.Color = Colors.White;
-            ButtonFunBrush.Color = Colors.White;
-            ButtonS1Brush.Color = Colors.White;
-            ButtonStampBrush.Color = Colors.White;
-            ButtonE1Brush.Color = Colors.White;
+            ButtonOnBrush.Color = Colors.DodgerBlue;
+            ButtonOffBrush.Color = Colors.White;
+            ButtonOnBrush.Opacity = ButtonOpacity;
+            ButtonOffBrush.Opacity = ButtonOpacity;
 
-            ButtonPowBrush.Opacity = ButtonOpacity;
-            ButtonFunBrush.Opacity = ButtonOpacity;
-            ButtonS1Brush.Opacity = ButtonOpacity;
-            ButtonStampBrush.Opacity = ButtonOpacity;
-            ButtonE1Brush.Opacity = ButtonOpacity;
-
-            buttonPow.Background = ButtonPowBrush;
-            buttonFun.Background = ButtonFunBrush;
-            buttonS1.Background = ButtonS1Brush;
-            buttonStamp.Background = ButtonStampBrush;
-            buttonSetE1.Background = ButtonE1Brush;
+            buttonPow.Background = ButtonOffBrush;
+            buttonFun.Background = ButtonOffBrush;
+            buttonS1.Background = ButtonOffBrush;
+            buttonStamp.Background = ButtonOffBrush;
+            buttonSetE1.Background = ButtonOffBrush;
 
             rb232P1.IsChecked = true;
             ch = CH._232cPort1;
@@ -64,15 +54,13 @@ namespace NewPC81Tester
             if (FlagPow)
             {
                 General.PowSupply(false);
-                ButtonPowBrush.Color = Colors.White;
-                buttonPow.Background = ButtonPowBrush;
+                buttonPow.Background = ButtonOffBrush;
 
             }
             else
             {
                 General.PowSupply(true);
-                ButtonPowBrush.Color = Colors.DodgerBlue;
-                buttonPow.Background = ButtonPowBrush;
+                buttonPow.Background = ButtonOnBrush;
             }
 
             FlagPow = !FlagPow;
@@ -97,12 +85,10 @@ namespace NewPC81Tester
         private async void buttonStamp_Click(object sender, RoutedEventArgs e)
         {
             General.io.OutBit(EPX64S.PORT.P3, EPX64S.BIT.b0, EPX64S.OUT.H);
-            ButtonStampBrush.Color = Colors.DodgerBlue;
-            buttonStamp.Background = ButtonStampBrush;
+            buttonStamp.Background = ButtonOnBrush;
             await Task.Delay(400);
             General.io.OutBit(EPX64S.PORT.P3, EPX64S.BIT.b0, EPX64S.OUT.L);
-            ButtonStampBrush.Color = Colors.White;
-            buttonStamp.Background = ButtonStampBrush;
+            buttonStamp.Background = ButtonOffBrush;
 
         }
 
@@ -111,21 +97,17 @@ namespace NewPC81Tester
         {
             FlagFun = !FlagFun;
             General.SetDcFun(FlagFun);
-
-            ButtonFunBrush.Color = FlagFun ? Colors.DodgerBlue : Colors.White;
-            buttonFun.Background = ButtonFunBrush;
+            buttonFun.Background = FlagFun ? ButtonOnBrush : ButtonOffBrush;
 
         }
 
         private async void buttonS1_Click(object sender, RoutedEventArgs e)
         {
             General.io.OutBit(EPX64S.PORT.P3, EPX64S.BIT.b1, EPX64S.OUT.H);
-            ButtonS1Brush.Color = Colors.DodgerBlue;
-            buttonS1.Background = ButtonS1Brush;
+            buttonS1.Background = ButtonOnBrush;
             await Task.Delay(400);
             General.io.OutBit(EPX64S.PORT.P3, EPX64S.BIT.b1, EPX64S.OUT.L);
-            ButtonS1Brush.Color = Colors.White;
-            buttonS1.Background = ButtonS1Brush;
+            buttonS1.Background = ButtonOffBrush;
         }
 
         bool FlagSetE1;
@@ -133,9 +115,7 @@ namespace NewPC81Tester
         {
             FlagSetE1 = !FlagSetE1;
             General.io.OutBit(EPX64S.PORT.P0, EPX64S.BIT.b0, FlagSetE1 ? EPX64S.OUT.H : EPX64S.OUT.L);
-
-            ButtonE1Brush.Color = FlagSetE1 ? Colors.DodgerBlue : Colors.White;
-            buttonSetE1.Background = ButtonE1Brush;
+            buttonSetE1.Background = FlagSetE1? ButtonOnBrush : ButtonOffBrush;
         }
 
         private Target.Port SetComm()

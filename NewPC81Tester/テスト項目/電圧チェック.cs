@@ -7,7 +7,7 @@ namespace NewPC81Tester
 {
     public static class 電圧チェック
     {
-        public enum CH { VCC, MINUS5V, VREF, BATTERY, D4 }
+        public enum CH { VCC, MINUS5V, VREF, BATTERY, D4, BATTERY_ARI_NASHI}
 
         public static async Task<bool> CheckVolt(CH ch)
         {
@@ -90,6 +90,13 @@ namespace NewPC81Tester
                                 General.SetRL6(true);//3Vと7062のV端子を接続する処理
                                 General.SetRL5(true);//製品GNDと7062のCOM端子を接続する処理
                                 break;
+
+                            case CH.BATTERY_ARI_NASHI:
+                                Max = 1.0;//バッテリーが付いていなければ1.0以下
+                                Min = 0.0;
+                                General.SetRL6(true);//3Vと7062のV端子を接続する処理
+                                General.SetRL5(true);//製品GNDと7062のCOM端子を接続する処理
+                                break;
                         }
 
 
@@ -164,6 +171,9 @@ namespace NewPC81Tester
                             break;
                         case CH.D4:
                             State.VmTestStatus.Spec = "規格値 : " + State.TestSpec.d4Min.ToString("F2") + "～" + State.TestSpec.d4Max.ToString("F2") + "V";
+                            break;
+                        case CH.BATTERY_ARI_NASHI:
+                            State.VmTestStatus.Spec = "規格値 : リチウム電池がついていないこと（1.0V以下）";
                             break;
 
                     }

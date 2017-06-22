@@ -42,6 +42,28 @@ namespace NewPC81Tester
         }
 
         //周辺機器ステータス
+        private static bool _StateK100;
+        public static bool StateK100
+        {
+            get { return _StateK100; }
+            set
+            {
+                _StateK100 = value;
+                State.VmTestStatus.ColorK100 = value ? StatePanelOkBrush : StatePanelNgBrush;
+            }
+        }
+
+        private static bool _StateK101;
+        public static bool StateK101
+        {
+            get { return _StateK101; }
+            set
+            {
+                _StateK101 = value;
+                State.VmTestStatus.ColorK101 = value ? StatePanelOkBrush : StatePanelNgBrush;
+            }
+        }
+
         private static bool _StateEpx64;
         public static bool StateEpx64
         {
@@ -191,6 +213,10 @@ namespace NewPC81Tester
                     if (State.VmMainWindow.Operator == "畔上")
                     {
                         State.VmTestStatus.EnableUnitTest = System.Windows.Visibility.Visible;
+                    }
+                    else
+                    {
+                        State.VmTestStatus.EnableUnitTest = System.Windows.Visibility.Hidden;
                     }
                 }
                 else

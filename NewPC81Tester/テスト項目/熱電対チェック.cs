@@ -173,7 +173,7 @@ namespace NewPC81Tester
 
                         //①ＵＳＢ温度計から温度を取り込む
                         double USB温度計の表示値 = Double.Parse(State.VmTestStatus.Temp.Trim('℃'));
-                        State.VmTestResults.TempUSBRH = USB温度計の表示値.ToString("F3");
+                        State.VmTestResults.TempUSBRH = USB温度計の表示値.ToString("F2");
 
                         //②ＡＮ６（Ｕ６）のＡＤ値を取り込む
                         if (!Target.SendData(Target.Port.Rs232C_1, "ReadAN6")) return false;
@@ -182,7 +182,7 @@ namespace NewPC81Tester
                         double buf2 = (double)buf / 1000;
                         buf2 = Math.Sqrt(2.1962e+6 + (1.8639 - buf2) / (3.88e-6));
                         double u6data = -1481.96 + buf2;
-                        State.VmTestResults.TempTarget = u6data.ToString("F3");
+                        State.VmTestResults.TempTarget = u6data.ToString("F2");
                         温度差 = Math.Abs(USB温度計の表示値 - u6data);
                         FlagCheckedTempErr = true;
                         return result = 温度差 < State.TestSpec.ErrTemp_UsbRh_U6;
@@ -201,10 +201,10 @@ namespace NewPC81Tester
 
                 if (!result)
                 {
-                    State.VmTestStatus.Spec = "規格値 : 温度計とU6の差 " + State.TestSpec.ErrTemp_UsbRh_U6.ToString("F3") + "℃以内";
+                    State.VmTestStatus.Spec = "規格値 : 温度計とU6の差 " + State.TestSpec.ErrTemp_UsbRh_U6.ToString("F2") + "℃以内";
                     if (FlagCheckedTempErr)
                     {
-                        State.VmTestStatus.MeasValue = "計測値 : 温度計とU6の差 " + 温度差.ToString("F3") + "℃";
+                        State.VmTestStatus.MeasValue = "計測値 : 温度計とU6の差 " + 温度差.ToString("F2") + "℃";
                     }
                     else
                     {

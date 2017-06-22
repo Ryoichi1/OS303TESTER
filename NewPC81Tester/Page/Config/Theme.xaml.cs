@@ -51,14 +51,14 @@ namespace NewPC81Tester
         private async void Pic2_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
-            State.VmMainWindow.Theme = "Resources/baby2.jpg";
+            State.VmMainWindow.Theme = "Resources/rain.jpg";
             await Show();
         }
 
         private async void Pic3_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
-            State.VmMainWindow.Theme = "Resources/baby5.jpg";
+            State.VmMainWindow.Theme = "Resources/sumetal1.jpg";
             await Show();
         }
 
@@ -71,7 +71,7 @@ namespace NewPC81Tester
 
         private async void Pic5_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            State.VmMainWindow.Theme = "Resources/X_JAPAN.jpg";
+            State.VmMainWindow.Theme = "Resources/sumetal3.jpg";
             await Show();
         }
 

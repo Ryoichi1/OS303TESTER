@@ -95,6 +95,7 @@ namespace NewPC81Tester
                 State.VmMainWindow.EnableOtherButton = false;
                 State.VmTestStatus.StartButtonContent = Constants.停止;
                 State.VmTestStatus.TestSettingEnable = false;
+                State.VmMainWindow.OperatorEnable = false;
                 await Test();//メインルーチンへ
 
 
@@ -179,13 +180,13 @@ namespace NewPC81Tester
 
                 foreach (var d in テスト項目最新.Select((s, i) => new { i, s }))
                 {
+                    Retry:
                     State.VmTestStatus.Spec = "規格値 : ---";
                     State.VmTestStatus.MeasValue = "計測値 : ---";
                     Flags.AddDecision = true;
 
                     SetTestLog(d.s.Key.ToString() + "_" + d.s.Value);
 
-                    Retry:
                     if (d.s.PowSw)
                     {
                         if (!Flags.PowOn)
@@ -209,6 +210,10 @@ namespace NewPC81Tester
 
                     switch (d.s.Key)
                     {
+                        case 000://リチウム電池有無確認
+                            if (await 電圧チェック.CheckVolt(電圧チェック.CH.BATTERY_ARI_NASHI)) break;
+                            goto case 5000;
+
                         case 100://コネクタ実装チェック
                             if (await コネクタチェック.CheckCn()) break;
                             goto case 5000;
@@ -645,11 +650,9 @@ namespace NewPC81Tester
 
                 State.VmTestStatus.StartButtonContent = Constants.確認;
 
-                //if (State.VmTestStatus.CheckUnitTest != true) //null or False アプリ立ち上げ時はnullになっている！
-                if (State.VmTestStatus.CheckWriteFw == true)
+                if (State.VmTestStatus.CheckUnitTest != true) //null or False アプリ立ち上げ時はnullになっている！
                 {
                     //通しで試験が合格したときの処理です
-                    //試験データの保存 TODO:
                     if (!General.SaveTestData())
                     {
                         FailStepNo = 5000;
@@ -786,6 +789,9 @@ namespace NewPC81Tester
                 RefreshDataContext();
 
                 General.cam.ResetFlag();
+
+                //次の検査の前に、K100とK101が溶着していないかチェックしておく
+                General.CheckPowRelay();
             }
 
         }

@@ -55,6 +55,7 @@ namespace NewPC81Tester
 
         public static List<TestSpecs> テスト項目 = new List<TestSpecs>()
         {
+            new TestSpecs(000, "リチウム電池有無確認", false),
             new TestSpecs(100, "コネクタ実装チェック", false),
             new TestSpecs(200, "検査ソフト書き込み", false),
             new TestSpecs(300, "消費電流チェック 24Vライン", false),

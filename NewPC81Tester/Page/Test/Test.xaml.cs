@@ -152,9 +152,6 @@ namespace NewPC81Tester
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
 
-        }
     }
 }

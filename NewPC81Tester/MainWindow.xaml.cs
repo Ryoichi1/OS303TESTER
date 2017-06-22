@@ -113,6 +113,7 @@ namespace NewPC81Tester
 
             InitMainForm();//メインフォーム初期
 
+            this.WindowState = WindowState.Maximized;
 
         }
 
@@ -228,7 +229,7 @@ namespace NewPC81Tester
         private void buttonClear_Click(object sender, RoutedEventArgs e)
         {
             if (Flags.Testing) return;
-            Flags.SetOperator = false;
+            //Flags.SetOperator = false;
             Flags.SetOpecode = false;
         }
 
@@ -314,6 +315,9 @@ namespace NewPC81Tester
 
             State.VmMainWindow.ReadOnlyOpecode = true;
             State.VmMainWindow.EnableOtherButton = true;
+
+            State.VmTestStatus.EnableUnitTest = Visibility.Hidden;
+            State.VmMainWindow.OperatorEnable = true;
 
         }
 

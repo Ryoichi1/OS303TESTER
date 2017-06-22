@@ -10,23 +10,7 @@ namespace NewPC81Tester
     public class ViewModelTestStatus : BindableBase
     {
 
-        private bool _IsActiveRing;
-        public bool IsActiveRing { get { return _IsActiveRing; } set { SetProperty(ref _IsActiveRing, value); } }
-
-
-        //現在温度■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-
-        private string _Temp;
-        public string Temp { get { return _Temp; } set { SetProperty(ref _Temp, value); } }
-
-        private string _DialogMess;
-        public string DialogMess
-        {
-
-            get { return _DialogMess; }
-            set { SetProperty(ref _DialogMess, value); }
-
-        }
+        //スタートボタンのプロパティ/////////////////////////////////////////////////////////////////////////////////////
 
         private bool _StartButtonEnable;
         public bool StartButtonEnable
@@ -37,13 +21,7 @@ namespace NewPC81Tester
 
         }
 
-        private bool _TestSettingEnable = true;
-        public bool TestSettingEnable
-        {
 
-            get { return _TestSettingEnable; }
-            set { SetProperty(ref _TestSettingEnable, value); }
-        }
 
 
 
@@ -69,16 +47,18 @@ namespace NewPC81Tester
             set { SetProperty(ref _FwSum, value); }
         }
 
-        //単体試験チェックボックスとコンボボックスの可視切り替え
-        private Visibility _EnableButtonErrInfo = Visibility.Hidden;
-        public Visibility EnableButtonErrInfo
-        {
-            get { return _EnableButtonErrInfo; }
 
-            set
-            {
-                SetProperty(ref _EnableButtonErrInfo, value);
-            }
+
+
+        //テスト設定パネルのプロパティ（FW書き込みパス、単体試験選択）■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+        //試験中はテスト設定パネルを操作できないようにするためのプロパティ
+        private bool _TestSettingEnable = true;
+        public bool TestSettingEnable
+        {
+
+            get { return _TestSettingEnable; }
+            set { SetProperty(ref _TestSettingEnable, value); }
         }
 
         //FW書き込みパス チェックボックスがチェックされているかどうかの判定
@@ -90,17 +70,12 @@ namespace NewPC81Tester
         }
 
 
-        //label判定Color
-        private Brush _Colorlabel判定;
-        public Brush Colorlabel判定
-        {
-            get { return _Colorlabel判定; }
-            set { SetProperty(ref _Colorlabel判定, value); }
-        }
-
-        //単体試験のプロパティ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-
         //単体試験チェックボックスとコンボボックスの可視切り替え
+        //これ重要！！！ 
+        //EnableUnitTestをhiddenにした時点で、CheckUnitTestは必ずfalseになる
+        //畔上以外の作業者を選択時は、EnableUnitTestがhiddenになるため、
+        //絶対に一項目試験はできなくなり、通しで試験をするようになる
+
         private Visibility _EnableUnitTest;
         public Visibility EnableUnitTest
         {
@@ -151,6 +126,14 @@ namespace NewPC81Tester
             set { SetProperty(ref _Decision, value); }
         }
 
+        //label判定Color
+        private Brush _Colorlabel判定;
+        public Brush Colorlabel判定
+        {
+            get { return _Colorlabel判定; }
+            set { SetProperty(ref _Colorlabel判定, value); }
+        }
+
         //FAIL判定時に表示するエラー情報
         private string _FailInfo;
         public string FailInfo
@@ -189,6 +172,18 @@ namespace NewPC81Tester
         {
             get { return _ErrInfoVisibility; }
             set { SetProperty(ref _ErrInfoVisibility, value); }
+        }
+
+        //エラー詳細表示ボタンの可視切り替え
+        private Visibility _EnableButtonErrInfo = Visibility.Hidden;
+        public Visibility EnableButtonErrInfo
+        {
+            get { return _EnableButtonErrInfo; }
+
+            set
+            {
+                SetProperty(ref _EnableButtonErrInfo, value);
+            }
         }
 
 
@@ -246,7 +241,7 @@ namespace NewPC81Tester
         }
 
 
-        //その他のプロパティ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+        //テストログ系のプロパティ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 
         //テスト時間
         private string _TestTime;
@@ -271,12 +266,37 @@ namespace NewPC81Tester
             set { SetProperty(ref _TestLog, value); }
         }
 
-        //ステータスのカラー
-        private Brush _Color日常点検;
-        public Brush Color日常点検
+        //EEPROMチェック、熱電対補正値取得時のリング表示
+        private bool _IsActiveRing;
+        public bool IsActiveRing { get { return _IsActiveRing; } set { SetProperty(ref _IsActiveRing, value); } }
+
+
+
+        //ステータスパネルのプロパティ///////////////////////////////////////////////////////////////////////////////
+        //現在温度
+        private string _Temp;
+        public string Temp { get { return _Temp; } set { SetProperty(ref _Temp, value); } }
+
+        private Brush _ColorRetry;
+        public Brush ColorRetry
         {
-            get { return _Color日常点検; }
-            set { SetProperty(ref _Color日常点検, value); }
+            get { return _ColorRetry; }
+            set { SetProperty(ref _ColorRetry, value); }
+        }
+
+
+        private Brush _ColorK100;
+        public Brush ColorK100
+        {
+            get { return _ColorK100; }
+            set { SetProperty(ref _ColorK100, value); }
+        }
+
+        private Brush _ColorK101;
+        public Brush ColorK101
+        {
+            get { return _ColorK101; }
+            set { SetProperty(ref _ColorK101, value); }
         }
 
         private Brush _ColorEPX64S;
@@ -358,12 +378,6 @@ namespace NewPC81Tester
 
 
 
-        private Brush _ColorRetry;
-        public Brush ColorRetry
-        {
-            get { return _ColorRetry; }
-            set { SetProperty(ref _ColorRetry, value); }
-        }
 
 
     }

@@ -52,7 +52,7 @@ namespace NewPC81Tester
             private set
             {
                 _temp = value;
-                State.VmTestStatus.Temp = (_temp != null) ? ((double)_temp).ToString("F3") + "℃" : "---℃";
+                State.VmTestStatus.Temp = (_temp != null) ? ((double)_temp).ToString("F2") + "℃" : "---℃";
 
             }
         }

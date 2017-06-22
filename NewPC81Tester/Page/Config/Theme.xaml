@@ -19,13 +19,13 @@
         <Image x:Name="Pic2" Canvas.Left="198" Canvas.Top="36" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic2_PreviewMouseLeftButtonDown">
             <Image.Source>
                 <BitmapImage DecodePixelWidth="128"
-        			UriSource="/Resources/baby2.jpg"/>
+        			UriSource="/Resources/rain.jpg"/>
             </Image.Source>
         </Image>
         <Image x:Name="Pic3" Canvas.Left="366" Canvas.Top="36" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic3_PreviewMouseLeftButtonDown">
             <Image.Source>
                 <BitmapImage DecodePixelWidth="128"
-        			UriSource="/Resources/baby5.jpg"/>
+        			UriSource="/Resources/sumetal1.jpg"/>
             </Image.Source>
         </Image>
 
@@ -39,7 +39,7 @@
         <Image x:Name="Pic5" Canvas.Left="702" Canvas.Top="36" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic5_PreviewMouseLeftButtonDown">
             <Image.Source>
                 <BitmapImage DecodePixelWidth="128"
-                    UriSource="/Resources/X_JAPAN.jpg"/>
+                    UriSource="/Resources/sumetal3.jpg"/>
             </Image.Source>
         </Image>
         <Canvas Height="125" Canvas.Left="23" Canvas.Top="225" Width="365">
