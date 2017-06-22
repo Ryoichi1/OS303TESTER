@@ -68,7 +68,7 @@
             <TextBlock x:Name="tbPoint" Height="20" Canvas.Left="517" TextWrapping="Wrap" Text="XY=100/100" Width="113" Foreground="White" RenderTransformOrigin="2.258,7.602" Canvas.Top="6"/>
             <TextBlock x:Name="tbHsv" Height="20" Canvas.Left="517" TextWrapping="Wrap" Text="HSV=100,100,100" Width="115" Foreground="White" RenderTransformOrigin="2.258,7.602" Canvas.Top="26"/>
         </Canvas>
-        <Button x:Name="buttonSave" Content="変更を保存"  Height="64" Canvas.Left="25" Canvas.Top="411" Width="160" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Click="buttonSave_Click" BorderThickness="1" Background="{x:Null}">
+        <Button x:Name="buttonSave" Content="変更を保存"  Height="59" Canvas.Left="25" Canvas.Top="411" Width="160" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Click="buttonSave_Click" BorderThickness="1" Background="{x:Null}">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -119,7 +119,7 @@
             <RadioButton x:Name="rbVCC" Content="VCC"  Canvas.Left="232" Canvas.Top="152" Width="58" BorderBrush="White" Foreground="White" PreviewKeyDown="rbVCC_PreviewKeyDown" BorderThickness="1" Checked="rbVCC_Checked"/>
             <RadioButton x:Name="rbTX5" Content="TX5"  Canvas.Left="232" Canvas.Top="185" Width="48" PreviewKeyDown="rbTX5_PreviewKeyDown" Checked="rbTX5_Checked"/>
         </Canvas>
-        <Button x:Name="buttonLedOnOff" Content="LED全点灯"  Height="34" Canvas.Left="400" Canvas.Top="400" Width="110" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Click="buttonLedOnOff_Click" Background="{x:Null}" BorderThickness="1">
+        <Button x:Name="buttonLedOnOff" Content="LED全点灯"  Height="34" Canvas.Left="208" Canvas.Top="412" Width="110" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Click="buttonLedOnOff_Click" Background="{x:Null}" BorderThickness="1">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -129,7 +129,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button x:Name="buttonGrid" Content="グリッド表示"  Height="34" Canvas.Left="530" Canvas.Top="400" Width="110" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Background="{x:Null}" Click="buttonGrid_Click" BorderThickness="1">
+        <Button x:Name="buttonGrid" Content="グリッド表示"  Height="34" Canvas.Left="338" Canvas.Top="412" Width="110" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Background="{x:Null}" Click="buttonGrid_Click" BorderThickness="1">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -139,7 +139,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button x:Name="buttonBin" Content="二値化"  Height="34" Canvas.Left="530" Canvas.Top="446" Width="110" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Background="{x:Null}" Click="buttonBin_Click" BorderThickness="1">
+        <Button x:Name="buttonBin" Content="二値化"  Height="34" Canvas.Left="338" Canvas.Top="458" Width="110" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Background="{x:Null}" Click="buttonBin_Click" BorderThickness="1">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -149,7 +149,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button x:Name="buttonFrame" Content="検査枠を表示"  Height="34" Canvas.Left="530" Canvas.Top="491" Width="110" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Background="{x:Null}" Click="buttonFrame_Click" BorderThickness="1">
+        <Button x:Name="buttonFrame" Content="検査枠を表示"  Height="34" Canvas.Left="338" Canvas.Top="503" Width="110" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Background="{x:Null}" Click="buttonFrame_Click" BorderThickness="1">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -159,5 +159,51 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
+        <Canvas Height="133" Canvas.Left="481" Canvas.Top="407" Width="160">
+            <Canvas.Background>
+                <SolidColorBrush Color="#FF52ABF5" Opacity="0.1"/>
+            </Canvas.Background>
+            <TextBlock x:Name="tbSmoothParm1_Copy4" Height="19" Canvas.Left="3" TextWrapping="Wrap" Canvas.Top="2" Width="106" Foreground="White" FontSize="14" Text="オフセット調整"/>
+            <Button x:Name="buttonUp" Content="▲"  Height="18" Canvas.Left="55" Canvas.Top="38" Width="40" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Background="{x:Null}" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Click="buttonUp_Click">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.539"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="buttonDown" Content="▼"  Height="18" Canvas.Left="55" Canvas.Top="97" Width="40" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Background="{x:Null}" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Click="buttonDown_Click">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.539"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="buttonLeft" Content="◀"  Height="18" Canvas.Left="26" Canvas.Top="68" Width="40" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Background="{x:Null}" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Click="buttonLeft_Click">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.539"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="buttonRight" Content="▶"  Height="18" Canvas.Left="85" Canvas.Top="67" Width="40" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Background="{x:Null}" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0" Click="buttonRight_Click">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.539"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+        </Canvas>
     </Canvas>
 </Page>

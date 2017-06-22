@@ -26,9 +26,13 @@ namespace NewPC81Tester
             tbHsv.Visibility = System.Windows.Visibility.Hidden;
         }
 
-        private void buttonSave_Click(object sender, RoutedEventArgs e)
+        private async void buttonSave_Click(object sender, RoutedEventArgs e)
         {
+            buttonSave.Background = Brushes.DodgerBlue;
             SaveCameraProp();
+            await Task.Delay(150);
+            General.PlaySound(General.soundBattery);
+            buttonSave.Background = Brushes.Transparent;
         }
 
         private void SaveCameraProp()
@@ -450,6 +454,227 @@ namespace NewPC81Tester
             buttonGrid.IsEnabled = re;
             buttonSave.IsEnabled = re;
             buttonFrame.IsEnabled = re;
+        }
+
+
+        private enum DIRECTION { UP, DOWN, RIGHT, LEFT }
+        private void Offset(DIRECTION dir)
+        {
+            int X = 0;
+            int Y = 0;
+
+            switch (dir)
+            {
+                case DIRECTION.UP:
+                    X = 0; Y = -1;
+                    break;
+                case DIRECTION.DOWN:
+                    X = 0; Y = 1;
+                    break;
+                case DIRECTION.RIGHT:
+                    X = 1; Y = 0;
+                    break;
+                case DIRECTION.LEFT:
+                    X = -1; Y = 0;
+                    break;
+            }
+
+            var newX = GetPointX(State.VmCameraPoint.TX1) + X;
+            var newY = GetPointY(State.VmCameraPoint.TX1) + Y;
+            State.VmCameraPoint.TX1 = newX.ToString() + "/" + newY.ToString();
+
+            newX = GetPointX(State.VmCameraPoint.TX2) + X;
+            newY = GetPointY(State.VmCameraPoint.TX2) + Y;
+            State.VmCameraPoint.TX2 = newX.ToString() + "/" + newY.ToString();
+
+            newX = GetPointX(State.VmCameraPoint.TX3) + X;
+            newY = GetPointY(State.VmCameraPoint.TX3) + Y;
+            State.VmCameraPoint.TX3 = newX.ToString() + "/" + newY.ToString();
+
+            newX = GetPointX(State.VmCameraPoint.TX4) + X;
+            newY = GetPointY(State.VmCameraPoint.TX4) + Y;
+            State.VmCameraPoint.TX4 = newX.ToString() + "/" + newY.ToString();
+
+            newX = GetPointX(State.VmCameraPoint.TX5) + X;
+            newY = GetPointY(State.VmCameraPoint.TX5) + Y;
+            State.VmCameraPoint.TX5 = newX.ToString() + "/" + newY.ToString();
+
+            newX = GetPointX(State.VmCameraPoint.RX1) + X;
+            newY = GetPointY(State.VmCameraPoint.RX1) + Y;
+            State.VmCameraPoint.RX1 = newX.ToString() + "/" + newY.ToString();
+
+            newX = GetPointX(State.VmCameraPoint.RX2) + X;
+            newY = GetPointY(State.VmCameraPoint.RX2) + Y;
+            State.VmCameraPoint.RX2 = newX.ToString() + "/" + newY.ToString();
+
+            newX = GetPointX(State.VmCameraPoint.RX3) + X;
+            newY = GetPointY(State.VmCameraPoint.RX3) + Y;
+            State.VmCameraPoint.RX3 = newX.ToString() + "/" + newY.ToString();
+
+            newX = GetPointX(State.VmCameraPoint.RX4) + X;
+            newY = GetPointY(State.VmCameraPoint.RX4) + Y;
+            State.VmCameraPoint.RX4 = newX.ToString() + "/" + newY.ToString();
+
+            newX = GetPointX(State.VmCameraPoint.RX5) + X;
+            newY = GetPointY(State.VmCameraPoint.RX5) + Y;
+            State.VmCameraPoint.RX5 = newX.ToString() + "/" + newY.ToString();
+
+            newX = GetPointX(State.VmCameraPoint.CPU) + X;
+            newY = GetPointY(State.VmCameraPoint.CPU) + Y;
+            State.VmCameraPoint.CPU = newX.ToString() + "/" + newY.ToString();
+
+            newX = GetPointX(State.VmCameraPoint.DEB) + X;
+            newY = GetPointY(State.VmCameraPoint.DEB) + Y;
+            State.VmCameraPoint.DEB = newX.ToString() + "/" + newY.ToString();
+
+            newX = GetPointX(State.VmCameraPoint.VCC) + X;
+            newY = GetPointY(State.VmCameraPoint.VCC) + Y;
+            State.VmCameraPoint.VCC = newX.ToString() + "/" + newY.ToString();
+
+        }
+
+        private void buttonUp_Click(object sender, RoutedEventArgs e)
+        {
+            if (!General.cam.FlagFrame) return;
+            //全座標をY方向に-1シフトする
+            Offset(DIRECTION.UP);
+
+            General.cam.MakeFrame = (img) =>
+            {
+                //四角を表示（Seg a,g,d）
+                var TatenagaList = new List<CvPoint>();
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.CPU));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.DEB));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.VCC));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX1));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX2));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX3));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX4));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX5));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX1));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX2));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX3));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX4));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX5));
+
+
+                foreach (var p in TatenagaList)
+                {
+                    img.Rectangle(new CvRect(p.X - 5, p.Y - 5, 10, 10), CvColor.Blue);
+
+                }
+
+
+            };
+
+        }
+
+        private void buttonLeft_Click(object sender, RoutedEventArgs e)
+        {
+            if (!General.cam.FlagFrame) return;
+            //全座標をY方向に-1シフトする
+            Offset(DIRECTION.LEFT);
+
+            General.cam.MakeFrame = (img) =>
+            {
+                //四角を表示（Seg a,g,d）
+                var TatenagaList = new List<CvPoint>();
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.CPU));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.DEB));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.VCC));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX1));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX2));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX3));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX4));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX5));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX1));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX2));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX3));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX4));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX5));
+
+
+                foreach (var p in TatenagaList)
+                {
+                    img.Rectangle(new CvRect(p.X - 5, p.Y - 5, 10, 10), CvColor.Blue);
+
+                }
+
+
+            };
+
+        }
+
+        private void buttonDown_Click(object sender, RoutedEventArgs e)
+        {
+            if (!General.cam.FlagFrame) return;
+            //全座標をY方向に-1シフトする
+            Offset(DIRECTION.DOWN);
+
+            General.cam.MakeFrame = (img) =>
+            {
+                //四角を表示（Seg a,g,d）
+                var TatenagaList = new List<CvPoint>();
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.CPU));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.DEB));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.VCC));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX1));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX2));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX3));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX4));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX5));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX1));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX2));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX3));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX4));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX5));
+
+
+                foreach (var p in TatenagaList)
+                {
+                    img.Rectangle(new CvRect(p.X - 5, p.Y - 5, 10, 10), CvColor.Blue);
+
+                }
+
+
+            };
+
+        }
+
+        private void buttonRight_Click(object sender, RoutedEventArgs e)
+        {
+            if (!General.cam.FlagFrame) return;
+            //全座標をY方向に-1シフトする
+            Offset(DIRECTION.RIGHT);
+
+            General.cam.MakeFrame = (img) =>
+            {
+                //四角を表示（Seg a,g,d）
+                var TatenagaList = new List<CvPoint>();
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.CPU));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.DEB));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.VCC));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX1));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX2));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX3));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX4));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.RX5));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX1));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX2));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX3));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX4));
+                TatenagaList.Add(GetCenter(State.VmCameraPoint.TX5));
+
+
+                foreach (var p in TatenagaList)
+                {
+                    img.Rectangle(new CvRect(p.X - 5, p.Y - 5, 10, 10), CvColor.Blue);
+
+                }
+
+
+            };
+
         }
     }
 }

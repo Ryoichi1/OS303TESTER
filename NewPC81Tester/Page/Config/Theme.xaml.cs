@@ -58,7 +58,7 @@ namespace NewPC81Tester
         private async void Pic3_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
-            State.VmMainWindow.Theme = "Resources/sumetal1.jpg";
+            State.VmMainWindow.Theme = "Resources/MS_1.jpg";
             await Show();
         }
 

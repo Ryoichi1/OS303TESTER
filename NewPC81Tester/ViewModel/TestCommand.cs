@@ -611,23 +611,24 @@ namespace NewPC81Tester
                                 goto Retry;
 
                             }
+                            goto FAIL;//自動リトライ後の作業者への確認はしない
 
-                            General.PlaySoundLoop(General.soundAlarm);
-                            var YesNoResult = System.Windows.Forms.MessageBox.Show("この項目はＮＧですがリトライしますか？", "", MessageBoxButtons.YesNo);
-                            General.StopSound();
+                            //General.PlaySoundLoop(General.soundAlarm);
+                            //var YesNoResult = System.Windows.Forms.MessageBox.Show("この項目はＮＧですがリトライしますか？", "", MessageBoxButtons.YesNo);
+                            //General.StopSound();
 
-                            //何が選択されたか調べる
-                            if (YesNoResult == DialogResult.Yes)
-                            {
-                                RetryCnt = 0;
-                                //メタルモード時はBGMが消えているので、ここで再生する
-                                General.SetBgm();
-                                goto Retry;
-                            }
-                            else
-                            {
-                                goto FAIL; //作業者がリトライ処理をキャンセルしたのでFAIL終了処理へ
-                            }
+                            ////何が選択されたか調べる
+                            //if (YesNoResult == DialogResult.Yes)
+                            //{
+                            //    RetryCnt = 0;
+                            //    //メタルモード時はBGMが消えているので、ここで再生する
+                            //    General.SetBgm();
+                            //    goto Retry;
+                            //}
+                            //else
+                            //{
+                            //    goto FAIL; //作業者がリトライ処理をキャンセルしたのでFAIL終了処理へ
+                            //}
                     }
                     //↓↓各ステップが合格した時の処理です↓↓
                     if (Flags.AddDecision) SetTestLog("---- PASS\r\n");

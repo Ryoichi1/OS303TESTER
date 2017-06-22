@@ -7,7 +7,7 @@ namespace NewPC81Tester
 {
     public static class 電圧チェック
     {
-        public enum CH { VCC, MINUS5V, VREF, BATTERY, D4, BATTERY_ARI_NASHI}
+        public enum CH { VCC, MINUS5V, VREF, BATTERY, D4, BATTERY_ARI_NASHI }
 
         public static async Task<bool> CheckVolt(CH ch)
         {
@@ -92,10 +92,11 @@ namespace NewPC81Tester
                                 break;
 
                             case CH.BATTERY_ARI_NASHI:
-                                Max = 1.0;//バッテリーが付いていなければ1.0以下
-                                Min = 0.0;
+                                Max = 2.5;//バッテリーが付いていなければ1.0以下 VOAC7602で計測すると少し高め（1.0～2.0）に出るので、余裕見て2.5Vくらいにしておく
+                                Min = -2.0;//ノイズ等でマイナス側に振れる可能性があるため
                                 General.SetRL6(true);//3Vと7062のV端子を接続する処理
                                 General.SetRL5(true);//製品GNDと7062のCOM端子を接続する処理
+                                Thread.Sleep(1000);
                                 break;
                         }
 

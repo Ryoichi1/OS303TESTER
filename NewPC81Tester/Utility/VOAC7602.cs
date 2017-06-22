@@ -142,15 +142,16 @@ namespace NewPC81Tester
         //**************************************************************************
         public bool SetVoltDc()
         {
+            if (!SendCommand("*RST")) return false;
+            
             if (!SendCommand(":CONF:VOLT:DC")) return false;
             if (!SendQuery(":CONF?")) return false;
             if (!RecieveData.Contains("VOLT ")) return false;
             Mode = MeasMode.Volt;
 
-
-            if (!SendCommand(":VOLT:NPLC 0.002")) return false;
-            if (!SendQuery(":VOLT:NPLC?")) return false;
-            if (!RecieveData.Contains("+2E-3")) return false;
+            if (!SendCommand(":VOLT:SRATE 60")) return false;
+            if (!SendQuery(":VOLT:SRATE?")) return false;
+            if (!RecieveData.Contains("+20E+0")) return false;
 
             if (!SendCommand(":VOLT:RANG:AUTO 1")) return false;
             if (!SendQuery(":VOLT:RANG:AUTO?")) return false;
@@ -166,6 +167,8 @@ namespace NewPC81Tester
         //**************************************************************************
         public bool SetCurrDc()
         {
+            if (!SendCommand("*RST")) return false;
+
             if (!SendCommand(":CONF:CURR:DC")) return false;
             if (!SendQuery(":CONF?")) return false;
             if (!RecieveData.Contains("CURR ")) return false;

@@ -25,7 +25,7 @@
         <Image x:Name="Pic3" Canvas.Left="366" Canvas.Top="36" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic3_PreviewMouseLeftButtonDown">
             <Image.Source>
                 <BitmapImage DecodePixelWidth="128"
-        			UriSource="/Resources/sumetal1.jpg"/>
+        			UriSource="/Resources/MS_1.jpg"/>
             </Image.Source>
         </Image>
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace NewPC81Tester
@@ -44,8 +45,8 @@ namespace NewPC81Tester
             {
                 //電源OFF
                 General.PowSupply(false);
-                await Task.Delay(300);
-
+                //await Task.Delay(300);
+                Thread.Sleep(300);
                 //試験機のK1～K4をOFFする処理
                 General.io.OutBit(EPX64S.PORT.P0, EPX64S.BIT.b0, EPX64S.OUT.L);
             }
