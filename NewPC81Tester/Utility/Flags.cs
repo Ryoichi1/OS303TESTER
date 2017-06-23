@@ -75,14 +75,14 @@ namespace NewPC81Tester
             }
         }
 
-        private static bool _StateSS7012;
-        public static bool StateSS7012
+        private static bool _StateSignalSource;
+        public static bool StateSignalSource
         {
-            get { return _StateSS7012; }
+            get { return _StateSignalSource; }
             set
             {
-                _StateSS7012 = value;
-                State.VmTestStatus.ColorHIOKI7012 = value ? StatePanelOkBrush : StatePanelNgBrush;
+                _StateSignalSource = value;
+                State.VmTestStatus.ColorSignalSource = value ? StatePanelOkBrush : StatePanelNgBrush;
 
             }
         }

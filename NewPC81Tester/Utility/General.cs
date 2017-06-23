@@ -493,11 +493,19 @@ namespace NewPC81Tester
                 StopEpx64s = true;
             });
 
-            //HIOKISS7012の初期化
-            bool StopSS7012 = false;
+            //シグナルソースの初期化（1号機はSS7012、2号機はCA100とする）
+            bool StopSignalSource = false;
             Task.Run(() =>
             {
-                signalSource = new HIOKI7012();
+                if (State.PcName == State.PC_NAME.PC1)
+                {
+                    signalSource = new HIOKI7012();
+                }
+                else
+                {
+                    signalSource = new Ca100();
+                }
+
                 while (true)
                 {
                     if (Flags.StopInit周辺機器)
@@ -505,12 +513,12 @@ namespace NewPC81Tester
                         break;
                     }
 
-                    Flags.StateSS7012 = signalSource.Init();
-                    if (Flags.StateSS7012) break;
+                    Flags.StateSignalSource = signalSource.Init();
+                    if (Flags.StateSignalSource) break;
 
                     Thread.Sleep(300);
                 }
-                StopSS7012 = true;
+                StopSignalSource = true;
             });
 
             //VOAC7602の初期化
@@ -694,13 +702,13 @@ namespace NewPC81Tester
             {
                 while (true)
                 {
-                    Flags.AllOk周辺機器接続 = (Flags.StateEpx64 && Flags.StateSS7012 && Flags.StateVOAC7602 && Flags.StateCamera && Flags.State温度計 &&
+                    Flags.AllOk周辺機器接続 = (Flags.StateEpx64 && Flags.StateSignalSource && Flags.StateVOAC7602 && Flags.StateCamera && Flags.State温度計 &&
                                               Flags.StateLTM2882A && Flags.StateLTM2882B && Flags.StateLTM2882C && Flags.StateLTM2882D &&
                                               Flags.State1150A && Flags.State1150B &&
                                               Flags.StateK100 && Flags.StateK101);
 
                     //EPX64Sの初期化の中で、K100、K101の溶着チェックを行っているが、これがNGだとしてもInit周辺機器()は終了する
-                    var IsAllStopped = StopEpx64s && StopSS7012 && StopVOAC7602 && StopCAMERA && Stop温度計 &&
+                    var IsAllStopped = StopEpx64s && StopSignalSource && StopVOAC7602 && StopCAMERA && Stop温度計 &&
                                         StopLTM2882A && StopLTM2882B && StopLTM2882C && StopLTM2882D &&
                                         Stop1150A && Stop1150B;
 

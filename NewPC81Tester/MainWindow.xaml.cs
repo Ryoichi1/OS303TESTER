@@ -94,10 +94,12 @@ namespace NewPC81Tester
             //使用しているパソコンが1号機 or 2号機のどちらなのかチェックする
             if (pcName == "PC81TESTER1")
             {
+                State.PcName = State.PC_NAME.PC1;
                 State.CheckerNumber = "-0001";
             }
             else
             {
+                State.PcName = State.PC_NAME.PC2;
                 State.CheckerNumber = "-0002";
             }
 
@@ -131,7 +133,7 @@ namespace NewPC81Tester
                     General.io.Close();//IO閉じる
                 }
 
-                if (Flags.StateSS7012)
+                if (Flags.StateSignalSource)
                 {
                     General.signalSource.StopSource();
                     General.signalSource.ClosePort();

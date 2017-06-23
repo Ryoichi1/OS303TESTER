@@ -101,26 +101,28 @@ namespace NewPC81Tester
                         if (!General.multimeter.SetCurrDc()) return false;
                         Thread.Sleep(500);
 
+                        General.PowSupply(true);
+                        Thread.Sleep(1500);
+                        General.PowSupply(false);
+                        //この時点でC9の両端電圧は4.6Vくらいになっている
+
                         Max = State.TestSpec.amp3vMax / 1000000.0;
                         Min = State.TestSpec.amp3vMin / 1000000.0;
 
                         while (true)
                         {
                             if (Flags.ClickStopButton) return false;
-                            //まずはじめに、C9に充放電して2.9Vくらいにする
+                            //まずはじめに、C9に充放電して2.7～2.9Vくらいにする
                             General.signalSource.OutDcV(FirstInput);
-                            Thread.Sleep(1000);
-                            General.SetLY3(true);//１秒チャージ
-                            Thread.Sleep(1000);
-                            General.SetLY3(false);//１秒チャージ
-
-                            General.signalSource.StopSource();
-                            Thread.Sleep(500);
+                            Thread.Sleep(1500);
+                            General.SetLY3(true);
+                            Thread.Sleep(2500);//2～3秒チャージ
+                            General.SetLY3(false);
+                            Thread.Sleep(1000);//シグナルソースの出力端子を確実に外す
+                            General.signalSource.OutDcV(3.0);
+                            Thread.Sleep(1500);
                             General.SetLY2(true);
                             General.SetRL7(true);
-                            Thread.Sleep(1000);
-                            General.signalSource.OutDcV(3.0);
-
                             Thread.Sleep(1000);
                             General.multimeter.Measure();
                             var data1 = General.multimeter.CurrData;
@@ -132,9 +134,9 @@ namespace NewPC81Tester
 
                             if (data1 > data2) break;
 
-                            General.signalSource.StopSource();
-                            Thread.Sleep(300);
                             General.ResetRelay_7062_7012();
+                            Thread.Sleep(300);
+                            General.signalSource.StopSource();
                             Thread.Sleep(300);
 
                             FirstInput -= 0.05;
@@ -175,10 +177,10 @@ namespace NewPC81Tester
             }
             finally
             {
-                General.signalSource.StopSource();
-                Thread.Sleep(500);
                 //リレーを初期化する処理
                 General.ResetRelay_7062_7012();
+                Thread.Sleep(500);
+                General.signalSource.StopSource();
                 //ビューモデルの更新
 
                 State.VmTestResults.Curr3V = (measData * 1000000).ToString("F2") + "uA";

@@ -532,7 +532,7 @@
             <StackPanel x:Name="stackPanel機器ステータス" Height="18" Canvas.Top="65" Width="356" Orientation="Horizontal" Canvas.Left="88">
 
                 <Label x:Name="labelEpx64s" Content="EPX64S" Background="{Binding ColorEpx64s}" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="56"/>
-                <Label x:Name="labelSS7012" Content="シグナルソース"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding ColorHIOKI7012}" BorderThickness="1" Width="86" />
+                <Label x:Name="labelSS7012" Content="シグナルソース"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding ColorSignalSource}" BorderThickness="1" Width="86" />
                 <Label x:Name="labelVOAC7062" Content="VOAC7602"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding ColorVOAC7602}" BorderThickness="1" Width="69" />
                 <Label x:Name="labelCamera" Content="カメラ"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding ColorCAMERA}" BorderThickness="1" Width="48" />
                 <Label x:Name="labelThermometer" Content="温度計"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding Color温度計}" BorderThickness="1" Width="50" />

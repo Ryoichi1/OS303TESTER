@@ -307,7 +307,7 @@ namespace NewPC81Tester
         }
 
         private Brush _ColorHIOKI7012;
-        public Brush ColorHIOKI7012
+        public Brush ColorSignalSource
         {
             get { return _ColorHIOKI7012; }
             set { SetProperty(ref _ColorHIOKI7012, value); }

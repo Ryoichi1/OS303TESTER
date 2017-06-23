@@ -21,6 +21,8 @@ namespace NewPC81Tester
 
     public static class State
     {
+        public enum PC_NAME { PC1, PC2 }
+
         //データソース（バインディング用）
         public static ViewModelMainWindow VmMainWindow = new ViewModelMainWindow();
         public static ViewModelTestStatus VmTestStatus = new ViewModelTestStatus();
@@ -47,6 +49,7 @@ namespace NewPC81Tester
 
         public static int NewSerial { get; set; }
 
+        public static PC_NAME PcName { get; set; }
         public static string CheckerNumber { get; set; }//シリアルナンバーの末尾に付ける
 
 

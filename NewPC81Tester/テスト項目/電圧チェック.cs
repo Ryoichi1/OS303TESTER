@@ -71,11 +71,16 @@ namespace NewPC81Tester
                                 Max = State.TestSpec.d4Max;
                                 Min = State.TestSpec.d4Min;
 
+                                General.PowSupply(true);
+                                Thread.Sleep(1500);
+                                General.PowSupply(false);
+                                //この時点でC9の両端電圧は4.6Vくらいになっている
+
                                 //C9に充放電して3.0Vにする
                                 General.signalSource.OutDcV(3.0);
                                 Thread.Sleep(1000);
-                                General.SetLY3(true);//１秒チャージ
-                                Thread.Sleep(1000);
+                                General.SetLY3(true);
+                                Thread.Sleep(2500);//2～3秒チャージ
                                 General.SetLY3(false);
                                 Thread.Sleep(1000);
                                 General.signalSource.StopSource();

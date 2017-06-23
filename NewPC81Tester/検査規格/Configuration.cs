@@ -21,6 +21,8 @@ namespace NewPC81Tester
         public string Com422_1 { get; set; }
         public string Com422_2 { get; set; }
 
+        public string ComCa100 { get; set; }
+
 
     }
 }
