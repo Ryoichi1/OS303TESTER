@@ -74,7 +74,7 @@
 
 
 
-        <Canvas x:Name="Canvas検査データ" Height="281" Canvas.Left="387" Canvas.Top="66" Width="492" IsEnabled="{Binding StartButtonEnable}">
+        <Canvas x:Name="Canvas検査データ" Height="281" Canvas.Left="411" Canvas.Top="66" Width="492" IsEnabled="{Binding StartButtonEnable}">
             <Canvas.Resources>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Height"  Value="20"/>
@@ -237,7 +237,7 @@
 
         </Canvas>
 
-        <Canvas x:Name="CanvasImg" Canvas.Left="390" Canvas.Top="357" Width="526" Height="303">
+        <Canvas x:Name="CanvasImg" Canvas.Left="410" Canvas.Top="357" Width="526" Height="303">
             <Border BorderBrush="DodgerBlue"  BorderThickness="1" Height="294" Width="518" Canvas.Left="2" Canvas.Top="3"/>
             <Image x:Name="im" Width="512" Height="288" Stretch="UniformToFill" Source="{Binding source}" Canvas.Left="5" Canvas.Top="6" Opacity="{Binding ImageOpacity}" />
             <Controls:ProgressRing x:Name="Ring" Foreground="{DynamicResource AccentColorBrush}" Canvas.Left="210" Canvas.Top="97" Height="90" Width="90" IsActive="{Binding IsActive}"/>
@@ -257,7 +257,7 @@
 
 
 
-        <Canvas x:Name="CanvasStatus" Height="156" Canvas.Left="884" Canvas.Top="66" Width="419">
+        <Canvas x:Name="CanvasStatus" Height="156" Canvas.Left="909" Canvas.Top="65" Width="419">
             <Canvas.Resources>
                 <Style TargetType="{x:Type Label}">
                     <Setter Property="FontSize" Value="16"/>
@@ -329,18 +329,18 @@
                 <DropShadowEffect Color="#FF00FFF3" BlurRadius="20" Direction="0" ShadowDepth="0"/>
             </Label.Effect>
         </Label>
-        <Canvas Height="263" Canvas.Top="66" Width="373" Canvas.Left="8">
+        <Canvas Height="263" Canvas.Top="66" Width="397" Canvas.Left="8">
             <Canvas.Background>
                 <SolidColorBrush Color="White" Opacity="0.07"/>
             </Canvas.Background>
 
-            <TextBox x:Name="tbTestLog" Height="220" Canvas.Left="8" TextWrapping="Wrap" Canvas.Top="33" Width="352" BorderBrush="{x:Null}" Foreground="White" Background="{x:Null}" VerticalScrollBarVisibility="Auto" SelectionBrush="{x:Null}" BorderThickness="0" CaretBrush="{x:Null}" IsReadOnly="True" FontSize="18" TextChanged="tbTestLog_TextChanged" Text="{Binding TestLog}">
+            <TextBox x:Name="tbTestLog" Height="220" Canvas.Left="8" TextWrapping="Wrap" Canvas.Top="33" Width="379" BorderBrush="{x:Null}" Foreground="White" Background="{x:Null}" VerticalScrollBarVisibility="Auto" SelectionBrush="{x:Null}" BorderThickness="0" CaretBrush="{x:Null}" IsReadOnly="True" FontSize="16" TextChanged="tbTestLog_TextChanged" Text="{Binding TestLog}">
                 <TextBox.Effect>
                     <DropShadowEffect Color="#FF00E8FF" BlurRadius="15" Direction="0" ShadowDepth="0"/>
                 </TextBox.Effect>
             </TextBox>
             <TextBlock TextWrapping="Wrap" Text="テストログ" FontSize="18" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" Width="100" Canvas.Left="12" Canvas.Top="4"/>
-            <Label Content="" Height="1" Canvas.Left="9" Canvas.Top="28" Width="351" Background="#FF0388F7">
+            <Label Content="" Height="1" Canvas.Left="9" Canvas.Top="28" Width="378" Background="#FF0388F7">
                 <Label.Effect>
                     <DropShadowEffect Color="#FF09A0F7" Direction="0" ShadowDepth="0" BlurRadius="20"/>
                 </Label.Effect>
@@ -368,7 +368,7 @@
             </Canvas>
         </Canvas>
 
-        <Canvas x:Name="canvasTestSetting" Height="111" Canvas.Left="929" Canvas.Top="362" Width="288" IsEnabled="{Binding TestSettingEnable}">
+        <Canvas x:Name="canvasTestSetting" Height="111" Canvas.Left="939" Canvas.Top="362" Width="257" IsEnabled="{Binding TestSettingEnable}">
             <Canvas.Background>
                 <SolidColorBrush Color="White" Opacity="0.07"/>
             </Canvas.Background>
@@ -416,7 +416,7 @@
                 <DropShadowEffect Color="#FF09A0F7" Direction="0" ShadowDepth="0" BlurRadius="20"/>
             </Label.Effect>
         </Label>
-        <Canvas x:Name="CanvasComm_Copy" Height="118" Canvas.Left="884" Canvas.Top="227" Width="428">
+        <Canvas x:Name="CanvasComm_Copy" Height="118" Canvas.Left="909" Canvas.Top="229" Width="428">
             <Canvas.Resources>
                 <Style TargetType="{x:Type Label}">
                     <Setter Property="FontSize" Value="18"/>
@@ -482,7 +482,7 @@
                 </TextBlock.RenderTransform>
             </TextBlock>
         </Canvas>
-        <Canvas x:Name="canvasLedTest" Height="112" Canvas.Left="929" Canvas.Top="510" Width="283">
+        <Canvas x:Name="canvasLedTest" Height="112" Canvas.Left="942" Canvas.Top="541" Width="244">
             <Canvas.Resources>
                 <Style TargetType="{x:Type Label}">
                     <Setter Property="Height" Value="20"/>

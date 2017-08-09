@@ -125,6 +125,9 @@ namespace Os303Tester
 
                 source = General.cam.imageForTest;
 
+                //デバッグ用コード（下記コメントを外すと画像を保存します）
+                //source.SaveImage(@"C:\OS303\ColorPic.bmp");
+
                 using (IplImage hsv = new IplImage(640, 360, BitDepth.U8, 3)) // グレースケール画像格納用の変数
                 {
                     //RGBからHSVに変換
@@ -138,16 +141,14 @@ namespace Os303Tester
                         foreach (var j in Enumerable.Range(0, side))
                         {
                             var re = mat.At<OpenCvSharp.CPlusPlus.Vec3b>((int)Y - (side / 2) + i, (int)X - (side / 2) + j);
-                            if (re[0] < HueMin) continue;
-                            ListH.Add(re[0]);
-                            ListS.Add(re[1]);
-                            ListV.Add(re[2]);
+                            if (re[1] == 255 && re[2] == 255)
+                            {
+                                ListH.Add(re[0]);
+                            }
                         }
                     }
 
                     H_Ave = ListH.Average();
-                    S_Ave = ListS.Average();
-                    V_Ave = ListV.Average();
                     return H_Ave > HueMin && H_Ave < HueMax;
 
                 }
