@@ -1,0 +1,51 @@
+﻿<Page
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="Os303Tester.ErrInfoコネクタチェック"
+	xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+	x:Name="Page"
+	WindowTitle="Page"
+	FlowDirection="LeftToRight"
+	Height="600" Width="1300">
+    <Canvas>
+        <Button x:Name="buttonReturn" Content="テスト画面に戻る" Height="57" Canvas.Left="10" Canvas.Top="10" Width="174" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" FontSize="18" Click="buttonReturn_Click"  />
+        <TextBlock Height="30" Canvas.Left="23" TextWrapping="Wrap" Text="NGリスト" Canvas.Top="98" Width="119" Foreground="White" FontSize="20"/>
+        <TextBox Height="277" Canvas.Left="23" TextWrapping="Wrap" Text="{Binding NgList}" Canvas.Top="133" Width="141" FontSize="18" Background="{x:Null}" BorderBrush="#FF08BCFF"/>
+        <Image Height="571" Canvas.Left="220" Canvas.Top="19" Width="604" Source="/Os303Tester;component/Resources/シルク図.jpg" IsEnabled="False"/>
+        <Rectangle x:Name="RecTB1" Height="62" Canvas.Left="310" Canvas.Top="93" Width="40" Visibility="{Binding VisCN4}">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#FFF03CBF" Opacity="0.5"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="RecTB1_Copy" Height="82" Canvas.Left="294" Canvas.Top="205" Width="76" Visibility="{Binding VisCN5}">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#FFF03CBF" Opacity="0.5"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="RecTB1_Copy1" Height="47" Canvas.Left="310" Canvas.Top="303" Width="40" Visibility="{Binding VisCN7}">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#FFF03CBF" Opacity="0.5"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="RecTB1_Copy2" Height="94" Canvas.Left="310" Canvas.Top="398" Width="40" Visibility="{Binding VisCN3}">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#FFF03CBF" Opacity="0.5"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="RecTB1_Copy4" Height="112" Canvas.Left="567" Canvas.Top="118" Width="43" Visibility="{Binding VisCN1}">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#FFF03CBF" Opacity="0.5"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="RecTB1_Copy8" Height="47" Canvas.Left="702" Canvas.Top="423" Width="33" Visibility="{Binding VisCN8}">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#FFF03CBF" Opacity="0.5"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle x:Name="RecTB1_Copy11" Height="72" Canvas.Left="301" Canvas.Top="498" Width="64" Visibility="{Binding VisCN2}">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#FFF03CBF" Opacity="0.5"/>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Canvas>
+</Page>
