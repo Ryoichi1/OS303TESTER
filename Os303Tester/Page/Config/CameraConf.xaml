@@ -101,9 +101,9 @@
             <Canvas.Background>
                 <SolidColorBrush Color="#FF4997C3" Opacity="0.2"/>
             </Canvas.Background>
-            <Label x:Name="lbPointLED3" Content="{Binding TX3}"  Canvas.Left="9" Canvas.Top="76" Width="75" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            <Label x:Name="lbPointLED1" Content="{Binding TX1}"  Canvas.Left="8" Canvas.Top="8" Width="75" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            <Label x:Name="lbPointLED2" Content="{Binding TX2}"  Canvas.Left="8" Canvas.Top="42" Width="75" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" RenderTransformOrigin="-0.05,0.208"/>
+            <Label x:Name="lbPointLED1" Content="{Binding LED1}"  Canvas.Left="8" Canvas.Top="8" Width="75" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label x:Name="lbPointLED2" Content="{Binding LED2}"  Canvas.Left="8" Canvas.Top="42" Width="75" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" RenderTransformOrigin="-0.05,0.208"/>
+            <Label x:Name="lbPointLED3" Content="{Binding LED3}"  Canvas.Left="9" Canvas.Top="76" Width="75" BorderBrush="White" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <RadioButton x:Name="rbLED1" Content="LED1"  Canvas.Left="87" Canvas.Top="12" Width="58" BorderBrush="White" Foreground="White" BorderThickness="1" RenderTransformOrigin="0.569,0.722" Checked="rbLED1_Checked" PreviewKeyDown="rbLED1_PreviewKeyDown"/>
             <RadioButton x:Name="rbLED2" Content="LED2"  Canvas.Left="88" Canvas.Top="46" Width="57" Checked="rbLED2_Checked" PreviewKeyDown="rbLED2_PreviewKeyDown"/>
             <Canvas Height="95" Canvas.Left="185" Canvas.Top="25" Width="110">
