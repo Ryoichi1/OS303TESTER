@@ -274,11 +274,14 @@ namespace Os303Tester
                             {
                                 var imbuff = im.Clone();
                                 var Binbuff = Binary(imbuff);
+
                                 dis.BeginInvoke(new Action(() =>
                                 {
                                     MakeFrame(Binbuff);
                                     WriteableBitmapConverter.ToWriteableBitmap(Binbuff, grayBuff);// カメラからフレーム(画像)を取得
                                     source = grayBuff;
+                                    imbuff.Dispose();
+                                    Binbuff.Dispose();
 
                                 }));
                                 continue;

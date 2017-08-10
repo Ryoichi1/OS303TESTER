@@ -80,6 +80,19 @@ namespace Os303Tester
                             continue;
                         }
 
+                        if (Flags.PressCheckBeforeTest)
+                        {
+                            while (true)
+                            {
+                                if (General.CheckPressOpen())
+                                {
+                                    Flags.PressCheckBeforeTest = false;
+                                    break;
+                                }
+                                State.VmTestStatus.Message = "一度プレスのレバーを上げてください！！！";
+                                Thread.Sleep(500);
+                            }
+                        }
 
                         State.VmTestStatus.Message = Constants.MessSet;
 
@@ -92,7 +105,11 @@ namespace Os303Tester
 
                 });
 
-                if (Flags.OtherPage) return;
+                if (Flags.OtherPage)
+                {
+                    Flags.PressCheckBeforeTest = true;
+                    return;
+                }
 
                 State.VmMainWindow.EnableOtherButton = false;
                 State.VmTestStatus.TestSettingEnable = false;

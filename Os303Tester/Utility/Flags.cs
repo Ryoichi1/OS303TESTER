@@ -21,8 +21,8 @@ namespace Os303Tester
         public static bool LoveBig { get; set; }
         public static bool BgmOn { get; set; }
 
-        //public static bool ClickStopButton { get; set; }
-        //public static bool Click確認Button { get; set; }
+        public static bool PressCheckBeforeTest { get; set; }
+
 
         private static SolidColorBrush RetryPanelBrush = new SolidColorBrush();
         private static SolidColorBrush StatePanelOkBrush = new SolidColorBrush();

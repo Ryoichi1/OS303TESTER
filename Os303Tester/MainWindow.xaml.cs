@@ -5,9 +5,7 @@ using System.Windows.Threading;
 using System.IO;
 using System.Reflection;
 using System.Threading;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Windows.Media;
 
 namespace Os303Tester
 {
@@ -86,6 +84,8 @@ namespace Os303Tester
             InitMainForm();//メインフォーム初期
 
             this.WindowState = WindowState.Maximized;
+
+            Flags.PressCheckBeforeTest = true;//アプリ立ち上げ時はtrueにしておく
 
             //メタルモード設定（デフォルトは禁止とする）
             Flags.MetalModeSw = false;
@@ -250,6 +250,7 @@ namespace Os303Tester
             var index = TabMenu.SelectedIndex;
             if (index == 0)
             {
+
                 Flags.OtherPage = false;//フラグを初期化しておく
 
                 App._naviConf.Refresh();
@@ -280,9 +281,6 @@ namespace Os303Tester
 
         }
 
-        private void MainBack_Loaded(object sender, RoutedEventArgs e)
-        {
 
-        }
     }
 }

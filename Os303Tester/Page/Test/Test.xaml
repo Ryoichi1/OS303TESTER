@@ -74,7 +74,7 @@
 
 
 
-        <Canvas x:Name="Canvas検査データ" Height="281" Canvas.Left="411" Canvas.Top="66" Width="492" IsEnabled="{Binding StartButtonEnable}">
+        <Canvas x:Name="Canvas検査データ" Height="263" Canvas.Left="411" Canvas.Top="79" Width="492" IsEnabled="{Binding StartButtonEnable}">
             <Canvas.Resources>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Height"  Value="20"/>
@@ -262,7 +262,7 @@
 
 
 
-        <Canvas x:Name="CanvasStatus" Height="156" Canvas.Left="909" Canvas.Top="191" Width="428">
+        <Canvas x:Name="CanvasStatus" Height="147" Canvas.Left="909" Canvas.Top="195" Width="428">
             <Canvas.Resources>
                 <Style TargetType="{x:Type Label}">
                     <Setter Property="FontSize" Value="16"/>
@@ -335,12 +335,12 @@
             </TextBlock>
             <Label x:Name="labelStateRetry_Copy1" Content="{Binding NgCount}" Height="30" Canvas.Left="188" Canvas.Top="116" Width="53" VerticalContentAlignment="Center" BorderThickness="1" BorderBrush="{x:Null}" FontSize="18"/>
         </Canvas>
-        <Label x:Name="labelMessage" Content="{Binding Message, Mode=TwoWay, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" Width="834" Canvas.Left="7" Canvas.Top="13" FontSize="28" Foreground="White" VerticalContentAlignment="Center">
+        <Label x:Name="labelMessage" Content="{Binding Message, Mode=TwoWay, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Height="64" VerticalAlignment="Center" Width="1268" Canvas.Left="8" FontSize="48" Foreground="White" VerticalContentAlignment="Center" Canvas.Top="4" Padding="0">
             <Label.Effect>
                 <DropShadowEffect Color="#FF00FFF3" BlurRadius="20" Direction="0" ShadowDepth="0"/>
             </Label.Effect>
         </Label>
-        <Canvas Height="263" Canvas.Top="66" Width="397" Canvas.Left="8">
+        <Canvas Height="263" Canvas.Top="79" Width="397" Canvas.Left="8">
             <Canvas.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.2">
                     <GradientStop Color="Black" Offset="0.062"/>
@@ -365,8 +365,8 @@
         </Canvas>
 
 
-        <Canvas x:Name="canvasDecision" Height="331" Canvas.Top="328" Width="378" Canvas.Left="-3">
-            <Label x:Name="label判定" Height="131" Width="245" FontSize="94" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Foreground="{Binding Colorlabel判定}" Effect="{Binding ColorDecision}" Visibility="{Binding DecisionVisibility}" Margin="0" HorizontalAlignment="Center" Canvas.Left="65" Background="{x:Null}" VerticalAlignment="Top" Content="{Binding Decision}" HorizontalContentAlignment="Center" Canvas.Top="57">
+        <Canvas x:Name="canvasDecision" Height="325" Canvas.Top="340" Width="378" Canvas.Left="-3">
+            <Label x:Name="label判定" Height="124" Width="245" FontSize="94" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Foreground="{Binding Colorlabel判定}" Effect="{Binding ColorDecision}" Visibility="{Binding DecisionVisibility}" Margin="0" HorizontalAlignment="Center" Canvas.Left="65" Background="{x:Null}" VerticalAlignment="Top" Content="{Binding Decision}" HorizontalContentAlignment="Center" Canvas.Top="54">
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="1.5" ScaleY="1.8"/>
@@ -376,7 +376,7 @@
                     </TransformGroup>
                 </Label.RenderTransform>
             </Label>
-            <Canvas x:Name="stackPanelErrInfo" Canvas.Top="246" Visibility="{Binding ErrInfoVisibility}" RenderTransformOrigin="0.5,0.5" Height="87" Width="370" Canvas.Left="8">
+            <Canvas x:Name="stackPanelErrInfo" Canvas.Top="232" Visibility="{Binding ErrInfoVisibility}" RenderTransformOrigin="0.5,0.5" Height="87" Width="370" Canvas.Left="8">
                 <Label x:Name="labelエラー情報" Content="{Binding FailInfo}" FontSize="14" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Foreground="White" VerticalContentAlignment="Center" Effect="{Binding ColorDecision}" Height="26" Width="360"/>
                 <Label x:Name="label規格値" Content="{Binding Spec}" FontSize="14" FontStyle="Italic" Foreground="White" VerticalContentAlignment="Center" Effect="{Binding ColorDecision}" Height="27" Width="360" Canvas.Top="26" />
                 <Label x:Name="label計測値" Content="{Binding MeasValue}" FontSize="14" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Foreground="White" VerticalContentAlignment="Center" Effect="{Binding ColorDecision}" Height="26" Width="360" Canvas.Top="56" />
@@ -432,12 +432,12 @@
             </Label>
 
         </Canvas>
-        <Label Content="" Height="1" Canvas.Left="9" Canvas.Top="59" Width="827" Background="#FF0388F7">
+        <Label Content="" Height="1" Canvas.Left="9" Canvas.Top="69" Width="1325" Background="#FF0388F7">
             <Label.Effect>
                 <DropShadowEffect Color="#FF09A0F7" Direction="0" ShadowDepth="0" BlurRadius="20"/>
             </Label.Effect>
         </Label>
-        <Canvas x:Name="CanvasComm_Copy" Height="118" Canvas.Left="909" Canvas.Top="66" Width="428">
+        <Canvas x:Name="CanvasComm_Copy" Height="110" Canvas.Left="909" Canvas.Top="79" Width="428">
             <Canvas.Resources>
                 <Style TargetType="{x:Type Label}">
                     <Setter Property="FontSize" Value="18"/>

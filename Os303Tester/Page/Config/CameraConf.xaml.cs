@@ -445,9 +445,9 @@ namespace Os303Tester
 
         private async void buttonLed2On_Click(object sender, RoutedEventArgs e)
         {
-                buttonLed1On.Background = Brushes.Transparent;
-                buttonLed2On.Background = Brushes.DodgerBlue;
-                buttonLed3On.Background = Brushes.Transparent;
+            buttonLed1On.Background = Brushes.Transparent;
+            buttonLed2On.Background = Brushes.DodgerBlue;
+            buttonLed3On.Background = Brushes.Transparent;
             await Task.Run(() =>
             {
 
@@ -460,9 +460,9 @@ namespace Os303Tester
 
         private async void buttonLed3On_Click(object sender, RoutedEventArgs e)
         {
-                buttonLed1On.Background = Brushes.Transparent;
-                buttonLed2On.Background = Brushes.Transparent;
-                buttonLed3On.Background = Brushes.DodgerBlue;
+            buttonLed1On.Background = Brushes.Transparent;
+            buttonLed2On.Background = Brushes.Transparent;
+            buttonLed3On.Background = Brushes.DodgerBlue;
             await Task.Run(() =>
             {
 
