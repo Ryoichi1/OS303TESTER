@@ -223,7 +223,7 @@ namespace Os303Tester
 
 
                     //デバッグ用コード（下記コメントを外すと画像を保存します）
-                    gray.SaveImage(@"C:\OS303\BinPic.bmp");
+                    //gray.SaveImage(@"C:\OS303\BinPic.bmp");
 
                     var mat = new OpenCvSharp.CPlusPlus.Mat(gray, true);
 

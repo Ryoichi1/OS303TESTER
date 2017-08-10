@@ -235,12 +235,20 @@ namespace Os303Tester
 
                         case 600://シーケンスチェック
                             if (await シーケンスチェック.CheckDout()) break;
+                            SetTestLog("---- FAIL\r\n");
                             goto case 1000;
 
                         case 1000://NGだっときの処理
                             if (Flags.AddDecision) SetTestLog("---- FAIL\r\n");
                             FailStepNo = d.s.Key;
-                            FailTitle = d.s.Value;
+                            if (FailStepNo == 600)
+                            {
+                                FailTitle = シーケンスチェック.ErrTitle;
+                            }
+                            else
+                            {
+                                FailTitle = d.s.Value;
+                            }
 
                             General.PowSupply(false);
                             await Task.Delay(500);

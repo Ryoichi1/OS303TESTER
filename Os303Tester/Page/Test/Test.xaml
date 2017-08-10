@@ -365,8 +365,8 @@
         </Canvas>
 
 
-        <Canvas x:Name="canvasDecision" Height="325" Canvas.Top="340" Width="378" Canvas.Left="-3">
-            <Label x:Name="label判定" Height="124" Width="245" FontSize="94" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Foreground="{Binding Colorlabel判定}" Effect="{Binding ColorDecision}" Visibility="{Binding DecisionVisibility}" Margin="0" HorizontalAlignment="Center" Canvas.Left="65" Background="{x:Null}" VerticalAlignment="Top" Content="{Binding Decision}" HorizontalContentAlignment="Center" Canvas.Top="54">
+        <Canvas x:Name="canvasDecision" Height="325" Canvas.Top="340" Width="408" Canvas.Left="-3">
+            <Label x:Name="label判定" Height="119" Width="267" FontSize="94" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Foreground="{Binding Colorlabel判定}" Effect="{Binding ColorDecision}" Visibility="{Binding DecisionVisibility}" Margin="0" HorizontalAlignment="Center" Canvas.Left="70" Background="{x:Null}" VerticalAlignment="Top" Content="{Binding Decision}" HorizontalContentAlignment="Center" Canvas.Top="54">
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="1.5" ScaleY="1.8"/>
@@ -376,10 +376,10 @@
                     </TransformGroup>
                 </Label.RenderTransform>
             </Label>
-            <Canvas x:Name="stackPanelErrInfo" Canvas.Top="232" Visibility="{Binding ErrInfoVisibility}" RenderTransformOrigin="0.5,0.5" Height="87" Width="370" Canvas.Left="8">
-                <Label x:Name="labelエラー情報" Content="{Binding FailInfo}" FontSize="14" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Foreground="White" VerticalContentAlignment="Center" Effect="{Binding ColorDecision}" Height="26" Width="360"/>
-                <Label x:Name="label規格値" Content="{Binding Spec}" FontSize="14" FontStyle="Italic" Foreground="White" VerticalContentAlignment="Center" Effect="{Binding ColorDecision}" Height="27" Width="360" Canvas.Top="26" />
-                <Label x:Name="label計測値" Content="{Binding MeasValue}" FontSize="14" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Foreground="White" VerticalContentAlignment="Center" Effect="{Binding ColorDecision}" Height="26" Width="360" Canvas.Top="56" />
+            <Canvas x:Name="stackPanelErrInfo" Canvas.Top="225" Visibility="{Binding ErrInfoVisibility}" RenderTransformOrigin="0.5,0.5" Height="100" Width="400" Canvas.Left="4">
+                <Label x:Name="labelエラー情報" Content="{Binding FailInfo}" FontSize="14" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Foreground="White" VerticalContentAlignment="Center" Effect="{Binding ColorDecision}" Height="30" Width="400"/>
+                <Label x:Name="label規格値" Content="{Binding Spec}" FontSize="14" FontStyle="Italic" Foreground="White" VerticalContentAlignment="Center" Effect="{Binding ColorDecision}" Height="30" Width="400" Canvas.Top="36" />
+                <Label x:Name="label計測値" Content="{Binding MeasValue}" FontSize="14" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Foreground="White" VerticalContentAlignment="Center" Effect="{Binding ColorDecision}" Height="30" Width="400" Canvas.Top="66" />
                 <Button x:Name="ButtonErrInfo" Content="詳細表示" Style="{DynamicResource SquareButtonStyle}" Height="36" Canvas.Top="47" Width="108" FontSize="18" Visibility="{Binding EnableButtonErrInfo}" Foreground="#FFF50C8B" BorderBrush="#FFF50C8B" Background="#FF1B1A1A" Canvas.Left="258" Click="ButtonErrInfo_Click" FontFamily="Century Gothic" FontWeight="Normal" BorderThickness="1"/>
             </Canvas>
         </Canvas>
@@ -399,7 +399,7 @@
             </Canvas>
             <CheckBox x:Name="CheckBoxWriteFw" Content="検査ソフト書き込みパス" Height="27" Width="181" Background="White" Foreground="#FFFDFDFD" Canvas.Left="9" IsChecked="{Binding CheckWriteFw}" Canvas.Top="5" FontSize="16"/>
         </Canvas>
-        <Canvas x:Name="canvasRing" Width="260" Height="260" Canvas.Left="65"  Opacity="{Binding RingOpacity}" Visibility="{Binding RingVisibility}" RenderTransformOrigin="0.5,0.5" Canvas.Top="362">
+        <Canvas x:Name="canvasRing" Width="260" Height="260" Canvas.Left="65"  Opacity="{Binding RingOpacity}" Visibility="{Binding RingVisibility}" RenderTransformOrigin="0.5,0.5" Canvas.Top="379">
             <Canvas.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
