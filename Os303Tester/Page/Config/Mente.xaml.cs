@@ -197,9 +197,5 @@ namespace Os303Tester
             buttonS1On.Background = ButtonOffBrush;
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

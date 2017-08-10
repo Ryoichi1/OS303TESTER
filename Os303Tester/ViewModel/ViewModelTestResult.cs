@@ -15,7 +15,6 @@ namespace Os303Tester
     public class ViewModelTestResult : BindableBase
     {
 
-
         //Vdd電圧
         private string _VolVdd;
         public string VolVdd { get { return _VolVdd; } set { SetProperty(ref _VolVdd, value); } }

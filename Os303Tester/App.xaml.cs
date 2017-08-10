@@ -20,7 +20,7 @@ namespace Os303Tester
             if (!mutex.WaitOne(0, false))
             {
                 // 既に起動しているため終了させる
-                MessageBox.Show("PC81 Testerは既に起動しています", "二重起動防止", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show("OS303 Testerは既に起動しています", "二重起動防止", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 mutex.Close();
                 mutex = null;
                 this.Shutdown();

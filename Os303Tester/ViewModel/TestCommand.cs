@@ -40,6 +40,7 @@ namespace Os303Tester
             effect判定表示FAIL.Opacity = 1.0;
             effect判定表示FAIL.BlurRadius = 40;
 
+
         }
 
         public async Task StartCheck()
@@ -138,7 +139,7 @@ namespace Os303Tester
             State.CurrentThemeOpacity = State.VmMainWindow.ThemeOpacity;
             //テーマ透過度を最小にする
             General.Show2(false);
-            
+
             General.cam.ImageOpacity = 1.0;
 
             await Task.Delay(500);

@@ -16,6 +16,7 @@ namespace Os303Tester
             V = 0;
         }
 
+         //h,s,vは0.0~1.0の値である必要があります
         public ColorHSV(float h, float s, float v)
         {
             H = Math.Max(0f, Math.Min(1f, h));

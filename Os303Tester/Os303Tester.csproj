@@ -280,6 +280,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\ume.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\シルク図.jpg" />
     <Resource Include="Resources\baby5.jpg" />
     <Resource Include="Resources\moon.jpg">
@@ -294,6 +297,9 @@
     <Resource Include="Resources\baby1.jpg" />
     <Resource Include="Resources\blue.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\sea.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Content Include="Resources\Save.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -51,7 +51,7 @@
         <Image x:Name="Pic7" Canvas.Left="886" Canvas.Top="34" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic7_PreviewMouseLeftButtonDown">
             <Image.Source>
                 <BitmapImage DecodePixelWidth="128"
-        			UriSource="/Resources/blue.jpg"/>
+        			UriSource="/Resources/ume.jpg"/>
             </Image.Source>
         </Image>
         <Canvas Height="159" Canvas.Left="23" Canvas.Top="236" Width="365">

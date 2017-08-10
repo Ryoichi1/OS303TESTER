@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Threading;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace Os303Tester
 {
@@ -88,7 +89,6 @@ namespace Os303Tester
 
             //メタルモード設定（デフォルトは禁止とする）
             Flags.MetalModeSw = false;
-
         }
 
 

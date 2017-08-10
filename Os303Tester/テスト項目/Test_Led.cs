@@ -31,6 +31,7 @@ namespace Os303Tester
 
         public static List<LedSpec> ListLedSpec;
 
+
         public class LedSpec
         {
             public NAME name;
@@ -158,18 +159,26 @@ namespace Os303Tester
             finally
             {
 
-
                 string hsvValue = H_Ave.ToString("F0");
+
+                ColorHSV hsv = new ColorHSV((float)Test_Led.H_Ave / 180, 1, 1);
+                var rgb = ColorConv.HSV2RGB(hsv);
+                var color = new SolidColorBrush(Color.FromRgb(rgb.R, rgb.G, rgb.B));
+                color.Freeze();//これ重要！！！  
+
                 switch (name)
                 {
                     case NAME.LED1:
                         State.VmTestResults.HueLED1 = hsvValue;
+                        State.VmTestResults.ColorLED1 = color;
                         break;
                     case NAME.LED2:
                         State.VmTestResults.HueLED2 = hsvValue;
+                        State.VmTestResults.ColorLED2 = color;
                         break;
                     case NAME.LED3:
                         State.VmTestResults.HueLED3 = hsvValue;
+                        State.VmTestResults.ColorLED3 = color;
                         break;
                 }
             }

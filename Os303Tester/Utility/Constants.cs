@@ -17,9 +17,8 @@ namespace Os303Tester
         public const string MessWait = "検査中！　しばらくお待ちください・・・";
         public const string MessCheckConnectMachine = "周辺機器の接続を確認してください！";
 
-        public static readonly string filePath_TestSpec = @"ConfigData\TestSpec.config";
-
-        public static readonly string filePath_Configuration = @"C:\OS303\ConfigData\Configuration.config";
+        public static readonly string filePath_TestSpec       = @"C:\OS303\ConfigData\TestSpec.config";
+        public static readonly string filePath_Configuration  = @"C:\OS303\ConfigData\Configuration.config";
         public static readonly string filePath_CameraProperty = @"C:\OS303\ConfigData\CameraProperty.config";
 
         public static readonly string RwsPath_Product = @"C:\OS303\FW_WRITE\FW_WRITE.rws";

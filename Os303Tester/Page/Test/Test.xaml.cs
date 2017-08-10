@@ -55,7 +55,6 @@ namespace Os303Tester
             State.testCommand.SbPass = (() => { (FindResource("StoryboardDecision") as Storyboard).Begin(); });
             State.testCommand.SbFail = (() => { (FindResource("StoryboardDecision") as Storyboard).Begin(); });
 
-
             //FWバージョンの表示
             State.VmTestStatus.FwVer = State.TestSpec.FwVer;
             State.VmTestStatus.FwSum = State.TestSpec.FwSum;
@@ -80,6 +79,7 @@ namespace Os303Tester
                 State.VmTestStatus.TestTime = "00:00";
                 State.VmTestStatus.IsActiveRing = false;
 
+                General.cam.ImageOpacity = Constants.OpacityImgMin;
                 await State.testCommand.StartCheck();
             }
         }
@@ -114,14 +114,6 @@ namespace Os303Tester
             Flags.ShowErrInfo = true;
             State.VmMainWindow.TabIndex = 3;
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var a = new Dialog();
-            a.ShowDialog();
-
-        }
-
 
 
 
