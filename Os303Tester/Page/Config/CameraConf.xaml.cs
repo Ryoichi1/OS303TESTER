@@ -49,21 +49,6 @@ namespace Os303Tester
 
             FlagSetLed = true;
 
-
-
-
-            //State.VmTestStatus.TestLog += "\r\nフロートスイッチ上限チェック";
-            //General.SetRL3(true);
-            //Thread.Sleep(5000);
-            //if (!AnalysisInputData(off, on, off, on, off, on, off)) return false;
-            //if (!Test_Led.CheckColor(Test_Led.NAME.LED2)) return false;
-
-
-            //State.VmTestStatus.TestLog += "\r\nフロートスイッチ漏れチェック①";
-            //General.SetRL4(true);
-            //Thread.Sleep(2000);
-            //if (!AnalysisInputData(off, off, off, off, off, off, on)) return false;
-            //if (!Test_Led.CheckColor(Test_Led.NAME.LED3)) return false;
         }
 
 
