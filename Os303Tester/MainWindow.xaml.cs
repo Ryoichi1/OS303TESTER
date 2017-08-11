@@ -14,10 +14,7 @@ namespace Os303Tester
     /// </summary>
     public partial class MainWindow
     {
-
-        DispatcherTimer timerTextInput;
         DispatcherTimer timerStartCamera;
-
 
         Uri uriTestPage = new Uri("Page/Test/Test.xaml", UriKind.Relative);
         Uri uriConfPage = new Uri("Page/Config/Conf.xaml", UriKind.Relative);
@@ -38,12 +35,6 @@ namespace Os303Tester
 
 
             //タイマーの設定
-            timerTextInput = new DispatcherTimer(DispatcherPriority.Normal);
-            timerTextInput.Interval = TimeSpan.FromMilliseconds(1000);
-            timerTextInput.Tick += timerTextInput_Tick;
-            timerTextInput.Start();
-
-            //タイマーの設定
             timerStartCamera = new DispatcherTimer(DispatcherPriority.Normal);
             timerStartCamera.Interval = TimeSpan.FromMilliseconds(1000);
             timerStartCamera.Tick += (object sender, EventArgs e) =>
@@ -61,20 +52,15 @@ namespace Os303Tester
                         General.cam.Exposure = -7;
                         Thread.Sleep(2000);
                         General.cam.Exposure = State.camProp.Exposure;
-
                     });
-
                 }
             };
             timerStartCamera.Start();
-
-
 
             GetInfo();
 
             //カレントディレクトリの取得
             State.CurrDir = Directory.GetCurrentDirectory();
-
 
             //試験用パラメータのロード
             State.LoadConfigData();
@@ -85,10 +71,8 @@ namespace Os303Tester
 
             this.WindowState = WindowState.Maximized;
 
-            Flags.PressCheckBeforeTest = true;//アプリ立ち上げ時はtrueにしておく
+            Flags.PressOpenCheckBeforeTest = true;//アプリ立ち上げ時はtrueにしておく
 
-            //メタルモード設定（デフォルトは禁止とする）
-            Flags.MetalModeSw = false;
         }
 
 
@@ -135,17 +119,6 @@ namespace Os303Tester
             else
             {
                 Flags.StopInit周辺機器 = true;
-            }
-        }
-
-
-
-        void timerTextInput_Tick(object sender, EventArgs e)
-        {
-            timerTextInput.Stop();
-            if (!Flags.SetOpecode)
-            {
-                State.VmMainWindow.Opecode = "";
             }
         }
 

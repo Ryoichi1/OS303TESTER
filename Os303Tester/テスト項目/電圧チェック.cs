@@ -29,7 +29,7 @@ namespace Os303Tester
             try
             {
 
-                General.ResetRelay_7062();
+                General.ResetRelay_7502();
                 Thread.Sleep(200);
 
                 if (ch == CH.AC100)
@@ -113,7 +113,7 @@ namespace Os303Tester
             finally
             {
                 //リレーを初期化する処理
-                General.ResetRelay_7062();
+                General.ResetRelay_7502();
 
                 //ビューモデルの更新
                 switch (ch)

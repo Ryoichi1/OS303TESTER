@@ -66,9 +66,7 @@ namespace Os303Tester
                 SetUnitTest();
                 State.VmTestStatus.DecisionVisibility = System.Windows.Visibility.Hidden;
                 State.VmTestStatus.ErrInfoVisibility = System.Windows.Visibility.Hidden;
-                State.VmTestStatus.StartButtonEnable = true;
                 State.VmTestStatus.TestTime = "00:00";
-                State.VmTestStatus.IsActiveRing = false;
 
                 General.cam.ImageOpacity = Constants.OpacityImgMin;
                 await State.testCommand.StartCheck();

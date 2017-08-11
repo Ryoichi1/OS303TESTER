@@ -15,6 +15,10 @@ namespace Os303Tester
 
         private static SolidColorBrush OnBrush = new SolidColorBrush();
 
+        public static string ErrTitle { get; set; }
+
+
+
         static シーケンスチェック()
         {
             OnBrush.Color = Colors.DodgerBlue;
@@ -184,20 +188,25 @@ namespace Os303Tester
                     Thread.Sleep(2000);
 
                     State.VmTestStatus.TestLog += "\r\nソフトVerチェック";
+                    ErrTitle = "ソフトVerチェック";
+
 
                     if (!AnalysisInputData()) return false;
                     State.VmTestStatus.TestLog += "---PASS";
 
                     State.VmTestStatus.TestLog += "\r\nLED1(黄)カラーチェック";
+                    ErrTitle = "LED1(黄)カラーチェック";
                     if (!Test_Led.CheckColor(Test_Led.NAME.LED1)) return false;
                     State.VmTestStatus.TestLog += "---PASS";
 
                     //ここで製品のRY1、RY2がOFFしているはずなので、VCC2（RelayOff状態）を計測する
                     State.VmTestStatus.TestLog += "\r\n電源電圧チェック Vcc2(RY1,RY2 ON)";
+                    ErrTitle = "電源電圧チェック Vcc2(RY1,RY2 ON)";
                     if (!電圧チェック.CheckVolt(電圧チェック.CH.VCC2_RELAY_OFF)) return false;
                     State.VmTestStatus.TestLog += "---PASS";
 
                     State.VmTestStatus.TestLog += "\r\nS1 OnOffチェック";
+                    ErrTitle = "S1 OnOffチェック";
                     SetInput(on, off, off, off, on, on, on);
                     SetExp(off, off, off, off, off, off, off);
                     General.S1On();
@@ -206,6 +215,7 @@ namespace Os303Tester
                     State.VmTestStatus.TestLog += "---PASS";
 
                     State.VmTestStatus.TestLog += "\r\nフロートスイッチ下限チェック";
+                    ErrTitle = "フロートスイッチ下限チェック";
                     SetInput(on, on, off, off, on, on, off);
                     SetExp(off, off, off, off, on, off, off);
                     General.SetRL2(true);
@@ -215,6 +225,7 @@ namespace Os303Tester
 
 
                     State.VmTestStatus.TestLog += "\r\nフロートスイッチ上限チェック 1";
+                    ErrTitle = "フロートスイッチ上限チェック 1";
                     SetInput(on, on, on, off, on, on, off);
                     SetExp(off, off, off, on, off, on, off);
                     FlagTimeout = false;
@@ -229,6 +240,7 @@ namespace Os303Tester
                     State.VmTestStatus.TestLog += "---PASS";
 
                     State.VmTestStatus.TestLog += "\r\nフロートスイッチ上限チェック 2";
+                    ErrTitle = "フロートスイッチ上限チェック 2";
                     SetExp(off, on, off, on, off, on, off);
                     FlagTimeout = false;
                     tmTimeout.Interval = 4000;
@@ -241,23 +253,28 @@ namespace Os303Tester
                     State.VmTestStatus.TestLog += "---PASS";
 
                     State.VmTestStatus.TestLog += "\r\nLED2(緑)カラーチェック";
+                    ErrTitle = "LED2(緑)カラーチェック";
                     if (!Test_Led.CheckColor(Test_Led.NAME.LED2)) return false;
                     State.VmTestStatus.TestLog += "---PASS";
 
 
                     State.VmTestStatus.TestLog += "\r\nフロートスイッチ漏れチェック①";
+                    ErrTitle = "フロートスイッチ漏れチェック①";
                     SetInput(on, on, on, on, on, on, off);
                     SetExp(off, off, off, off, off, off, on);
                     General.SetRL4(true);
                     Thread.Sleep(2000);
                     if (!AnalysisInputData()) return false;
                     State.VmTestStatus.TestLog += "---PASS";
+
                     State.VmTestStatus.TestLog += "\r\nLED3(赤)カラーチェック";
+                    ErrTitle = "LED3(赤)カラーチェック";
                     if (!Test_Led.CheckColor(Test_Led.NAME.LED3)) return false;
                     State.VmTestStatus.TestLog += "---PASS";
 
 
                     State.VmTestStatus.TestLog += "\r\nフロートスイッチ漏れチェック②";
+                    ErrTitle = "フロートスイッチ漏れチェック②";
                     SetInput(on, on, on, on, off, on, off);
                     SetExp(off, off, on, off, off, off, off);
                     General.SetRL5(false);

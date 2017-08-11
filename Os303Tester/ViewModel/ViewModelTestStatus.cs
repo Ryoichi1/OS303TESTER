@@ -10,18 +10,6 @@ namespace Os303Tester
     public class ViewModelTestStatus : BindableBase
     {
 
-        //スタートボタンのプロパティ/////////////////////////////////////////////////////////////////////////////////////
-
-        private bool _StartButtonEnable;
-        public bool StartButtonEnable
-        {
-
-            get { return _StartButtonEnable; }
-            set { SetProperty(ref _StartButtonEnable, value); }
-
-        }
-
-
         private string _FwVer;
         public string FwVer
         {
@@ -255,11 +243,6 @@ namespace Os303Tester
             get { return _TestLog; }
             set { SetProperty(ref _TestLog, value); }
         }
-
-        //EEPROMチェック、熱電対補正値取得時のリング表示
-        private bool _IsActiveRing;
-        public bool IsActiveRing { get { return _IsActiveRing; } set { SetProperty(ref _IsActiveRing, value); } }
-
 
 
         //ステータスパネルのプロパティ///////////////////////////////////////////////////////////////////////////////

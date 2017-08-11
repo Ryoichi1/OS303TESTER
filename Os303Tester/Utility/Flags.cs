@@ -5,7 +5,6 @@ namespace Os303Tester
     public static class Flags
     {
         public static bool OtherPage { get; set; }
-        public static bool ReturnFromOtherPage { get; set; }
 
         //試験開始時に初期化が必要なフラグ
         public static bool StopInit周辺機器 { get; set; }
@@ -16,12 +15,7 @@ namespace Os303Tester
         public static bool ShowErrInfo { get; set; }
         public static bool AddDecision { get; set; }
 
-        public static bool MetalModeSw { get; set; }
-        public static bool MetalMode { get; set; }
-        public static bool LoveBig { get; set; }
-        public static bool BgmOn { get; set; }
-
-        public static bool PressCheckBeforeTest { get; set; }
+        public static bool PressOpenCheckBeforeTest { get; set; }
 
 
         private static SolidColorBrush RetryPanelBrush = new SolidColorBrush();

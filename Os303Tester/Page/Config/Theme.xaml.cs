@@ -1,19 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Os303Tester
 {
@@ -30,17 +17,6 @@ namespace Os303Tester
             InitializeComponent();
             this.DataContext = State.VmMainWindow;
             SliderOpacity.Value = State.Setting.OpacityTheme;
-
-            if (Flags.LoveBig)
-            {
-                rb1.IsChecked = true;
-            }
-            else
-            {
-                rb2.IsChecked = true;
-            }
-
-            toggleSw.IsChecked = Flags.MetalModeSw;
 
         }
 
@@ -94,30 +70,6 @@ namespace Os303Tester
         {
             State.Setting.OpacityTheme = State.VmMainWindow.ThemeOpacity;
         }
-
-        private void rb1_Checked(object sender, RoutedEventArgs e)
-        {
-            Flags.LoveBig = true;
-        }
-
-        private void rb2_Checked(object sender, RoutedEventArgs e)
-        {
-            Flags.LoveBig = false;
-        }
-
-        private void toggleSw_Checked(object sender, RoutedEventArgs e)
-        {
-            Flags.MetalModeSw = true;
-        }
-
-        private void toggleSw_Unchecked(object sender, RoutedEventArgs e)
-        {
-            Flags.MetalModeSw = false;
-
-        }
-
-
-
 
     }
 }

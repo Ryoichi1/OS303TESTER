@@ -18,14 +18,9 @@ namespace Os303Tester
         //インスタンス変数の宣言
         public static EPX64S io;
         public static SoundPlayer player = null;
-        public static SoundPlayer soundPass = null;
         public static SoundPlayer soundPassLong = null;
         public static SoundPlayer soundFail = null;
         public static SoundPlayer soundAlarm = null;
-        public static SoundPlayer soundKuru = null;
-        public static SoundPlayer soundCutin = null;
-        public static SoundPlayer soundContinue = null;
-        public static SoundPlayer soundSerialLabel = null;
         public static SoundPlayer soundSave = null;
 
 
@@ -39,13 +34,9 @@ namespace Os303Tester
         static General()
         {
             //オーディオリソースを取り出す
-            General.soundPass = new SoundPlayer(@"Resources\Pass.wav");
             General.soundPassLong = new SoundPlayer(@"Resources\PassLong.wav");
             General.soundFail = new SoundPlayer(@"Resources\Fail.wav");
             General.soundAlarm = new SoundPlayer(@"Resources\Alarm.wav");
-            General.soundKuru = new SoundPlayer(@"Resources\Kuru.wav");
-            General.soundCutin = new SoundPlayer(@"Resources\CutIn.wav");
-            General.soundContinue = new SoundPlayer(@"Resources\Continue.wav");
             General.soundSave = new SoundPlayer(@"Resources\Save.wav");
 
             NgBrush.Color = Colors.HotPink;
@@ -108,43 +99,6 @@ namespace Os303Tester
                 }
 
             });
-        }
-
-        public static void SetMetalMode()
-        {
-            //メタルモードにするかどうかの判定（夕方5時～朝6時まで突入）
-            var Time = Int32.Parse(System.DateTime.Now.ToString("HH"));
-            Flags.MetalMode = (Time >= 17 || Time >= 0 && Time <= 6);
-        }
-
-        public static void SetCutIn()
-        {
-
-            //メタルモードにするかどうかの判定（夕方5時～朝6時まで突入）
-            var battleTime = Int32.Parse(System.DateTime.Now.ToString("HH"));
-            if (battleTime >= 17 || (battleTime >= 0 && battleTime <= 6))
-            {
-                Flags.MetalMode = true;
-
-                //シード値を指定しないとシード値として Environment.TickCount が使用される
-                System.Random r = new System.Random();
-
-                //0以上100未満の乱数を整数で返す
-                int random = r.Next(100);
-                if (random > 50)
-                {
-                    PlaySound(soundCutin);
-                }
-                else
-                {
-                    PlaySound(soundKuru);
-                }
-
-            }
-            else
-            {
-                Flags.MetalMode = false;
-            }
         }
 
 
@@ -555,7 +509,7 @@ namespace Os303Tester
 
 
 
-        public static void ResetRelay_7062()
+        public static void ResetRelay_7502()
         {
             SetK14(false);
             SetK15(false);

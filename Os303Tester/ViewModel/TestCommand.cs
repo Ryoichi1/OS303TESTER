@@ -80,13 +80,13 @@ namespace Os303Tester
                             continue;
                         }
 
-                        if (Flags.PressCheckBeforeTest)
+                        if (Flags.PressOpenCheckBeforeTest)
                         {
                             while (true)
                             {
                                 if (General.CheckPressOpen())
                                 {
-                                    Flags.PressCheckBeforeTest = false;
+                                    Flags.PressOpenCheckBeforeTest = false;
                                     break;
                                 }
                                 State.VmTestStatus.Message = "一度プレスのレバーを上げてください！！！";
@@ -107,7 +107,7 @@ namespace Os303Tester
 
                 if (Flags.OtherPage)
                 {
-                    Flags.PressCheckBeforeTest = true;
+                    Flags.PressOpenCheckBeforeTest = true;
                     return;
                 }
 
@@ -149,7 +149,6 @@ namespace Os303Tester
         {
             Flags.Testing = true;
 
-            General.SetMetalMode();
             State.VmTestStatus.Message = Constants.MessWait;
 
             //現在のテーマ透過度の保存
@@ -235,12 +234,20 @@ namespace Os303Tester
 
                         case 600://シーケンスチェック
                             if (await シーケンスチェック.CheckDout()) break;
+                            SetTestLog("---- FAIL\r\n");
                             goto case 1000;
 
                         case 1000://NGだっときの処理
                             if (Flags.AddDecision) SetTestLog("---- FAIL\r\n");
                             FailStepNo = d.s.Key;
-                            FailTitle = d.s.Value;
+                            if (FailStepNo == 600)
+                            {
+                                FailTitle = シーケンスチェック.ErrTitle;
+                            }
+                            else
+                            {
+                                FailTitle = d.s.Value;
+                            }
 
                             General.PowSupply(false);
                             await Task.Delay(500);
@@ -262,7 +269,6 @@ namespace Os303Tester
                     //↓↓各ステップが合格した時の処理です↓↓
                     if (Flags.AddDecision) SetTestLog("---- PASS\r\n");
 
-                    State.VmTestStatus.IsActiveRing = false;
 
                     //リトライステータスをリセットする
                     RetryCnt = 0;
@@ -301,7 +307,7 @@ namespace Os303Tester
                 FlagTestTime = false;
 
                 State.VmTestStatus.Colorlabel判定 = Brushes.DeepSkyBlue;
-                State.VmTestStatus.Decision = Flags.MetalMode ? "WIN" : "PASS";
+                State.VmTestStatus.Decision = "PASS";
                 State.VmTestStatus.ColorDecision = effect判定表示PASS;
 
                 ResetRing();
@@ -329,7 +335,6 @@ namespace Os303Tester
                 FAIL_DATA_SAVE:
 
                 FlagTestTime = false;
-                State.VmTestStatus.StartButtonEnable = true;
                 State.VmTestStatus.Message = Constants.MessRemove;
 
 

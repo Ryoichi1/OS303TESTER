@@ -54,15 +54,6 @@
         			UriSource="/Resources/ume.jpg"/>
             </Image.Source>
         </Image>
-        <Canvas Height="159" Canvas.Left="23" Canvas.Top="236" Width="365">
-            <Canvas.Background>
-                <SolidColorBrush Color="#FF08A7F1" Opacity="0.1"/>
-            </Canvas.Background>
-            <Controls:ToggleSwitch x:Name="toggleSw" Canvas.Left="10" Canvas.Top="40" Height="38" Width="97" FontFamily="Meiryo UI" Foreground="White" ThumbIndicatorDisabledBrush="#FF1758C9" OffSwitchBrush="#FFD3DBE2" ThumbIndicatorBrush="#FF35A9D4" OnSwitchBrush="#CC0A99FD" FlowDirection="RightToLeft" Checked="toggleSw_Checked" Unchecked="toggleSw_Unchecked" />
-            <RadioButton x:Name="rb1" Content="LOVE BIG" Height="40" Canvas.Left="10" Canvas.Top="114" Width="192" FontSize="16" FontFamily="Meiryo UI" Checked="rb1_Checked"/>
-            <RadioButton x:Name="rb2" Content="FALCON BIG" Height="40" Canvas.Left="10" Canvas.Top="78" Width="192" FontSize="16" FontFamily="Meiryo UI" Checked="rb2_Checked"/>
-            <TextBlock Height="34" Canvas.Left="5" TextWrapping="Wrap" Text="メタルモード設定" Canvas.Top="6" Width="157" Foreground="White" FontSize="18"/>
-        </Canvas>
 
 
 
