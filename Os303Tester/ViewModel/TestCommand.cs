@@ -280,6 +280,8 @@ namespace Os303Tester
 
 
                 //↓↓すべての項目が合格した時の処理です↓↓
+                General.PowSupply(false);
+                await Task.Delay(1000);
                 General.ResetIo();
                 await Task.Delay(500);
 
