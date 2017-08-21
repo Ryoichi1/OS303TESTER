@@ -30,7 +30,7 @@ namespace Os303Tester
         private void Pic2_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
-            State.VmMainWindow.Theme = "Resources/rain.jpg";
+            State.VmMainWindow.Theme = "Resources/road.jpg";
             General.Show();
         }
 
@@ -62,7 +62,7 @@ namespace Os303Tester
 
         private void Pic7_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            State.VmMainWindow.Theme = "Resources/ume.jpg";
+            State.VmMainWindow.Theme = "Resources/taki.jpg";
             General.Show();
         }
 

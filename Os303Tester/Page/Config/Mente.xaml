@@ -38,7 +38,7 @@
     </Page.Triggers>
 
     <Canvas Loaded="Canvas_Loaded">
-        <Canvas Height="75" Canvas.Left="25" Canvas.Top="25" Width="419">
+        <Canvas Height="75" Canvas.Left="25" Canvas.Top="25" Width="526">
             <Canvas.Background>
                 <SolidColorBrush Color="#FF44BDEC" Opacity="0.2"/>
             </Canvas.Background>
@@ -46,6 +46,7 @@
             <Button x:Name="buttonS1" Content="S1押し"  Height="34" Canvas.Left="212" Canvas.Top="11" Width="90" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="0" ScrollViewer.CanContentScroll="True" BorderThickness="1" Background="#FF566B85" Click="buttonS1_Click"/>
             <Button x:Name="buttonPow" Content="電源"  Height="34" Canvas.Left="10" Canvas.Top="11" Width="90" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="buttonPow_Click" RenderTransformOrigin="0.5,0.5" Padding="0" ScrollViewer.CanContentScroll="True" BorderThickness="1" Background="#FF566B85"/>
             <Button x:Name="buttonSetE1" Content="E1接続"  Height="34" Canvas.Left="315" Canvas.Top="11" Width="90" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="0" ScrollViewer.CanContentScroll="True" BorderThickness="1" Background="#FF566B85" Click="buttonSetE1_Click"/>
+            <Button x:Name="buttonDischarge" Content="放電"  Height="34" Canvas.Left="420" Canvas.Top="11" Width="90" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="0" ScrollViewer.CanContentScroll="True" BorderThickness="1" Background="#FF566B85" Click="buttonDischarge_Click"/>
         </Canvas>
         <Canvas x:Name="canvasManual" Height="118" Canvas.Left="25" Canvas.Top="116" Width="508">
             <Canvas.Background>

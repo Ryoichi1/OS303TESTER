@@ -506,7 +506,12 @@ namespace Os303Tester
             });
         }
 
-
+        public static async Task Discharge()
+        {
+            SetK18(true);
+            await Task.Delay(2000);
+            SetK18(false);
+        }
 
 
         public static void ResetRelay_7502()
@@ -531,7 +536,8 @@ namespace Os303Tester
         public static void SetK15(bool sw) { General.io.OutBit(EPX64S.PORT.P1, EPX64S.BIT.b1, sw ? EPX64S.OUT.H : EPX64S.OUT.L); }
         public static void SetK16(bool sw) { General.io.OutBit(EPX64S.PORT.P1, EPX64S.BIT.b2, sw ? EPX64S.OUT.H : EPX64S.OUT.L); }
 
-        public static void SetK17(bool sw) { General.io.OutBit(EPX64S.PORT.P1, EPX64S.BIT.b5, sw ? EPX64S.OUT.H : EPX64S.OUT.L); }
+        public static void SetK17(bool sw) { General.io.OutBit(EPX64S.PORT.P1, EPX64S.BIT.b5, sw ? EPX64S.OUT.H : EPX64S.OUT.L); }//AC100チェック用
+        public static void SetK18(bool sw) { General.io.OutBit(EPX64S.PORT.P1, EPX64S.BIT.b6, sw ? EPX64S.OUT.H : EPX64S.OUT.L); }//放電用
 
 
     }

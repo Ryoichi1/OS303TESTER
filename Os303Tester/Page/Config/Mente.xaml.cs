@@ -197,5 +197,12 @@ namespace Os303Tester
             buttonS1On.Background = ButtonOffBrush;
         }
 
+        private async void buttonDischarge_Click(object sender, RoutedEventArgs e)
+        {
+            buttonDischarge.Background = ButtonOnBrush;
+            await General.Discharge();
+            buttonDischarge.Background = ButtonOffBrush;
+
+        }
     }
 }

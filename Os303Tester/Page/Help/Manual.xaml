@@ -6,10 +6,7 @@
 	  mc:Ignorable="d"
 	Title="Manual" Width="734" Height="445">
 
-    <Canvas x:Name="LayoutRoot" Margin="0,0,21,10" >
-        <Canvas.Effect>
-            <DropShadowEffect Color="#FF00F3FF" BlurRadius="30" Direction="0" ShadowDepth="0"/>
-        </Canvas.Effect>
-        <TextBlock TextWrapping="Wrap" Text="工事中 DEATH ! !" FontSize="36" Foreground="White" Canvas.Left="60" Canvas.Top="36"/>
+    <Canvas x:Name="LayoutRoot" Margin="0,0,10,10" >
+        <Image Height="415" Canvas.Left="10" Canvas.Top="10" Width="704"/>
     </Canvas>
 </Page>

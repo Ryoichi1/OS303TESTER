@@ -285,6 +285,8 @@ namespace Os303Tester
                 General.ResetIo();
                 await Task.Delay(500);
 
+                await General.Discharge();
+
                 State.VmTestStatus.Message = Constants.MessRemove;
 
                 //通しで試験が合格したときの処理です(検査データを保存して、シリアルナンバーをインクリメントする)
@@ -334,6 +336,9 @@ namespace Os303Tester
                 FAIL:
                 General.ResetIo();
                 await Task.Delay(500);
+
+                await General.Discharge();
+
                 FAIL_DATA_SAVE:
 
                 FlagTestTime = false;
