@@ -163,6 +163,9 @@ namespace Os303Tester
                 State.VmTestResults.VolVcc1,
                 State.VmTestResults.VolVcc2On,
                 State.VmTestResults.VolVcc2Off,
+                State.VmTestResults.HueLED1,
+                State.VmTestResults.HueLED2,
+                State.VmTestResults.HueLED3,
 
             };
 

@@ -383,6 +383,7 @@ namespace Os303Tester
                         catch
                         {
                             StopFlag = false;
+                            MessageBox.Show("aaaa");
                             //カメラがたまにコケるので例外無視する処理を追加
                         }
                     }

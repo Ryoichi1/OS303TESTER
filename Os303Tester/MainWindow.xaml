@@ -27,17 +27,17 @@
 
         <TabControl x:Name="TabMenu" Height="715" Canvas.Left="12" Width="1340" FontSize="16" 
                     Canvas.Top="5" FlowDirection="RightToLeft" SelectionChanged="TabMenu_SelectionChanged" SelectedIndex="{Binding TabIndex}">
-            <TabItem x:Name="TabTest" Header="テスト" Margin="1041,6,-1041,-6" Width="80" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Controls:ControlsHelper.HeaderFontSize="20"  IsEnabled="{Binding EnableOtherButton}">
+            <TabItem x:Name="TabTest" Header="テスト" Margin="1041,6,-1041,-6" Width="80" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Controls:ControlsHelper.HeaderFontSize="22"  IsEnabled="{Binding EnableOtherButton}">
 
                 <Canvas Margin="-10,0,-8,40">
                     <Frame x:Name="FrameTest" />
                 </Canvas>
 
             </TabItem>
-            <TabItem x:Name="TabConf" Header="設定" Margin="888,6,-887,-6" Controls:ControlsHelper.HeaderFontSize="20" IsEnabled="{Binding EnableOtherButton}">
+            <TabItem x:Name="TabConf" Header="設定" Margin="888,6,-887,-6" Controls:ControlsHelper.HeaderFontSize="22" IsEnabled="{Binding EnableOtherButton}">
                 <Frame x:Name="FrameConf" />
             </TabItem>
-            <TabItem x:Name="TabHelp" Header="ヘルプ" Margin="733,5,-737,-6" Controls:ControlsHelper.HeaderFontSize="20" IsEnabled="{Binding EnableOtherButton}">
+            <TabItem x:Name="TabHelp" Header="ヘルプ" Margin="733,5,-737,-6" Controls:ControlsHelper.HeaderFontSize="22" IsEnabled="{Binding EnableOtherButton}">
                 <Frame x:Name="FrameHelp" />
             </TabItem>
             <TabItem x:Name="TabErrInfo" Header="ErrInfo" Margin="532,3,-535,-4" Controls:ControlsHelper.HeaderFontSize="22" IsEnabled="{Binding EnableOtherButton}">
