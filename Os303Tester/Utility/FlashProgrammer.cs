@@ -73,7 +73,7 @@ namespace Os303Tester
         private static void Tm_Tick(object source, ElapsedEventArgs e)
         {
             Tm.Stop();
-            FlagTm = false;//タイムアウト
+            FlagTm = true;//タイムアウト
         }
 
 
@@ -94,12 +94,14 @@ namespace Os303Tester
                 Fp.WaitForInputIdle();//指定されたプロセスで未処理の入力が存在せず、ユーザーからの入力を待っている状態になるまで、またはタイムアウト時間が経過するまで待機します。
 
                 //FlashProgrammerのウィンドウハンドル取得
-                FlagTm = true;
+                Tm.Stop();
+                FlagTm = false;
+                Tm.Interval = 10000;
                 Tm.Start();
                 while (MainHnd == IntPtr.Zero)
                 {
                     Application.DoEvents();
-                    if (FlagTm == false) return false;
+                    if (FlagTm) return false;
                     MainHnd = FindWindow(null, "Renesas Flash Programmer (Supported Version)");
                 }
                 SetForegroundWindow(MainHnd); Thread.Sleep(1000); //FDTを最前面に表示してアクティブにする（センドキー送るため）
@@ -119,8 +121,16 @@ namespace Os303Tester
 
                 int MaxSize = 5000; //１回の書き込みでパネルに表示される文字は約300文字なのでバッファは余裕もって500にしとく
                 var sb = new StringBuilder(MaxSize);
+
+                Tm.Stop();
+                FlagTm = false;
+                Tm.Interval = 60000;
+                Tm.Start();
+
                 while (true)
                 {
+
+                    if (FlagTm) return false;
                     await Task.Delay(1000);//インターバル1秒　※インターバル無しの場合FlashProgrammerがこける
                     sb.Clear();
                     SendMessage(SubHnd, WM_GETTEXT, MaxSize - 1, sb);

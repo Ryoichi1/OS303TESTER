@@ -79,6 +79,8 @@ namespace Os303Tester
             VmTestStatus.NgCount = Setting.TodayNgCount.ToString() + "台";
             VmTestStatus.TotalCount = Setting.TotalTestCount.ToString() + "台";
 
+            VmMainWindow.Opecode = Setting.CurrentOpecode;
+
             //TestSpecファイルのロード
             TestSpec = Deserialize<TestSpec>(Constants.filePath_TestSpec);//TODO:
 
@@ -136,6 +138,11 @@ namespace Os303Tester
                 Setting.作業者リスト = VmMainWindow.ListOperator;
                 Setting.PathTheme = VmMainWindow.Theme;
                 Setting.OpacityTheme = VmMainWindow.ThemeOpacity;
+
+                if (Flags.SetOpecode)
+                {
+                    Setting.CurrentOpecode = VmMainWindow.Opecode;
+                }
 
                 Serialization<Configuration>(Setting, Constants.filePath_Configuration);
 

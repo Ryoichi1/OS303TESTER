@@ -11,6 +11,7 @@ namespace Os303Tester
         public int TodayNgCount { get; set; }
         public string PathTheme { get; set; }
         public double OpacityTheme { get; set; }
+        public string CurrentOpecode { get; set; }
         public List<string> 作業者リスト { get; set; }
 
     }
