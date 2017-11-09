@@ -87,8 +87,8 @@ namespace Os303Tester
 
 
             var ListH = new List<int>();
-            var ListS = new List<int>();
-            var ListV = new List<int>();
+            //var ListS = new List<int>();
+            //var ListV = new List<int>();
 
             int side = (int)Math.Sqrt(TEST_FRAME);//検査枠の１辺の長さ
             try
@@ -149,8 +149,23 @@ namespace Os303Tester
                         }
                     }
 
-                    H_Ave = ListH.Average();
-                    return H_Ave > HueMin && H_Ave < HueMax;
+                    switch (name)
+                    {
+                        case NAME.LED1://黄色
+                            H_Ave = ListH.Min();
+                            break;
+
+                        case NAME.LED2://緑色
+                            H_Ave = ListH.Max();
+                            break;
+
+                        case NAME.LED3://赤色
+                            H_Ave = ListH.Min();
+                            break;
+                    }
+
+
+                    return H_Ave >= HueMin && H_Ave <= HueMax;
 
                 }
 

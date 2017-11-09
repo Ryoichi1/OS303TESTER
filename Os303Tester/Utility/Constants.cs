@@ -21,7 +21,8 @@ namespace Os303Tester
         public static readonly string filePath_Configuration  = @"C:\OS303\ConfigData\Configuration.config";
         public static readonly string filePath_CameraProperty = @"C:\OS303\ConfigData\CameraProperty.config";
 
-        public static readonly string RwsPath_Product = @"C:\OS303\FW_WRITE\FW_WRITE.rws";
+        public static readonly string RwsPath_Product = @"C:\OS303\FW_WRITE_LIMITED\FW_WRITE_LIMITED.rws";
+        //public static readonly string RwsPath_Product = @"C:\OS303\FW_WRITE\FW_WRITE.rws";
 
         //検査データフォルダのパス
         public static readonly string PassDataFolderPath = @"C:\OS303\検査データ\合格品データ\";

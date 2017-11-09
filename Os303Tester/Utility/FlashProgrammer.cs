@@ -124,7 +124,7 @@ namespace Os303Tester
 
                 Tm.Stop();
                 FlagTm = false;
-                Tm.Interval = 60000;
+                Tm.Interval = 25000;
                 Tm.Start();
 
                 while (true)

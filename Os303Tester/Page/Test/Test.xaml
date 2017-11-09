@@ -397,7 +397,7 @@
                 <CheckBox x:Name="CheckBoxUnitTest" Content="単体試験" IsChecked="{Binding CheckUnitTest}" Height="27" Width="99" Background="White" Foreground="#FFFDFDFD" Canvas.Left="5" Canvas.Top="5" FontSize="16"/>
                 <ComboBox x:Name="cbUnitTest" Height="29" Width="240" ItemsSource="{Binding UnitTestItems}" SelectedItem="{Binding UnitTestName}" BorderBrush="White" Canvas.Left="6" VerticalContentAlignment="Center" Canvas.Top="32" Background="{x:Null}" FontSize="16"/>
             </Canvas>
-            <CheckBox x:Name="CheckBoxWriteFw" Content="検査ソフト書き込みパス" Height="27" Width="181" Background="White" Foreground="#FFFDFDFD" Canvas.Left="9" IsChecked="{Binding CheckWriteFw}" Canvas.Top="5" FontSize="16"/>
+            <CheckBox x:Name="CheckBoxWriteFw" Content="検査ソフト書き込みパス" Height="27" Width="181" Background="White" Foreground="#FFFDFDFD" Canvas.Left="9" Canvas.Top="5" FontSize="16" IsEnabled="False"/>
         </Canvas>
         <Canvas x:Name="canvasRing" Width="260" Height="260" Canvas.Left="65"  Opacity="{Binding RingOpacity}" Visibility="{Binding RingVisibility}" RenderTransformOrigin="0.5,0.5" Canvas.Top="379">
             <Canvas.RenderTransform>
