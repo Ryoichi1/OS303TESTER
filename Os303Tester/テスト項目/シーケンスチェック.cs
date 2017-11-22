@@ -184,8 +184,8 @@ namespace Os303Tester
 
                     General.PowSupply(true);//RL1
                     SetInput(on, off, off, off, on, on, off);
-                    SetExp(off, off, off, off, off, on, off);//マイコン特採対応 2017.11.9 ※限定です
-                    //SetExp(off, off, off, off, on, off, off);
+                    //SetExp(off, off, off, off, off, on, off);//マイコン特採対応 2017.11.9 ※限定です
+                    SetExp(off, off, off, off, on, off, off);
                     Thread.Sleep(2000);
 
                     State.VmTestStatus.TestLog += "\r\nソフトVerチェック";
@@ -195,16 +195,16 @@ namespace Os303Tester
                     if (!AnalysisInputData()) return false;
                     State.VmTestStatus.TestLog += "---PASS";
 
-                    //マイコン特採対応 2017.11.9 ※限定です
-                    State.VmTestStatus.TestLog += "\r\nLED2(緑)カラーチェック";
-                    ErrTitle = "LED2(緑)カラーチェック";
-                    if (!Test_Led.CheckColor(Test_Led.NAME.LED2)) return false;
-                    State.VmTestStatus.TestLog += "---PASS";
-
-                    //State.VmTestStatus.TestLog += "\r\nLED1(黄)カラーチェック";
-                    //ErrTitle = "LED1(黄)カラーチェック";
-                    //if (!Test_Led.CheckColor(Test_Led.NAME.LED1)) return false;
+                    ////マイコン特採対応 2017.11.9 ※限定です
+                    //State.VmTestStatus.TestLog += "\r\nLED2(緑)カラーチェック";
+                    //ErrTitle = "LED2(緑)カラーチェック";
+                    //if (!Test_Led.CheckColor(Test_Led.NAME.LED2)) return false;
                     //State.VmTestStatus.TestLog += "---PASS";
+
+                    State.VmTestStatus.TestLog += "\r\nLED1(黄)カラーチェック";
+                    ErrTitle = "LED1(黄)カラーチェック";
+                    if (!Test_Led.CheckColor(Test_Led.NAME.LED1)) return false;
+                    State.VmTestStatus.TestLog += "---PASS";
 
                     //ここで製品のRY1、RY2がOFFしているはずなので、VCC2（RelayOff状態）を計測する
                     State.VmTestStatus.TestLog += "\r\n電源電圧チェック Vcc2(RY1,RY2 ON)";

@@ -66,6 +66,11 @@ namespace Os303Tester
             General.PowSupply(false);
 
             buttonPow.Background = Brushes.Transparent;
+            
+            State.VmTestResults.ColorPc1Out = Brushes.Transparent;
+            State.VmTestResults.ColorPc2Out = Brushes.Transparent;
+            State.VmTestResults.ColorPc3Out = Brushes.Transparent;
+            State.VmTestResults.ColorPc4Out = Brushes.Transparent;
 
         }
 

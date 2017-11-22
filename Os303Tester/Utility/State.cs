@@ -171,6 +171,7 @@ namespace Os303Tester
             General.cam.Gamma = camProp.Gamma;
             General.cam.Gain = camProp.Gain;
             General.cam.Exposure = camProp.Exposure;
+            General.cam.Wb = camProp.Whitebalance;
             General.cam.Theta = camProp.Theta;
             General.cam.BinLevel = camProp.BinLevel;
 

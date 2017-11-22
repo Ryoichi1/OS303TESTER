@@ -44,15 +44,6 @@ namespace Os303Tester
                     timerStartCamera.Stop();
                     General.cam.Start();
                     General.cam.ImageOpacity = Constants.OpacityImgMin;
-                    Task.Run(() =>
-                    {
-                        Thread.Sleep(3000);
-                        General.cam.Exposure = 0;
-                        Thread.Sleep(2000);
-                        General.cam.Exposure = -7;
-                        Thread.Sleep(2000);
-                        General.cam.Exposure = State.camProp.Exposure;
-                    });
                 }
             };
             timerStartCamera.Start();
@@ -69,10 +60,7 @@ namespace Os303Tester
 
             InitMainForm();//メインフォーム初期
 
-            this.WindowState = WindowState.Maximized;
-
             Flags.PressOpenCheckBeforeTest = true;//アプリ立ち上げ時はtrueにしておく
-
         }
 
 

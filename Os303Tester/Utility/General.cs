@@ -66,14 +66,12 @@ namespace Os303Tester
             });
         }
 
-        public static void Show2(bool sw)
+        public static void SetRadius(bool sw)
         {
+            var T = 0.45;//アニメーションが完了するまでの時間（秒）
+            var t = 0.005;//（秒）
 
-            var T = 0.3;
-            var t = 0.005;
-
-            var 差 = State.CurrentThemeOpacity - Constants.OpacityMin;
-            //10msec刻みでT秒で元のOpacityに戻す
+            //5msec刻みでT秒で元のOpacityに戻す
             int times = (int)(T / t);
 
 
@@ -83,23 +81,69 @@ namespace Os303Tester
                 {
                     while (true)
                     {
-                        State.VmMainWindow.ThemeOpacity += 差 / (double)times;
+                        State.VmMainWindow.ThemeBlurEffectRadius += 25 / (double)times;
                         Thread.Sleep((int)(t * 1000));
-                        if (State.VmMainWindow.ThemeOpacity >= State.CurrentThemeOpacity) return;
+                        if (State.VmMainWindow.ThemeBlurEffectRadius >= 25) return;
+
                     }
                 }
                 else
                 {
+                    var CurrentRadius = State.VmMainWindow.ThemeBlurEffectRadius;
                     while (true)
                     {
-                        State.VmMainWindow.ThemeOpacity -= 差 / (double)times;
+                        CurrentRadius -= 25 / (double)times;
+                        if (CurrentRadius > 0)
+                        {
+                            State.VmMainWindow.ThemeBlurEffectRadius = CurrentRadius;
+                        }
+                        else
+                        {
+                            State.VmMainWindow.ThemeBlurEffectRadius = 0;
+                            return;
+                        }
                         Thread.Sleep((int)(t * 1000));
-                        if (State.VmMainWindow.ThemeOpacity <= Constants.OpacityMin) return;
                     }
                 }
 
             });
         }
+
+
+        //public static void Show2(bool sw)
+        //{
+
+        //    var T = 0.3;
+        //    var t = 0.005;
+
+        //    var 差 = State.CurrentThemeOpacity - Constants.OpacityMin;
+        //    //10msec刻みでT秒で元のOpacityに戻す
+        //    int times = (int)(T / t);
+
+
+        //    Task.Run(() =>
+        //    {
+        //        if (sw)
+        //        {
+        //            while (true)
+        //            {
+        //                State.VmMainWindow.ThemeOpacity += 差 / (double)times;
+        //                Thread.Sleep((int)(t * 1000));
+        //                if (State.VmMainWindow.ThemeOpacity >= State.CurrentThemeOpacity) return;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            while (true)
+        //            {
+        //                State.VmMainWindow.ThemeOpacity -= 差 / (double)times;
+        //                Thread.Sleep((int)(t * 1000));
+        //                if (State.VmMainWindow.ThemeOpacity <= Constants.OpacityMin) return;
+        //            }
+        //        }
+
+        //    });
+        //}
 
 
         //試験機のリレーRL1の接点が溶着していないかチェックする
@@ -382,9 +426,9 @@ namespace Os303Tester
             Flags.PowOn = false;
             Flags.Testing = false;
 
-
             //テーマ透過度を元に戻す
-            General.Show2(true);
+            General.SetRadius(false);
+
 
             State.VmTestStatus.ColorRetry = Brushes.Transparent;
             State.VmTestStatus.TestSettingEnable = true;
@@ -444,7 +488,7 @@ namespace Os303Tester
                         continue;
                     }
                     //電源リレーRL1が溶着していないかチェックしてから非同期処理を終了する
-                    if(CheckPowRelay()) break;
+                    if (CheckPowRelay()) break;
                     Thread.Sleep(500);
                 }
                 StopRelayCheck = true;
@@ -475,7 +519,6 @@ namespace Os303Tester
             Task.Run(() =>
             {
                 General.cam = new Camera(0);
-                State.SetCamProp();
 
                 while (true)
                 {
@@ -485,7 +528,11 @@ namespace Os303Tester
                     }
 
                     Flags.StateCamera = General.cam.InitCamera();
-                    if (Flags.StateCamera) break;
+                    if (Flags.StateCamera)
+                    {
+                        State.SetCamProp();
+                        break;
+                    }
 
                     Thread.Sleep(300);
                 }

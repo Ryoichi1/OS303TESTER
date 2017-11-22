@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.Prism.Mvvm;
+﻿using AForge.Video.DirectShow;
+using Microsoft.Practices.Prism.Mvvm;
 using OpenCvSharp;
 using OpenCvSharp.Extensions;
 using System;
@@ -16,6 +17,9 @@ namespace Os303Tester
     {
         static readonly int WIDTH = 640;
         static readonly int HEIGHT = 360;
+
+        private FilterInfoCollection videoDevices;
+        private VideoCaptureDevice2 videoDevice;
 
         public IplImage imageForHsv;
         public IplImage imageForTest;
@@ -52,6 +56,7 @@ namespace Os303Tester
             imageForTest = new IplImage(WIDTH, HEIGHT, BitDepth.U8, 3);
             BinLevel = 0;
 
+
         }
 
 
@@ -72,6 +77,8 @@ namespace Os303Tester
             {
                 using (var cap = Cv.CreateCameraCapture(CameraNumber)) // カメラのキャプチャ
                 { }
+                videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+                videoDevice = new VideoCaptureDevice2(videoDevices[CameraNumber].MonikerString);
                 return true;
             }
             catch
@@ -193,6 +200,19 @@ namespace Os303Tester
             set { this.SetProperty(ref this._Exposure, value); FlagPropChange = true; }
         }
 
+        //ホワイトバランス
+        private int _Wb;
+        public int Wb
+        {
+            get { return _Wb; }
+            set
+            {
+                this.SetProperty(ref this._Wb, value);
+                videoDevice.SetVideoProperty(VideoProcAmpProperty.WhiteBalance, value, VideoProcAmpFlags.Manual);
+            }
+        }
+
+
         //回転角度
         private double _Theta;
         public double Theta
@@ -228,7 +248,6 @@ namespace Os303Tester
 
             Task.Run(() =>
             {
-
                 using (var cap = Cv.CreateCameraCapture(CameraNumber)) // カメラのキャプチャ
                 {
 

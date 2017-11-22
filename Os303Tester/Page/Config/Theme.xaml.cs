@@ -23,34 +23,34 @@ namespace Os303Tester
         private void Pic1_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
-            State.VmMainWindow.Theme = "Resources/MS_1.jpg";
+            State.VmMainWindow.Theme = "Resources/snow.jpg";
             General.Show();
         }
 
         private void Pic2_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
-            State.VmMainWindow.Theme = "Resources/road.jpg";
+            State.VmMainWindow.Theme = "Resources/night.jpg";
             General.Show();
         }
 
         private void Pic3_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
-            State.VmMainWindow.Theme = "Resources/baby1.jpg";
+            State.VmMainWindow.Theme = "Resources/take.jpg";
             General.Show();
         }
 
         private void Pic4_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
-            State.VmMainWindow.Theme = "Resources/baby6.jpg";
+            State.VmMainWindow.Theme = "Resources/taki.jpg";
             General.Show();
         }
 
         private void Pic5_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            State.VmMainWindow.Theme = "Resources/baby5.jpg";
+            State.VmMainWindow.Theme = "Resources/baby6.jpg";
             General.Show();
         }
 
@@ -62,7 +62,7 @@ namespace Os303Tester
 
         private void Pic7_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            State.VmMainWindow.Theme = "Resources/taki.jpg";
+            State.VmMainWindow.Theme = "Resources/baby5.jpg";
             General.Show();
         }
 

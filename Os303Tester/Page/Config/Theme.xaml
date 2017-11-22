@@ -13,19 +13,19 @@
         <Image x:Name="Pic1" Canvas.Left="31" Canvas.Top="36" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic1_PreviewMouseLeftButtonDown">
             <Image.Source>
                 <BitmapImage DecodePixelWidth="128"
-				 UriSource="/Resources/Ms_1.jpg"/>
+				 UriSource="/Resources/snow.jpg"/>
             </Image.Source>
         </Image>
         <Image x:Name="Pic2" Canvas.Left="172" Canvas.Top="36" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic2_PreviewMouseLeftButtonDown">
             <Image.Source>
                 <BitmapImage DecodePixelWidth="128"
-        			UriSource="/Resources/road.jpg"/>
+        			UriSource="/Resources/night.jpg"/>
             </Image.Source>
         </Image>
         <Image x:Name="Pic3" Canvas.Left="308" Canvas.Top="36" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic3_PreviewMouseLeftButtonDown">
             <Image.Source>
                 <BitmapImage DecodePixelWidth="128"
-        			UriSource="/Resources/baby1.jpg"/>
+        			UriSource="/Resources/take.jpg"/>
             </Image.Source>
         </Image>
 
@@ -33,13 +33,13 @@
         <Image x:Name="Pic4" Canvas.Left="449" Canvas.Top="36" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic4_PreviewMouseLeftButtonDown">
             <Image.Source>
                 <BitmapImage DecodePixelWidth="128"
-        			UriSource="/Resources/baby6.jpg"/>
+        			UriSource="/Resources/taki.jpg"/>
             </Image.Source>
         </Image>
         <Image x:Name="Pic5" Canvas.Left="599" Canvas.Top="36" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic5_PreviewMouseLeftButtonDown">
             <Image.Source>
                 <BitmapImage DecodePixelWidth="128"
-                    UriSource="/Resources/baby5.jpg"/>
+                    UriSource="/Resources/baby6.jpg"/>
             </Image.Source>
         </Image>
         <Image x:Name="Pic6" Canvas.Left="742" Canvas.Top="34" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic6_PreviewMouseLeftButtonDown">
@@ -51,7 +51,7 @@
         <Image x:Name="Pic7" Canvas.Left="886" Canvas.Top="34" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic7_PreviewMouseLeftButtonDown">
             <Image.Source>
                 <BitmapImage DecodePixelWidth="128"
-        			UriSource="/Resources/taki.jpg"/>
+        			UriSource="/Resources/baby5.jpg"/>
             </Image.Source>
         </Image>
 

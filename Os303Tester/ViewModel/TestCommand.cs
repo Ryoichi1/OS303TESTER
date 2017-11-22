@@ -154,7 +154,9 @@ namespace Os303Tester
             //現在のテーマ透過度の保存
             State.CurrentThemeOpacity = State.VmMainWindow.ThemeOpacity;
             //テーマ透過度を最小にする
-            General.Show2(false);
+            General.SetRadius(true);
+
+
 
             General.cam.ImageOpacity = 1.0;
 
