@@ -1,7 +1,7 @@
 ﻿
 namespace Os303Tester
 {
-    public interface Multimeter
+    public interface IMultimeter
     {
         //プロパティの定義
         double VoltData { get; }//計測した電圧値

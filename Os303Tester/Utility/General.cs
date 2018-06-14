@@ -29,7 +29,7 @@ namespace Os303Tester
 
         //インスタンスを生成する必要がある周辺機器
         public static Camera cam;
-        public static Multimeter multimeter;
+        public static IMultimeter multimeter;
 
         static General()
         {
@@ -494,11 +494,12 @@ namespace Os303Tester
                 StopRelayCheck = true;
             });
 
-            //VOAC7602の初期化
+             //VOAC7602の初期化
             bool StopVOAC7502 = false;
             Task.Run(() =>
             {
-                multimeter = new VOAC7502();
+                IMultimeter multimeter1 = new VOAC7502();
+                IMultimeter multimeter2 = new Agilent34401A();
                 while (true)
                 {
                     if (Flags.StopInit周辺機器)
@@ -506,13 +507,26 @@ namespace Os303Tester
                         break;
                     }
 
-                    Flags.StateVOAC7502 = multimeter.Init();
-                    if (Flags.StateVOAC7502) break;
+                    Flags.StateVOAC7502 = multimeter1.Init();
+                    if (Flags.StateVOAC7502)
+                    {
+                        multimeter = multimeter1;
+                        break;
+                    }
+
+                    Flags.StateVOAC7502 = multimeter2.Init();
+                    if (Flags.StateVOAC7502)
+                    {
+                        multimeter = multimeter2;
+                        break;
+                    }
 
                     Thread.Sleep(300);
                 }
                 StopVOAC7502 = true;
             });
+
+            
 
             //カメラ（CMS_V37BK）の初期化
             bool StopCAMERA = false;

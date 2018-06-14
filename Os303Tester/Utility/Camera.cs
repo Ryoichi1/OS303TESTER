@@ -253,6 +253,13 @@ namespace Os303Tester
 
                     Dispatcher dis = App.Current.Dispatcher;
 
+                    //カメラ起動後にWBを書き換えないと、自動チェックが外れないため下記の処理を追加する
+                    Wb = 3000;
+                    Thread.Sleep(100);
+                    Wb = 3100;
+                    Thread.Sleep(100);
+                    Wb = State.camProp.Whitebalance;
+
                     while (StopFlag)             // 任意のキーが入力されるまでカメラ映像を表示
                     {
                         try

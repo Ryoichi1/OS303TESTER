@@ -4,7 +4,7 @@ using System.IO.Ports;
 namespace Os303Tester
 {
 
-    public class VOAC7502 : Multimeter
+    public class VOAC7502 : IMultimeter
     {
         //列挙型の宣言
         public enum ErrorCode { Normal, CmdErr, TimeoutErr, OpenErr, SendErr, Other }

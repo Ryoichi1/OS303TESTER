@@ -43,6 +43,7 @@ namespace Os303Tester
 
         private void TabManual_Loaded(object sender, RoutedEventArgs e)
         {
+            //adbe readerをインストールするまで対応できません！
             naviManual.Navigate(uriManualPage);
         }
     }

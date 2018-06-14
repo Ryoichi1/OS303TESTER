@@ -8,7 +8,7 @@ namespace Os303Tester
     /// <summary>
     /// Manual.xaml の相互作用ロジック
     /// </summary>
-  public partial class Manual
+    public partial class Manual
     {
         private Timer TmTimeOut;
         string manualPath = "";
@@ -45,5 +45,5 @@ namespace Os303Tester
             wb.Visibility = Visibility.Hidden;
 
         }
-    } 
+    }
 }

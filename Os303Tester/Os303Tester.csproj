@@ -149,10 +149,11 @@
     <Compile Include="Page\ErrInfo\ErrInfoコネクタチェック.xaml.cs">
       <DependentUpon>ErrInfoコネクタチェック.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utility\Agilent34401A.cs" />
     <Compile Include="Utility\Camera.cs" />
     <Compile Include="Utility\ColorHSV.cs" />
     <Compile Include="Utility\IAMVideoProcAmp.cs" />
-    <Compile Include="Utility\Multimeter.cs" />
+    <Compile Include="Utility\IMultimeter.cs" />
     <Compile Include="Utility\VideoCaptureDevice.cs" />
     <Compile Include="Utility\VideoProcAmpProperty.cs" />
     <Compile Include="ViewModel\ViewModelCameraPoint.cs" />

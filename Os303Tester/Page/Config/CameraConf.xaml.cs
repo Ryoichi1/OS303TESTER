@@ -7,6 +7,7 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using AForge.Video.DirectShow;
 
 namespace Os303Tester
 {
@@ -458,5 +459,7 @@ namespace Os303Tester
                 General.SetRL4(true);
             });
         }
+
+
     }
 }
